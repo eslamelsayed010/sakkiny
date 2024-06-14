@@ -35,6 +35,7 @@ class AddRepoImpl implements AddRepo {
           "bedrooms": bedrooms,
           "bathrooms": bathrooms,
           "area": area,
+
           "level": level,
           "isFurnished": isFurnished,
           "details": details,
