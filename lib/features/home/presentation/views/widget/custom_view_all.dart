@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:sakkiny/core/utils/app_router.dart';
+import 'package:sakkiny/core/utils/const.dart';
+
+class CustomViewAll extends StatelessWidget {
+  const CustomViewAll({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        const Spacer(),
+        TextButton(
+          onPressed: () {
+            // GoRouter.of(context).push(AppRouter.kViewAllListView);
+          },
+          child: const Text(
+            "View All",
+            style: TextStyle(
+              color: kLogoColor,
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        const Icon(
+          Icons.arrow_forward,
+          color: kLogoColor,
+          size: 20,
+        ),
+        const SizedBox(width: 10)
+      ],
+    );
+  }
+}
