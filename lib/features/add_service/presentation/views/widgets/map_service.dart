@@ -1,8 +1,12 @@
+// ignore_for_file: use_build_context_synchronously, library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapServicePage extends StatefulWidget {
+  const MapServicePage({super.key});
+
   @override
   _MapSearchPageState createState() => _MapSearchPageState();
 }
@@ -11,7 +15,7 @@ class _MapSearchPageState extends State<MapServicePage> {
   late GoogleMapController _mapController;
   late TextEditingController _searchController;
   String _searchText = '';
-  Set<Marker> _markers = {};
+  final Set<Marker> _markers = {};
 
   @override
   void initState() {
@@ -29,13 +33,13 @@ class _MapSearchPageState extends State<MapServicePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Map Search'),
+        title: const Text('Map Search'),
       ),
       body: Stack(
         children: [
           GoogleMap(
             onMapCreated: _onMapCreated,
-            initialCameraPosition: CameraPosition(
+            initialCameraPosition: const CameraPosition(
               target: LatLng(31.20463, 29.91782), // Initial map center
               zoom: 15.0, // Initial map zoom level
             ),
@@ -52,7 +56,7 @@ class _MapSearchPageState extends State<MapServicePage> {
                   Expanded(
                     child: TextField(
                       controller: _searchController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: 'Search for a location...',
                         contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
                         border: InputBorder.none,
@@ -65,7 +69,7 @@ class _MapSearchPageState extends State<MapServicePage> {
                     ),
                   ),
                   IconButton(
-                    icon: Icon(Icons.search),
+                    icon: const Icon(Icons.search),
                     onPressed: _searchLocation,
                   ),
                 ],
@@ -108,7 +112,7 @@ class _MapSearchPageState extends State<MapServicePage> {
           });
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
+            const SnackBar(
                 content: Text('No results found for the searched location.')),
           );
         }
