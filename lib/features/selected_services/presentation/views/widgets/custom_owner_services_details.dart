@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sakkiny/core/utils/assets.dart';
 import 'package:sakkiny/core/utils/const.dart';
-
+import 'package:sakkiny/features/services/data/models/get_service_model/service.dart';
 class CustomOwnerServicesDetails extends StatelessWidget {
-  const CustomOwnerServicesDetails({Key? key}) : super(key: key);
+  const CustomOwnerServicesDetails({Key? key, required this.service}) : super(key: key);
+  final Service service;
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +19,9 @@ class CustomOwnerServicesDetails extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Electrician',
-                style: TextStyle(
+              Text(
+                service.serviceCategory ?? 'No category',
+                style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 13,
@@ -29,8 +30,8 @@ class CustomOwnerServicesDetails extends StatelessWidget {
               const SizedBox(height: 5),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
+                children: [
+                  const Text(
                     'Eslam Elsayed',
                     style: TextStyle(
                       color: Colors.black38,
@@ -41,8 +42,8 @@ class CustomOwnerServicesDetails extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                   Text(
-                    '40\$ for inspection ',
-                    style: TextStyle(
+                    '${service.price ?? 'N/A'}\$ for inspection',
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: kLogoColor,
                     ),
@@ -51,16 +52,16 @@ class CustomOwnerServicesDetails extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               Row(
-                children: const [
-                  Icon(
+                children: [
+                  const Icon(
                     Icons.location_on,
                     color: kLocationColor,
                     size: 15,
                   ),
                   Expanded(
                     child: Text(
-                      'Elzagazig',
-                      style: TextStyle(
+                      service.address ?? 'No address',
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         color: kLocationColor,
                         fontSize: 10,
@@ -68,13 +69,13 @@ class CustomOwnerServicesDetails extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
-                  )
+                  ),
                 ],
               ),
             ],
           ),
         ),
-        // const Spacer(),
+        // The FloatingActionButton section is commented out. If you want to include it, uncomment and adjust as needed.
         // Row(
         //   children: [
         //     FloatingActionButton(

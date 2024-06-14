@@ -3,10 +3,11 @@ import 'package:sakkiny/core/widgets/custom_divider.dart';
 import 'package:sakkiny/features/selected/presentation/views/widgets/connect_section.dart';
 import 'package:sakkiny/features/selected_services/presentation/views/widgets/custom_owner_services_details.dart';
 import 'package:sakkiny/features/selected_services/presentation/views/widgets/desc_services_section.dart';
-
+import 'package:sakkiny/features/selected_services/presentation/views/widgets/location_service_section.dart';
+import 'package:sakkiny/features/services/data/models/get_service_model/service.dart';
 class CustomServicesDetails extends StatelessWidget {
-  const CustomServicesDetails({Key? key}) : super(key: key);
-
+  const CustomServicesDetails({Key? key, required this.service}) : super(key: key);
+final Service service;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -14,13 +15,15 @@ class CustomServicesDetails extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
-            children: const [
-              DescServicesSection(),
-              SizedBox(height: 50),
-              CustomOwnerServicesDetails(),
-              SizedBox(height: 50),
-              CustomDivider(padding: EdgeInsets.zero),
-              SizedBox(height: 50),
+            children:  [
+              LocationServiceSection(service: service),
+              const  SizedBox(height: 20),
+              DescServicesSection(service: service,),
+             const  SizedBox(height: 20),
+              CustomOwnerServicesDetails(service: service,),
+           const    SizedBox(height: 20),
+          const     CustomDivider(padding: EdgeInsets.zero),
+             const   SizedBox(height: 20),
               //BookSection(),
             ],
           ),

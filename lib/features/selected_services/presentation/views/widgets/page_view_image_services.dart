@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/features/selected_services/presentation/views/widgets/custom_services_images.dart';
+import 'package:sakkiny/features/services/data/models/get_service_model/service.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class PageViewImageServices extends StatefulWidget {
-  const PageViewImageServices({super.key});
-
+  const PageViewImageServices({super.key, required this.service});
+  final Service service;
   @override
   State<PageViewImageServices> createState() => _PageViewImageServicesState();
 }
@@ -28,8 +29,10 @@ class _PageViewImageServicesState extends State<PageViewImageServices> {
           child: PageView.builder(
             controller: pageController,
             physics: const BouncingScrollPhysics(),
-            itemBuilder: (context, index) => const CustomServicesImage(),
-            itemCount: 5,
+            itemBuilder: (context, index) => CustomServicesImage(
+              image: widget.service.images![0].secureUrl!,
+            ),
+            itemCount: widget.service.images!.length,
           ),
         ),
         Padding(

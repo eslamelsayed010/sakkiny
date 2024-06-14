@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:sakkiny/features/services/data/models/get_service_model/service.dart';
 import 'package:sakkiny/features/services/presentation/view/widget/custom_services.dart';
 
 class GridViewServices extends StatelessWidget {
-  const GridViewServices({Key? key}) : super(key: key);
+  const GridViewServices({Key? key, required this.services}) : super(key: key);
+
+  final List<Service> services;
 
   @override
   Widget build(BuildContext context) {
-    // final screenSize = MediaQuery.of(context).size;
-    // final aspectRatio = screenSize.width / (screenSize.height * 1.63);
     return GridView.count(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       shrinkWrap: true,
@@ -18,8 +18,9 @@ class GridViewServices extends StatelessWidget {
       crossAxisSpacing: 12,
       childAspectRatio: 1 / 1.63,
       children: List.generate(
-        10,
-        (index) => const CustomServices(),
+        services.length,
+        (index) =>
+            CustomServices(service: services[index]), // Removed const here
       ),
     );
   }

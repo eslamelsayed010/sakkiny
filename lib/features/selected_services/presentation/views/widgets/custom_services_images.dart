@@ -1,17 +1,22 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:sakkiny/core/utils/assets.dart';
 
 class CustomServicesImage extends StatelessWidget {
-  const CustomServicesImage({super.key});
-
+  const CustomServicesImage({super.key, required this.image});
+final String image;
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
-      child: Image.asset(
-        AssetsData.services,
+      child:  CachedNetworkImage(
+        imageUrl: image,
         fit: BoxFit.cover,
+        errorWidget: (context, url, error) => const Icon(Icons.error_outline),
       ),
+      // Image.asset(
+      //   AssetsData.services,
+      //   fit: BoxFit.cover,
+      // ),
     );
   }
 }

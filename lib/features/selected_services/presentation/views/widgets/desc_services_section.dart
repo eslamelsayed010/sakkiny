@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:sakkiny/core/utils/const.dart';
-
+import 'package:sakkiny/features/services/data/models/get_service_model/service.dart';
 class DescServicesSection extends StatelessWidget {
-  const DescServicesSection({Key? key}) : super(key: key);
-
+  const DescServicesSection({Key? key, required this.service}) : super(key: key);
+final Service service;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
+      children:  [
         Text(
-          'Electrical maintenance services',
-          style: TextStyle(
+          service.serviceCategory!,
+          style:const  TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
             fontSize: 18,
           ),
         ),
-        SizedBox(height: 5),
-        Text(
+      const  SizedBox(height: 5),
+      const  Text(
           'Beginning from LE 100',
           style: TextStyle(
             color: kLogoColor,
@@ -26,16 +26,16 @@ class DescServicesSection extends StatelessWidget {
             fontSize: 14,
           ),
         ),
-        SizedBox(height: 10),
+       const SizedBox(height: 10),
         Text(
-          'For Technician conducts an inspection to determine the maintenance process and cost',
-          style: TextStyle(
+          service.description!,
+          style: const TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
             fontSize: 13,
           ),
         ),
-        SizedBox(height: 10),
+     const   SizedBox(height: 10),
       ],
     );
   }
