@@ -9,6 +9,7 @@ import 'package:sakkiny/core/utils/theme_data.dart';
 import 'package:sakkiny/features/home/presentation/manger/property_cubit/property_cubit.dart';
 import 'package:sakkiny/features/home/presentation/manger/recommended_cubit/recommended_cubit.dart';
 import 'package:sakkiny/features/layout/manger/layout_cubit.dart';
+import 'package:sakkiny/features/services/presentation/manger/cubit/service_cubit.dart';
 import 'core/utils/app_router.dart';
 
 void main() async {
@@ -36,6 +37,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => RecommendedCubit()..fetchRecommendedProperty(),
+        ),
+        BlocProvider(
+          create: (context) => ServiceCubit()..fetchService(),
         ),
       ],
       child: MaterialApp.router(
