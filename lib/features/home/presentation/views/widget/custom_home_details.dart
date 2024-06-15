@@ -37,7 +37,7 @@ class CustomHomeDetails extends StatelessWidget {
                   ),
                   const Spacer(),
                   Text(
-                    'LE ${property.price}/month',
+                    'LE ${property.price}/${property.per}',
                     style: const TextStyle(
                       fontSize: 13,
                     ),

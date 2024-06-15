@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_divider.dart';
 import 'package:sakkiny/features/filter/presentation/views/widgets/custom_no_result_search.dart';
-import 'package:sakkiny/features/search/data/models/search_model/property.dart';
+import 'package:sakkiny/features/home/data/models/home_model/property.dart';
 import 'package:sakkiny/features/search/presentation/views/widgets/custom_property_details_search.dart';
 
 class ListViewFilterResult extends StatelessWidget {

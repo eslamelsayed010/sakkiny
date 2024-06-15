@@ -167,12 +167,6 @@ abstract class AppRouter {
           return const AddServiceView();
         },
       ),
-      // GoRoute(
-      //   path: '/ViewAllListView',
-      //   builder: (BuildContext context, GoRouterState state) {
-      //     return const ViewAllListView();
-      //   },
-      // ),
       GoRoute(
         path: '/EditView',
         builder: (BuildContext context, GoRouterState state) {

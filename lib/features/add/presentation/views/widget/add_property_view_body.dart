@@ -1,8 +1,6 @@
-// ignore_for_file: unrelated_type_equality_checks, avoid_print
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_button.dart';
@@ -304,16 +302,16 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                   //location
                   CustomTextFormField(
                     onTap: () async {
-                      LatLng? result = await Navigator.push(
+                      Map<String, dynamic>? result = await Navigator.push(
                         context,
                         MaterialPageRoute(builder: (BuildContext context) {
                           return const MapSearchPage();
                         }),
                       );
                       if (result != null) {
-                        locationController.text = 'done';
-                        lat = result.latitude;
-                        lang = result.longitude;
+                        locationController.text = result['city_name'];
+                        lat = result['latLng'].latitude;
+                        lang = result['latLng'].longitude;
                         // 'Latitude: ${result.latitude}, Longitude: ${result.longitude}';
                       }
                     },
@@ -383,80 +381,6 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                     width: double.infinity,
                     radius: 10,
                     onPressed: () async {
-                      // Map<bool, dynamic> essentialsMap;
-                      // try {
-                      //   // Validate and decode JSON for luxuries
-                      //   var luxuriesJson = luxuriesController.text.trim();
-                      //   if (luxuriesJson.isEmpty) {
-                      //     showToast(
-                      //       txt: "Luxuries data is empty",
-                      //       state: ToastState.ERROR,
-                      //     );
-                      //     return;
-                      //   }
-                      //   var tempMap = jsonDecode(luxuriesJson);
-                      //   if (tempMap is! Map<String, dynamic>) {
-                      //     throw const FormatException("Invalid JSON format");
-                      //   }
-                      //   essentialsMap = tempMap.map(
-                      //     (key, value) =>
-                      //         MapEntry(key.toLowerCase() == 'true', value),
-                      //   );
-                      // } catch (e) {
-                      //   showToast(
-                      //     txt:
-                      //         "Invalid format for luxuries. Please enter valid JSON.",
-                      //     state: ToastState.ERROR,
-                      //   );
-                      //   return;
-                      // }
-                      // Map<String, double> locationMap;
-                      // try {
-                      //   // Assuming locationController.text contains a JSON-like string
-                      //   Map<String, dynamic> tempMap =
-                      //       jsonDecode(locationController.text);
-                      //   locationMap = tempMap.map(
-                      //     (key, value) => MapEntry(key, value.toDouble()),
-                      //   ); // Convert dynamic to double
-                      // } catch (e) {
-                      //   showToast(
-                      //     txt:
-                      //         "Invalid format for location. Please enter valid JSON.",
-                      //     state: ToastState.ERROR,
-                      //   );
-                      //   return;
-                      // }
-                      print(isFurnished);
-                      print(bathroomsController.text);
-                      print(unitController.text);
-                      print(floorController.text);
-                      print(luxuriesController.text);
-                      print(priceController.text);
-                      print(descController.text);
-                      print(typeController.text);
-                      print(addressController.text);
-                      print(typeController.text);
-                      print(rentalController.text);
-                      print(locationController.text);
-                      print(lang);
-                      print(lat);
-                      print(
-                        await Future.wait(
-                          selectedImages.map(
-                            (image) async => await MultipartFile.fromFile(
-                                image.path,
-                                filename: image.name),
-                          ),
-                        ),
-                      );
-                      // print(selectedImages
-                      //     .map(
-                      //       (image) => MultipartFile.fromFile(
-                      //         image.path,
-                      //         filename: image.name,
-                      //       ),
-                      //     )
-                      //     .toList());
                       if (formKey.currentState!.validate()) {
                         cubit.addProperty(
                           type: typeController.text,

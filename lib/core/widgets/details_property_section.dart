@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sakkiny/core/utils/const.dart';
-import 'package:sakkiny/features/search/data/models/search_model/property.dart';
+import 'package:sakkiny/features/home/data/models/home_model/property.dart';
 
 class DetailsPropertySection extends StatelessWidget {
   const DetailsPropertySection({super.key, required this.property});

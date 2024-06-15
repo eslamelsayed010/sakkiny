@@ -12,7 +12,7 @@ class CustomHomeImage extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(10),
           child: SizedBox(
-            height: MediaQuery.of(context).size.height * .22,
+            height: MediaQuery.of(context).size.height * .25,
             width: MediaQuery.of(context).size.width * .8,
             child: CachedNetworkImage(
               fit: BoxFit.cover,

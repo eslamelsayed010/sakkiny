@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:sakkiny/core/errors/failures.dart';
 import 'package:sakkiny/core/utils/dio_helper.dart';
 import 'package:sakkiny/core/utils/end_points.dart';
-import 'package:sakkiny/features/search/data/models/search_model/property.dart';
+import 'package:sakkiny/features/home/data/models/home_model/property.dart';
 import 'package:sakkiny/features/search/data/repos/search_repo.dart';
 
 class SearchRepoImpl extends SearchRepo {

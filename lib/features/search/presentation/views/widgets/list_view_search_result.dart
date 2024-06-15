@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sakkiny/core/widgets/custom_divider.dart';
-import 'package:sakkiny/features/search/data/models/search_model/property.dart';
+import 'package:sakkiny/features/home/data/models/home_model/property.dart';
 import 'package:sakkiny/features/search/presentation/views/widgets/custom_property_details_search.dart';
 
 class ListViewSearch extends StatelessWidget {

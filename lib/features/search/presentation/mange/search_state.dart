@@ -1,4 +1,4 @@
-import 'package:sakkiny/features/search/data/models/search_model/property.dart';
+import 'package:sakkiny/features/home/data/models/home_model/property.dart';
 
 abstract class SearchStates {}
 

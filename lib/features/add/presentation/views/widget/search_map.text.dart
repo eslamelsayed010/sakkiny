@@ -134,19 +134,20 @@ class MapSearchPage extends StatefulWidget {
 
 class _MapSearchPageState extends State<MapSearchPage> {
   late GoogleMapController _mapController;
-  late TextEditingController _searchController;
+  late TextEditingController searchController;
   String _searchText = '';
   final Set<Marker> _markers = {};
+  late Map<String, dynamic> result = {};
 
   @override
   void initState() {
     super.initState();
-    _searchController = TextEditingController();
+    searchController = TextEditingController();
   }
 
   @override
   void dispose() {
-    _searchController.dispose();
+    searchController.dispose();
     super.dispose();
   }
 
@@ -177,7 +178,7 @@ class _MapSearchPageState extends State<MapSearchPage> {
                 children: [
                   Expanded(
                     child: TextField(
-                      controller: _searchController,
+                      controller: searchController,
                       decoration: const InputDecoration(
                         hintText: 'Search for a location...',
                         contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -187,6 +188,9 @@ class _MapSearchPageState extends State<MapSearchPage> {
                         setState(() {
                           _searchText = value;
                         });
+                      },
+                      onSubmitted: (value) {
+                        _searchLocation();
                       },
                     ),
                   ),
@@ -214,9 +218,11 @@ class _MapSearchPageState extends State<MapSearchPage> {
         if (locations.isNotEmpty) {
           Location location = locations.first;
           LatLng latLng = LatLng(location.latitude, location.longitude);
-
           _mapController.animateCamera(CameraUpdate.newLatLng(latLng));
-
+          result = {
+            'city_name': searchController.text,
+            'latLng': latLng,
+          };
           setState(() {
             _markers.clear();
             _markers.add(
@@ -227,7 +233,7 @@ class _MapSearchPageState extends State<MapSearchPage> {
                   title: _searchText,
                 ),
                 onTap: () {
-                  Navigator.pop(context, latLng); // Return the coordinates
+                  Navigator.pop(context, result); // Return the coordinates
                 },
               ),
             );
