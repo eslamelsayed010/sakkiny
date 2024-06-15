@@ -25,11 +25,12 @@ class _PageViewImageState extends State<PageViewImage> {
       alignment: Alignment.bottomCenter,
       children: [
         SizedBox(
-          height: MediaQuery.of(context).size.height * .4,
+          height: MediaQuery.of(context).size.height * .5,
           child: PageView.builder(
             controller: pageController,
             physics: const BouncingScrollPhysics(),
-            itemBuilder: (context, index) => CustomHomeImage(image: widget.property.propertyImages![index].secureUrl!),
+            itemBuilder: (context, index) => CustomHomeImage(
+                image: widget.property.propertyImages![index].secureUrl!),
             itemCount: widget.property.propertyImages!.length,
           ),
         ),

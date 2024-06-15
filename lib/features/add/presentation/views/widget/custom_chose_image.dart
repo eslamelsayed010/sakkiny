@@ -96,4 +96,3 @@ class _CustomChoseImageState extends State<CustomChoseImage> {
     );
   }
 }
-

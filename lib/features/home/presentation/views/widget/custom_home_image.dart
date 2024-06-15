@@ -4,7 +4,7 @@ import 'package:sakkiny/core/utils/const.dart';
 
 class CustomHomeImage extends StatelessWidget {
   const CustomHomeImage({super.key, required this.image});
-   final String image;
+  final String image;
   @override
   Widget build(BuildContext context) {
     return Stack(

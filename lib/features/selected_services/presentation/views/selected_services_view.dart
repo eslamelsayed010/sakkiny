@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -14,13 +13,14 @@ class SelectedServicesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SelectServiceCubit()..fetchSelectService(idService: service.id!),
+      create: (context) =>
+          SelectServiceCubit()..fetchSelectService(idService: service.id!),
       child: Scaffold(
         body: SafeArea(
           child: Stack(
             children: [
-             // const SelectedServicesViewBody(),
-          const   SelectServiceBlocBuilder(),
+              // const SelectedServicesViewBody(),
+              const SelectServiceBlocBuilder(),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(

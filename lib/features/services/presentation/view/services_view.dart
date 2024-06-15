@@ -15,8 +15,8 @@ class ServicesView extends StatelessWidget {
           SizedBox(height: 10),
           CustomSearchServices(),
           SizedBox(height: 10),
-        //  GridViewServices(),
-        ServiceBlocBuilder()
+          //  GridViewServices(),
+          ServiceBlocBuilder()
         ],
       ),
     );

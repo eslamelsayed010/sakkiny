@@ -32,11 +32,15 @@ class DescSection extends StatelessWidget {
             ),
           ],
         ),
-        Text(
-          property.description!,
-          style: const TextStyle(
-            fontSize: 15,
-          ),
+        Row(
+          children: [
+            Text(
+              property.description!,
+              style: const TextStyle(
+                fontSize: 15,
+              ),
+            ),
+          ],
         ),
         Row(
           children: [

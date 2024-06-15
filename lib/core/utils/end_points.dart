@@ -10,6 +10,6 @@ const addPropertyy = '/hosting/add';
 
 const getProperty = '/property';
 
-const getService=  '/service';
+const getService = '/service';
 
-const addServicee  ='/service/add';
+const addServicee = '/service/add';

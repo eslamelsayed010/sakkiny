@@ -32,6 +32,33 @@ class CustomHomeType extends StatelessWidget {
           ),
         ),
         const Spacer(),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Container(
+            padding: const EdgeInsets.all(5),
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: Colors.black),
+            ),
+            child: property.isFurnished! == true
+                ? const Text(
+                    'Furnished',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12,
+                    ),
+                  )
+                : const Text(
+                    'Not Furnished',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12,
+                    ),
+                  ),
+          ),
+        ),
+        const Spacer(),
         IconButton(
           onPressed: () {
             showModalBottomSheet(

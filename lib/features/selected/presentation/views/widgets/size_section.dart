@@ -7,7 +7,7 @@ class SizeSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children:  [
+      children: [
         const Icon(Icons.bed_outlined),
         const SizedBox(width: 3),
         Text(

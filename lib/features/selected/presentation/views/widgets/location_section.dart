@@ -31,7 +31,7 @@ class _LocationSectionState extends State<LocationSection> {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(15),
             child: GoogleMap(
-              initialCameraPosition:  CameraPosition(
+              initialCameraPosition: CameraPosition(
                 target: LatLng(
                   widget.property.location!.latitude!,
                   widget.property.location!.longitude!,

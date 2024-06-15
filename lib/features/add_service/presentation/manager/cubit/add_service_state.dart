@@ -1,4 +1,3 @@
-
 import 'package:sakkiny/features/add_service/data/model/service_model/service_model.dart';
 
 abstract class AddServiceState {}

@@ -1,4 +1,3 @@
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:sakkiny/core/errors/failures.dart';
@@ -7,9 +6,11 @@ import 'package:sakkiny/core/utils/end_points.dart';
 
 import 'package:sakkiny/features/selected_services/data/repo/select_services_repo.dart';
 import 'package:sakkiny/features/services/data/models/get_service_model/service.dart';
+
 class SelectServiceRepoImpl extends SelectServiceRepo {
   @override
-  Future<Either<Failures, Service>> fetchSelectService({required String idService}) async{
+  Future<Either<Failures, Service>> fetchSelectService(
+      {required String idService}) async {
     try {
       var data = await DioHelper.getData(
         url: '$getService/$idService',

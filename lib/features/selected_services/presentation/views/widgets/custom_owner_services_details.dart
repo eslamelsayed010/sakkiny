@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:sakkiny/core/utils/assets.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/features/services/data/models/get_service_model/service.dart';
+
 class CustomOwnerServicesDetails extends StatelessWidget {
-  const CustomOwnerServicesDetails({Key? key, required this.service}) : super(key: key);
+  const CustomOwnerServicesDetails({Key? key, required this.service})
+      : super(key: key);
   final Service service;
 
   @override

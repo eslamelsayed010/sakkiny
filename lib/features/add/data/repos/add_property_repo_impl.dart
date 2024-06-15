@@ -28,7 +28,7 @@ class AddRepoImpl implements AddRepo {
       var data = await DioHelper.postDataWithImage(
         url: addPropertyy,
         token:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVzbGltZWxzZXlkQGdtYWlsLmNvbSIsImlkIjoiNjY0NTBlMDhjNjNiMmIxNmU0OTJmMmIxIiwicm9sZSI6IlVzZXIiLCJpc2xvZ2dlZCI6dHJ1ZSwiaWF0IjoxNzE4MjM2MTUzfQ.QaJWG4aqW7F4fZpJYA9tcCCky-xikL-LE7eCS-IQ-Bo',
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVzbGltZWxzZXlkQGdtYWlsLmNvbSIsImlkIjoiNjY0NTBlMDhjNjNiMmIxNmU0OTJmMmIxIiwicm9sZSI6IlVzZXIiLCJpc2xvZ2dlZCI6dHJ1ZSwiaWF0IjoxNzE4NDYxOTAxfQ.Vnm5faW3NgtWoBs3Q_2zjEoJo6sM4eHlc2LY4pnjwIU',
         data: {
           "description": description,
           "type": type,

@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:sakkiny/core/utils/app_router.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/features/services/data/models/get_service_model/service.dart';
+
 class CustomServices extends StatelessWidget {
   const CustomServices({Key? key, required this.service}) : super(key: key);
   final Service service;
@@ -12,9 +13,8 @@ class CustomServices extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kSelectedServicesView,
-        extra:  service
-        );
+        GoRouter.of(context)
+            .push(AppRouter.kSelectedServicesView, extra: service);
       },
       child: Container(
         decoration: BoxDecoration(
@@ -29,8 +29,8 @@ class CustomServices extends StatelessWidget {
               // fit: BoxFit.cover,
               width: double.infinity,
               height: 150,
-              imageUrl:service.images![0].secureUrl!,
-           
+              imageUrl: service.images![0].secureUrl!,
+
               errorWidget: (context, url, error) => const Center(
                 child: Icon(Icons.error),
               ),

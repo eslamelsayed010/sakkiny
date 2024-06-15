@@ -6,7 +6,6 @@ import 'package:sakkiny/core/utils/end_points.dart';
 import 'package:sakkiny/features/add_service/data/model/service_model/service_model.dart';
 import 'package:sakkiny/features/add_service/data/repos/add_service_repo.dart';
 
-
 class AddServiceRepoImpl implements AddService {
   @override
   Future<Either<Failures, ServiceModel>> addService(

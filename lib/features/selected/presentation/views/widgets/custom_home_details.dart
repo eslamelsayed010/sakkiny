@@ -16,7 +16,7 @@ class CustomHomeDetails extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
-            children:  [
+            children: [
               LocationSection(property: property),
               const SizedBox(height: 20),
               SizeSection(property: property),

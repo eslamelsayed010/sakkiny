@@ -12,8 +12,7 @@ class ListViewHomeLoadingIndicator extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
-        itemBuilder: (context, index) =>
-            const CustomLoadingIndicatorHome(),
+        itemBuilder: (context, index) => const CustomLoadingIndicatorHome(),
         separatorBuilder: (context, index) => const SizedBox(width: 5),
         itemCount: 10,
       ),

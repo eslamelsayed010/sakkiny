@@ -1,5 +1,5 @@
-
 import 'package:sakkiny/features/services/data/models/get_service_model/service.dart';
+
 abstract class ServiceStates {}
 
 class InitialServiceState extends ServiceStates {}

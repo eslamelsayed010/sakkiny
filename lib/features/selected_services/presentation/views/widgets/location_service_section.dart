@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:collection';
 import 'package:sakkiny/features/services/data/models/get_service_model/service.dart';
+
 class LocationServiceSection extends StatefulWidget {
-  const LocationServiceSection({Key? key, required this.service}) : super(key: key);
+  const LocationServiceSection({Key? key, required this.service})
+      : super(key: key);
   final Service service;
   @override
   State<LocationServiceSection> createState() => _LocationServiceSectionState();
@@ -30,11 +32,10 @@ class _LocationServiceSectionState extends State<LocationServiceSection> {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(15),
             child: GoogleMap(
-              initialCameraPosition:  CameraPosition(
+              initialCameraPosition: CameraPosition(
                 target: LatLng(
-                widget.service.location?.latitude?.toDouble() ?? 0.0,
-    widget.service.location?.longitude?.toDouble() ?? 0.0,
-               
+                  widget.service.location?.latitude?.toDouble() ?? 0.0,
+                  widget.service.location?.longitude?.toDouble() ?? 0.0,
                 ), // => lat long of Zagazig, Sharqia Governorate
                 zoom: 12.0,
               ),

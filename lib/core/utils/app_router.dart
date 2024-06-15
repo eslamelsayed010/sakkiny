@@ -25,7 +25,6 @@ import 'package:sakkiny/features/services/presentation/view/services_view.dart';
 import 'package:sakkiny/features/splash/splash_view.dart';
 import 'package:sakkiny/features/services/data/models/get_service_model/service.dart';
 
-
 abstract class AppRouter {
   static const kGetStartView = '/GetStartView';
   static const kSignInView = '/SignInView';
@@ -153,7 +152,7 @@ abstract class AppRouter {
       GoRoute(
         path: '/SelectedServicesView',
         builder: (BuildContext context, GoRouterState state) {
-          return  SelectedServicesView(service: state.extra as Service);
+          return SelectedServicesView(service: state.extra as Service);
         },
       ),
       GoRoute(

@@ -11,9 +11,12 @@ class SelectServiceBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SelectServiceCubit, SelectServiceStates>(builder: (context, state) {
+    return BlocBuilder<SelectServiceCubit, SelectServiceStates>(
+        builder: (context, state) {
       if (state is SuccessSelectServiceStates) {
-        return SelectedServicesViewBody(service: state.service,);
+        return SelectedServicesViewBody(
+          service: state.service,
+        );
       } else if (state is FailureSelectServiceStates) {
         return CustomErrorWidget(errorMassage: state.error);
       } else {
