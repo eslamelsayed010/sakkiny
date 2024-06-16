@@ -29,14 +29,6 @@ class FloorDetailsState extends State<FloorDetails> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Choose floor'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.close),
-            onPressed: () {
-              // Close button action
-            },
-          ),
-        ],
       ),
       body: Column(
         children: <Widget>[

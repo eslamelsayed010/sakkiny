@@ -205,6 +205,37 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                     validatorText: 'Enter The Price !!',
                   ),
                   const SizedBox(height: 30),
+                  //rental
+                  CustomTextFormField(
+                    colorText: Colors.black,
+                    controller: rentalController,
+                    isFilled: false,
+                    labelText: 'Rental rate',
+                    keyboardType: TextInputType.number,
+                    suffixIcon: const Icon(Icons.arrow_forward_ios),
+                    validatorText: 'Enter Rental rate !!',
+
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (BuildContext context) {
+                          return RentalDetails(controller: rentalController);
+                        }),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 30),
+                  //Unit Area
+                  CustomTextFormField(
+                    onTap: () {},
+                    colorText: Colors.black,
+                    controller: unitController,
+                    isFilled: false,
+                    labelText: 'Unit Area',
+                    keyboardType: TextInputType.number,
+                    validatorText: 'Enter The Unit Area !!',
+                  ),
+                  const SizedBox(height: 30),
                   //bedrooms
                   CustomTextFormField(
                     colorText: Colors.black,
@@ -255,17 +286,6 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                         }),
                       );
                     },
-                  ),
-                  const SizedBox(height: 30),
-                  //Unit Area
-                  CustomTextFormField(
-                    onTap: () {},
-                    colorText: Colors.black,
-                    controller: unitController,
-                    isFilled: false,
-                    labelText: 'Unit Area',
-                    keyboardType: TextInputType.number,
-                    validatorText: 'Enter The Unit Area !!',
                   ),
                   const SizedBox(height: 30),
                   //luxuries
@@ -340,25 +360,6 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                         context,
                         MaterialPageRoute(builder: (BuildContext context) {
                           return TypeDetails(controller: typeController);
-                        }),
-                      );
-                    },
-                  ),
-                  const SizedBox(height: 30),
-                  //rental
-                  CustomTextFormField(
-                    colorText: Colors.black,
-                    controller: rentalController,
-                    isFilled: false,
-                    labelText: 'Rental rate',
-                    keyboardType: TextInputType.phone,
-                    suffixIcon: const Icon(Icons.arrow_forward_ios),
-                    validatorText: 'Enter Rental rate !!',
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (BuildContext context) {
-                          return RentalDetails(controller: rentalController);
                         }),
                       );
                     },

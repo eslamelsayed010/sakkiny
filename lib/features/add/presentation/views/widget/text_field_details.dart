@@ -1,5 +1,3 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_button.dart';
@@ -9,7 +7,7 @@ class TextFieldDetails extends StatefulWidget {
       : super(key: key);
 
   @override
-  _TextFieldDetailsState createState() => _TextFieldDetailsState();
+  State<TextFieldDetails> createState() => _TextFieldDetailsState();
 
   final TextEditingController controllerOfList;
 
@@ -46,14 +44,6 @@ class _TextFieldDetailsState extends State<TextFieldDetails> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Chose details'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.close),
-            onPressed: () {
-              // Close button action
-            },
-          ),
-        ],
       ),
       body: Column(
         children: <Widget>[

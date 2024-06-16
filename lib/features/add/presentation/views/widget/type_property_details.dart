@@ -23,14 +23,6 @@ class TypeDetailsState extends State<TypeDetails> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Choose Type'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.close),
-            onPressed: () {
-              // Close button action
-            },
-          ),
-        ],
       ),
       body: Column(
         children: <Widget>[

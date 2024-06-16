@@ -21,14 +21,6 @@ class RentalDetailsState extends State<RentalDetails> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Choose the rental rate'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.close),
-            onPressed: () {
-              // Close button action
-            },
-          ),
-        ],
       ),
       body: Column(
         children: <Widget>[

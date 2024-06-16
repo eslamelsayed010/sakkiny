@@ -16,12 +16,6 @@ class BathroomsDetailsState extends State<BathroomsDetails> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Choose bathrooms'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.close),
-            onPressed: () {},
-          ),
-        ],
       ),
       body: Column(
         children: <Widget>[
