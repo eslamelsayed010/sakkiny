@@ -8,12 +8,16 @@ class CustomTextButton extends StatelessWidget {
     required this.text,
     required this.textButton,
     this.txtColor = kLogoColor,
+    this.fontSize1,
+    this.fontSize2,
   }) : super(key: key);
 
   final void Function()? onPressed;
   final String textButton;
   final String text;
   final Color? txtColor;
+  final double? fontSize1;
+  final double? fontSize2;
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +26,16 @@ class CustomTextButton extends StatelessWidget {
       children: [
         Text(
           text,
-          style: const TextStyle(color: Colors.black),
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: fontSize1,
+          ),
         ),
         TextButton(
           onPressed: onPressed,
           child: Text(
             textButton,
-            style: TextStyle(color: txtColor),
+            style: TextStyle(color: txtColor, fontSize: fontSize2),
           ),
         ),
       ],
