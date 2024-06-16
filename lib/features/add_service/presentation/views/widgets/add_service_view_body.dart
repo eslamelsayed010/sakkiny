@@ -1,8 +1,9 @@
 // ignore_for_file: avoid_print
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:sakkiny/core/widgets/custom_button.dart';
 import 'package:sakkiny/core/widgets/custom_text_form_field.dart';
 import 'package:sakkiny/core/widgets/show_toast.dart';
@@ -21,7 +22,7 @@ class AddServicesViewBody extends StatefulWidget {
 
 class _AddServicesViewBodyState extends State<AddServicesViewBody> {
   var formKey = GlobalKey<FormState>();
-  List<String> selectedImages = [];
+  List<XFile> selectedImages = [];
 
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
 
@@ -45,7 +46,7 @@ class _AddServicesViewBodyState extends State<AddServicesViewBody> {
     super.dispose();
   }
 
-  void handleImageSelection(List<String> imagePaths) {
+  void handleImageSelection(List<XFile> imagePaths) {
     setState(() {
       selectedImages = imagePaths;
     });
@@ -95,6 +96,7 @@ class _AddServicesViewBodyState extends State<AddServicesViewBody> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // price
                   CustomTextFormField(
                     colorText: Colors.black,
                     controller: priceController,
@@ -104,20 +106,19 @@ class _AddServicesViewBodyState extends State<AddServicesViewBody> {
                     validatorText: 'Enter The Price !!',
                   ),
                   const SizedBox(height: 30),
+                  // location
                   CustomTextFormField(
                     onTap: () async {
-                      LatLng? result = await Navigator.push(
+                      Map<String, dynamic>? result = await Navigator.push(
                         context,
                         MaterialPageRoute(builder: (BuildContext context) {
-                          return MapServicePage();
+                          return const MapServicePage();
                         }),
                       );
-
                       if (result != null) {
-                        locationController.text = 'done';
-                        // 'Latitude: ${result.latitude}, Longitude: ${result.longitude}';
-                        lat = result.latitude;
-                        lang = result.longitude;
+                        locationController.text = result['city_name'];
+                        lat = result['latLng'].latitude;
+                        lang = result['latLng'].longitude;
                       }
                     },
                     colorText: Colors.black,
@@ -128,8 +129,10 @@ class _AddServicesViewBodyState extends State<AddServicesViewBody> {
                     validatorText: 'Enter The Location !!',
                   ),
                   const SizedBox(height: 30),
+                  // Image
                   CustomServiceImage(onImagesSelected: handleImageSelection),
                   const SizedBox(height: 30),
+                  // type
                   CustomTextFormField(
                     onTap: () {
                       Navigator.push(
@@ -147,6 +150,7 @@ class _AddServicesViewBodyState extends State<AddServicesViewBody> {
                     validatorText: 'Enter The Type Your Service !!',
                   ),
                   const SizedBox(height: 30),
+                  // address
                   CustomTextFormField(
                     colorText: Colors.black,
                     controller: addressController,
@@ -156,6 +160,7 @@ class _AddServicesViewBodyState extends State<AddServicesViewBody> {
                     validatorText: 'Enter  Your Address !!',
                   ),
                   const SizedBox(height: 30),
+                  // description
                   CustomTextFormField(
                     colorText: Colors.black,
                     controller: descController,
@@ -171,7 +176,7 @@ class _AddServicesViewBodyState extends State<AddServicesViewBody> {
                     text: 'Add My Service',
                     width: double.infinity,
                     radius: 10,
-                    onPressed: () {
+                    onPressed: () async {
                       print(priceController.text);
                       print(typeController.text);
                       print(descController.text);
@@ -189,7 +194,14 @@ class _AddServicesViewBodyState extends State<AddServicesViewBody> {
                           address: addressController.text,
                           lat: lat,
                           long: lang,
-                          propertyImages: selectedImages,
+                          propertyImages: await Future.wait(
+                            selectedImages.map(
+                              (image) async => await MultipartFile.fromFile(
+                                image.path,
+                                filename: image.name,
+                              ),
+                            ),
+                          ),
                           description: descController.text,
                         );
                       } else {

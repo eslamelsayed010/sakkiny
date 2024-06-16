@@ -4,7 +4,7 @@ class ServiceDetails extends StatefulWidget {
   const ServiceDetails({super.key, required this.controller});
 
   @override
-  RentalDetailsState createState() => RentalDetailsState();
+  State<ServiceDetails> createState() => RentalDetailsState();
   final TextEditingController controller;
 }
 
@@ -30,20 +30,12 @@ class RentalDetailsState extends State<ServiceDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('اختر معدل الايجار'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.close),
-            onPressed: () {
-              // Close button action
-            },
-          ),
-        ],
+        title: const Text('Choose Type Your Service'),
       ),
       body: Column(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
           ),
           Expanded(
             child: ListView.separated(
@@ -59,7 +51,7 @@ class RentalDetailsState extends State<ServiceDetails> {
                   },
                 );
               },
-              separatorBuilder: (context, index) => Divider(),
+              separatorBuilder: (context, index) => const Divider(),
             ),
           ),
         ],

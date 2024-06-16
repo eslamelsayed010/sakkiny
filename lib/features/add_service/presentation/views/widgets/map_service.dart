@@ -13,70 +13,78 @@ class MapServicePage extends StatefulWidget {
 
 class _MapSearchPageState extends State<MapServicePage> {
   late GoogleMapController _mapController;
-  late TextEditingController _searchController;
+  late TextEditingController searchController;
   String _searchText = '';
   final Set<Marker> _markers = {};
+  late Map<String, dynamic> result = {};
 
   @override
   void initState() {
     super.initState();
-    _searchController = TextEditingController();
+    searchController = TextEditingController();
   }
 
   @override
   void dispose() {
-    _searchController.dispose();
+    searchController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Map Search'),
-      ),
-      body: Stack(
-        children: [
-          GoogleMap(
-            onMapCreated: _onMapCreated,
-            initialCameraPosition: const CameraPosition(
-              target: LatLng(31.20463, 29.91782), // Initial map center
-              zoom: 15.0, // Initial map zoom level
+    return SafeArea(
+      child: Scaffold(
+        // appBar: AppBar(
+        //   automaticallyImplyLeading: false,
+        //   title: const Text('Map Search'),
+        //   centerTitle: true,
+        // ),
+        body: Stack(
+          children: [
+            GoogleMap(
+              onMapCreated: _onMapCreated,
+              initialCameraPosition: const CameraPosition(
+                target: LatLng(31.20463, 29.91782), // Initial map center
+                zoom: 15.0, // Initial map zoom level
+              ),
+              markers: _markers,
             ),
-            markers: _markers,
-          ),
-          Positioned(
-            top: 16.0,
-            left: 16.0,
-            right: 16.0,
-            child: Container(
-              color: Colors.white,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      controller: _searchController,
-                      decoration: const InputDecoration(
-                        hintText: 'Search for a location...',
-                        contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
-                        border: InputBorder.none,
+            Positioned(
+              top: 16.0,
+              left: 16.0,
+              right: 16.0,
+              child: Container(
+                color: Colors.white,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        controller: searchController,
+                        decoration: const InputDecoration(
+                          hintText: 'Search for a location...',
+                          contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
+                          border: InputBorder.none,
+                        ),
+                        onChanged: (value) {
+                          setState(() {
+                            _searchText = value;
+                          });
+                        },
+                        onSubmitted: (value) {
+                          _searchLocation();
+                        },
                       ),
-                      onChanged: (value) {
-                        setState(() {
-                          _searchText = value;
-                        });
-                      },
                     ),
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.search),
-                    onPressed: _searchLocation,
-                  ),
-                ],
+                    IconButton(
+                      icon: const Icon(Icons.search),
+                      onPressed: _searchLocation,
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -94,6 +102,10 @@ class _MapSearchPageState extends State<MapServicePage> {
           LatLng latLng = LatLng(location.latitude, location.longitude);
 
           _mapController.animateCamera(CameraUpdate.newLatLng(latLng));
+          result = {
+            'city_name': searchController.text,
+            'latLng': latLng,
+          };
 
           setState(() {
             _markers.clear();
@@ -105,7 +117,7 @@ class _MapSearchPageState extends State<MapServicePage> {
                   title: _searchText,
                 ),
                 onTap: () {
-                  Navigator.pop(context, latLng); // Return the coordinates
+                  Navigator.pop(context, result); // Return the coordinates
                 },
               ),
             );

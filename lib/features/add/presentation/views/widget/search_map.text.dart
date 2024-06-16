@@ -153,56 +153,60 @@ class _MapSearchPageState extends State<MapSearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: const Text('Map Search'),
-      ),
-      body: Stack(
-        children: [
-          GoogleMap(
-            onMapCreated: _onMapCreated,
-            initialCameraPosition: const CameraPosition(
-              target: LatLng(31.20463, 29.91782), // Initial map center
-              zoom: 15.0, // Initial map zoom level
+    return SafeArea(
+      child: Scaffold(
+        // appBar: AppBar(
+        //   automaticallyImplyLeading: false,
+        //   title: const Text('Map Search'),
+        //   centerTitle: true,
+        // ),
+        body: Stack(
+          children: [
+            GoogleMap(
+              onMapCreated: _onMapCreated,
+              initialCameraPosition: const CameraPosition(
+                target: LatLng(31.20463, 29.91782), // Initial map center
+                zoom: 15.0, // Initial map zoom level
+              ),
+              markers: _markers,
             ),
-            markers: _markers,
-          ),
-          Positioned(
-            top: 16.0,
-            left: 16.0,
-            right: 16.0,
-            child: Container(
-              color: Colors.white,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      controller: searchController,
-                      decoration: const InputDecoration(
-                        hintText: 'Search for a location...',
-                        contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
-                        border: InputBorder.none,
+            Positioned(
+              top: 16.0,
+              left: 16.0,
+              right: 16.0,
+              child: Container(
+                color: Colors.white,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        controller: searchController,
+                        decoration: const InputDecoration(
+                          hintText: 'Search for a location...',
+                          contentPadding:
+                              EdgeInsets.symmetric(horizontal: 16.0),
+                          border: InputBorder.none,
+                        ),
+                        onChanged: (value) {
+                          setState(() {
+                            _searchText = value;
+                          });
+                        },
+                        onSubmitted: (value) {
+                          _searchLocation();
+                        },
                       ),
-                      onChanged: (value) {
-                        setState(() {
-                          _searchText = value;
-                        });
-                      },
-                      onSubmitted: (value) {
-                        _searchLocation();
-                      },
                     ),
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.search),
-                    onPressed: _searchLocation,
-                  ),
-                ],
+                    IconButton(
+                      icon: const Icon(Icons.search),
+                      onPressed: _searchLocation,
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

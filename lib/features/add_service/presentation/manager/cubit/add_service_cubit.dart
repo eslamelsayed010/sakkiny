@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print
 
+import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sakkiny/features/add_service/data/repos/add_service_repo_impl.dart';
 import 'package:sakkiny/features/add_service/presentation/manager/cubit/add_service_state.dart';
@@ -15,7 +16,7 @@ class AddServiceCubit extends Cubit<AddServiceState> {
     required String address,
     required num lat,
     required num long,
-    required List<String> propertyImages,
+    required List<MultipartFile> propertyImages,
     required String description,
   }) async {
     emit(AddServiceLoading());

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sakkiny/features/add/presentation/views/add_view.dart';
 import 'package:sakkiny/features/add/presentation/views/widget/add_property_view.dart';
-import 'package:sakkiny/features/add/presentation/views/widget/add_service_view.dart';
+import 'package:sakkiny/features/add_service/presentation/views/add_service_view.dart';
 import 'package:sakkiny/features/auth/sign_in/presentation/view/sign_in_view.dart';
 import 'package:sakkiny/features/auth/sign_up/presentation/view/sign_up_view.dart';
 import 'package:sakkiny/features/edit/presentation/views/edit_view.dart';
@@ -164,7 +164,7 @@ abstract class AppRouter {
       GoRoute(
         path: '/AddServiceView',
         builder: (BuildContext context, GoRouterState state) {
-          return const AddServiceView();
+          return const AddServicesView();
         },
       ),
       GoRoute(
