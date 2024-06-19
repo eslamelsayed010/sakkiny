@@ -62,7 +62,8 @@ class _MapSearchPageState extends State<MapServicePage> {
                         controller: searchController,
                         decoration: const InputDecoration(
                           hintText: 'Search for a location...',
-                          contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
+                          contentPadding:
+                              EdgeInsets.symmetric(horizontal: 16.0),
                           border: InputBorder.none,
                         ),
                         onChanged: (value) {

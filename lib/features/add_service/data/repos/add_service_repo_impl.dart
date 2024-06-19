@@ -20,7 +20,7 @@ class AddServiceRepoImpl implements AddService {
       var data = await DioHelper.postDataWithImage(
         url: addServicee,
         token:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVzbGltZWxzZXlkQGdtYWlsLmNvbSIsImlkIjoiNjY0NTBlMDhjNjNiMmIxNmU0OTJmMmIxIiwicm9sZSI6IlVzZXIiLCJpc2xvZ2dlZCI6dHJ1ZSwiaWF0IjoxNzE4NDYxOTAxfQ.Vnm5faW3NgtWoBs3Q_2zjEoJo6sM4eHlc2LY4pnjwIU',
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVzbGltZWxzZXlkQGdtYWlsLmNvbSIsImlkIjoiNjY0NTBlMDhjNjNiMmIxNmU0OTJmMmIxIiwicm9sZSI6IlVzZXIiLCJpc2xvZ2dlZCI6dHJ1ZSwiaWF0IjoxNzE4NDYxOTAxfQ.Vnm5faW3NgtWoBs3Q_2zjEoJo6sM4eHlc2LY4pnjwIU',
         data: {
           "description": description,
           "serviceCategory": serviceCategory,

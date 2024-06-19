@@ -6,7 +6,8 @@ import 'package:image_picker/image_picker.dart';
 class CustomServiceImage extends StatefulWidget {
   final Function(List<XFile>) onImagesSelected;
 
-  const CustomServiceImage({Key? key, required this.onImagesSelected}) : super(key: key);
+  const CustomServiceImage({Key? key, required this.onImagesSelected})
+      : super(key: key);
 
   @override
   State<CustomServiceImage> createState() => _CustomServiceImageState();

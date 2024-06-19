@@ -6,12 +6,12 @@ class ImageTextUploadScreen extends StatefulWidget {
   const ImageTextUploadScreen({super.key});
 
   @override
-  _ImageTextUploadScreenState createState() => _ImageTextUploadScreenState();
+  State<ImageTextUploadScreen> createState() => _ImageTextUploadScreenState();
 }
 
 class _ImageTextUploadScreenState extends State<ImageTextUploadScreen> {
   File? _selectedImage;
-  TextEditingController _textEditingController = TextEditingController();
+  TextEditingController textEditingController = TextEditingController();
 
   Future<void> _pickImage(ImageSource source) async {
     final imagePicker = ImagePicker();
@@ -64,7 +64,7 @@ class _ImageTextUploadScreenState extends State<ImageTextUploadScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Image and Text Upload'),
+        title: const Text('Image and Text Upload'),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -80,33 +80,33 @@ class _ImageTextUploadScreenState extends State<ImageTextUploadScreen> {
                         fit: BoxFit.cover,
                       )
                     : Container(),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
                     _pickImage(ImageSource.gallery);
                   },
-                  child: Text('Pick Image'),
+                  child: const Text('Pick Image'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     _pickImage(ImageSource.camera);
                   },
-                  child: Text('Take Photo'),
+                  child: const Text('Take Photo'),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: TextField(
-                    controller: _textEditingController,
-                    decoration: InputDecoration(
+                    controller: textEditingController,
+                    decoration: const InputDecoration(
                       labelText: 'Text',
                     ),
                   ),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: _uploadData,
-                  child: Text('Upload Data'),
+                  child: const Text('Upload Data'),
                 ),
               ],
             ),

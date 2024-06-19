@@ -214,7 +214,6 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                     keyboardType: TextInputType.number,
                     suffixIcon: const Icon(Icons.arrow_forward_ios),
                     validatorText: 'Enter Rental rate !!',
-
                     onTap: () {
                       Navigator.push(
                         context,

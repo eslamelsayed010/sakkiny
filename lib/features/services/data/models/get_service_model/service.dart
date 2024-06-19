@@ -1,9 +1,10 @@
 import 'image.dart';
 import 'location.dart';
+import 'user_id.dart';
 
 class Service {
   String? id;
-  String? userId;
+  UserId? userId;
   String? serviceCategory;
   String? description;
   int? price;
@@ -32,7 +33,9 @@ class Service {
 
   factory Service.fromJson(Map<String, dynamic> json) => Service(
         id: json['_id'] as String?,
-        userId: json['userId'] as String?,
+        userId: json['userId'] == null
+            ? null
+            : UserId.fromJson(json['userId'] as Map<String, dynamic>),
         serviceCategory: json['serviceCategory'] as String?,
         description: json['description'] as String?,
         price: json['price'] as int?,
@@ -55,7 +58,7 @@ class Service {
 
   Map<String, dynamic> toJson() => {
         '_id': id,
-        'userId': userId,
+        'userId': userId?.toJson(),
         'serviceCategory': serviceCategory,
         'description': description,
         'price': price,

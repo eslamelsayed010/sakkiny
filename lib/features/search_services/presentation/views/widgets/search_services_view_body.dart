@@ -4,7 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:sakkiny/core/utils/app_router.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_text_form_field.dart';
-import 'package:sakkiny/features/search_services/presentation/views/widgets/no_result_search.dart';
+import 'package:sakkiny/features/search_services/presentation/manager/cubit/search_service_cubit.dart';
+import 'package:sakkiny/features/search_services/presentation/views/widgets/search_services_bloc_builder/state_result_search_bloc_builder.dart';
 
 class SearchServicesViewBody extends StatefulWidget {
   const SearchServicesViewBody({Key? key}) : super(key: key);
@@ -41,21 +42,22 @@ class _SearchViewBodyState extends State<SearchServicesViewBody> {
                     hintText: 'Search Your Service',
                     validatorText: 'enter the name of Service !',
                     onFieldSubmitted: (data) {
-                      // if (formKey.currentState!.validate()) {
-                      //   SearchCubit.get(context).fetchSearchMovie(movieName: data);
-                      // } else {
-                      //   autoValidateMode = AutovalidateMode.always;
-                      //   setState(() {});
-                      // }
+                      if (formKey.currentState!.validate()) {
+                        SearchServiceCubit.get(context)
+                            .getSearchService(search: data);
+                      } else {
+                        autoValidateMode = AutovalidateMode.always;
+                        setState(() {});
+                      }
                     },
                     suffixIconPressed: () {
-                      // if (formKey.currentState!.validate()) {
-                      //   SearchCubit.get(context)
-                      //       .fetchSearchMovie(movieName: textController.text);
-                      // } else {
-                      //   autoValidateMode = AutovalidateMode.always;
-                      //   setState(() {});
-                      // }
+                      if (formKey.currentState!.validate()) {
+                        SearchServiceCubit.get(context)
+                            .getSearchService(search: textController.text);
+                      } else {
+                        autoValidateMode = AutovalidateMode.always;
+                        setState(() {});
+                      }
                     },
                     suffixIcon: const Icon(
                       Icons.search,
@@ -79,7 +81,7 @@ class _SearchViewBodyState extends State<SearchServicesViewBody> {
           const SizedBox(
             height: 15,
           ),
-          const NoResultSearchServices(),
+          const StateResultSearchServiceBlocBuilder(),
         ],
       ),
     );
