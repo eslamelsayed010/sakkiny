@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:sakkiny/features/selected_services/presentation/views/widgets/desc_services_section.dart';
 import 'dart:collection';
 import 'package:sakkiny/features/services/data/models/get_service_model/service.dart';
 
@@ -18,11 +19,52 @@ class _LocationServiceSectionState extends State<LocationServiceSection> {
     return Column(
       children: [
         Row(
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const Icon(Icons.location_on),
             Text(
               widget.service.address!,
               style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+
+            const Spacer(),
+            // SizedBox(
+            //   width: 50,
+            // ),
+            Text(
+              widget.service.serviceCategory!,
+              style: const TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
+            const Spacer(),
+            // SizedBox(
+            //   width: 50,
+            // ),
+            IconButton(
+              onPressed: () {
+                showModalBottomSheet(
+                  isScrollControlled: true,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  context: context,
+                  builder: (context) => Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        DescServicesSection(
+                          service: widget.service,
+                        )
+                      ],
+                    ),
+                  ),
+                );
+              },
+              icon: const Icon(Icons.info_outline),
             )
           ],
         ),
@@ -43,9 +85,11 @@ class _LocationServiceSectionState extends State<LocationServiceSection> {
               onMapCreated: (controller) {
                 setState(() {
                   marker.add(
-                    const Marker(
-                      markerId: MarkerId('1'),
-                      position: LatLng(30.5876, 31.5020),
+                    Marker(
+                      markerId: const MarkerId('1'),
+                      position: LatLng(
+                          widget.service.location!.latitude!.toDouble(),
+                          widget.service.location!.longitude!.toDouble()),
                     ),
                   );
                 });

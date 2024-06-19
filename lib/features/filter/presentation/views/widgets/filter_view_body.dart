@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print
 import 'package:flutter/material.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_button.dart';
 import 'package:sakkiny/features/filter/presentation/mange/filter_cubit.dart';
@@ -15,14 +16,15 @@ class FilterViewBody extends StatefulWidget {
 class _FilterViewBodyState extends State<FilterViewBody> {
   int selectedPropertyType = 0;
   List<String> optionsPropertyType = [
-    'House',
-    'Room',
-    'Villa',
+    'apartment',
+    'room',
+    'villa',
   ];
   int selectedRentType = 0;
   List<String> optionsRentType = [
-    'month',
-    'day',
+    'daily',
+    'weekly',
+    'monthly',
   ];
   RangeValues priceRange = const RangeValues(1000, 5000);
   RangeValues unitAreaRange = const RangeValues(90, 250);
@@ -35,8 +37,8 @@ class _FilterViewBodyState extends State<FilterViewBody> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const Spacer(),
-          const CustomText(
-            text: 'Property Type',
+          CustomText(
+            text: 'Property Type'.tr(context),
             fontSize: 16,
             color: Colors.black,
           ),
@@ -61,15 +63,15 @@ class _FilterViewBodyState extends State<FilterViewBody> {
                         });
                       },
                     ),
-                    Text(option),
+                    Text(option.tr(context)),
                   ],
                 );
               }).toList(),
             ),
           ),
           const Spacer(),
-          const CustomText(
-            text: 'Rent Type',
+          CustomText(
+            text: 'Rent Type'.tr(context),
             fontSize: 16,
             color: Colors.black,
           ),
@@ -94,7 +96,7 @@ class _FilterViewBodyState extends State<FilterViewBody> {
                         });
                       },
                     ),
-                    Text(option),
+                    Text(option.tr(context)),
                     // const SizedBox(width: 30)
                   ],
                 );
@@ -102,8 +104,8 @@ class _FilterViewBodyState extends State<FilterViewBody> {
             ),
           ),
           const Spacer(),
-          const CustomText(
-            text: 'Price Range',
+          CustomText(
+            text: 'Price Range'.tr(context),
             fontSize: 16,
             color: Colors.black,
           ),
@@ -133,9 +135,9 @@ class _FilterViewBodyState extends State<FilterViewBody> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const Text(
-                      " LE",
-                      style: TextStyle(
+                    Text(
+                      " LE".tr(context),
+                      style: const TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                       ),
@@ -148,9 +150,9 @@ class _FilterViewBodyState extends State<FilterViewBody> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const Text(
-                      " LE",
-                      style: TextStyle(
+                    Text(
+                      " LE".tr(context),
+                      style: const TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                       ),
@@ -161,8 +163,8 @@ class _FilterViewBodyState extends State<FilterViewBody> {
             ],
           ),
           const Spacer(),
-          const CustomText(
-            text: 'Unit Area',
+          CustomText(
+            text: 'Unit Area'.tr(context),
             fontSize: 16,
             color: Colors.black,
           ),
@@ -193,9 +195,9 @@ class _FilterViewBodyState extends State<FilterViewBody> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const Text(
-                      " Meter",
-                      style: TextStyle(
+                    Text(
+                      " Meter".tr(context),
+                      style: const TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                       ),
@@ -208,9 +210,9 @@ class _FilterViewBodyState extends State<FilterViewBody> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const Text(
-                      " Meter",
-                      style: TextStyle(
+                    Text(
+                      ' Meter'.tr(context),
+                      style: const TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                       ),
@@ -235,7 +237,7 @@ class _FilterViewBodyState extends State<FilterViewBody> {
                     per: optionsRentType[selectedRentType],
                   );
                 },
-                text: 'Apply Filter',
+                text: 'Apply Filter'.tr(context),
                 radius: 8,
               )
             ],

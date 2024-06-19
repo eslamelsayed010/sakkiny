@@ -61,8 +61,10 @@ class SplashViewState extends State<SplashView>
     Future.delayed(
       const Duration(milliseconds: 2700),
       () => GoRouter.of(context).pushReplacement(
-        token != null ? AppRouter.kLayoutView : AppRouter.kGetStartView,
-      ),
+          // token != null ?
+          AppRouter.kLayoutView
+          // : AppRouter.kGetStartView,
+          ),
     );
   }
 }

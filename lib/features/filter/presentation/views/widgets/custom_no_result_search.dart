@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 
 class CustomNoResult extends StatelessWidget {
   const CustomNoResult({
@@ -14,10 +15,10 @@ class CustomNoResult extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: MediaQuery.of(context).size.height * .3),
-          child: const Center(
+          child: Center(
             child: Text(
-              'No Result',
-              style: TextStyle(
+              'No Result'.tr(context),
+              style: const TextStyle(
                 color: Colors.grey,
                 fontSize: 20,
               ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/app_router.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_text_form_field.dart';
@@ -39,8 +40,8 @@ class _SearchViewBodyState extends State<SearchViewBody> {
                     isFilled: false,
                     controller: textController,
                     //labelText: 'Search Now',
-                    hintText: 'Search Your Property',
-                    validatorText: 'enter you want !',
+                    hintText: 'Search Your Property'.tr(context),
+                    validatorText: 'enter you want !'.tr(context),
                     onFieldSubmitted: (data) {
                       if (formKey.currentState!.validate()) {
                         SearchCubit.get(context).getSearch(search: data);

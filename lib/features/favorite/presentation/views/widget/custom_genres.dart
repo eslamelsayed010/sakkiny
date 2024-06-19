@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_container_genres.dart';
 import 'package:sakkiny/features/favorite/presentation/views/widget/grid_view_home_fav.dart';
@@ -47,13 +48,13 @@ class _CustomGenresState extends State<CustomGenres>
                   indicatorColor: Colors.transparent,
                   labelColor: kLogoColor,
                   unselectedLabelColor: Colors.grey,
-                  tabs: const [
+                  tabs: [
                     CustomContainerGenres(
-                      text: 'House',
+                      text: 'House'.tr(context),
                       icon: Icons.home,
                     ),
                     CustomContainerGenres(
-                      text: 'Services',
+                      text: 'Services'.tr(context),
                       icon: Icons.cleaning_services,
                     ),
                   ],

@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:sakkiny/core/errors/failures.dart';
+import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/utils/dio_helper.dart';
 import 'package:sakkiny/core/utils/end_points.dart';
 import 'package:sakkiny/features/home/data/models/home_model/property.dart';
@@ -13,8 +14,7 @@ class SelectRepoImpl extends SelectRepo {
     try {
       var data = await DioHelper.getData(
         url: '$getProperty/$idProperty',
-        token:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVzbGltZWxzZXlkQGdtYWlsLmNvbSIsImlkIjoiNjY0NTBlMDhjNjNiMmIxNmU0OTJmMmIxIiwicm9sZSI6IlVzZXIiLCJpc2xvZ2dlZCI6dHJ1ZSwiaWF0IjoxNzE4MDM3NTM2fQ.LI_J7OJ_JAfP0DT1Y5F-s4kjUvKmMF_OHx-iIXRESEo',
+        token: token,
       );
 
       return right(Property.fromJson(data.data['property']));

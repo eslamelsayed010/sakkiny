@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/app_router.dart';
 import 'package:sakkiny/core/utils/assets.dart';
 import 'package:sakkiny/core/utils/const.dart';
@@ -27,9 +28,9 @@ class GetStartView extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * .5,
-                  child: const Text(
-                    'Find Your Dream House',
-                    style: TextStyle(
+                  child: Text(
+                    'Find Your Dream House'.tr(context),
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: kLogoColor,
                       fontSize: 25,
@@ -41,7 +42,7 @@ class GetStartView extends StatelessWidget {
           ),
           const Spacer(),
           CustomButon(
-            text: 'Let\'s started',
+            text: "Let's started".tr(context),
             width: double.infinity,
             marginHorizontal: 10,
             marginBottom: 30,

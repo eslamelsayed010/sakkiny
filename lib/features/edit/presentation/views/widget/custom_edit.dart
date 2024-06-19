@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sakkiny/core/utils/app_router.dart';
-import 'package:sakkiny/core/widgets/details_property_section.dart';
 import 'package:sakkiny/features/edit/presentation/views/widget/image_property_section.dart';
 
 class CustomEdit extends StatelessWidget {

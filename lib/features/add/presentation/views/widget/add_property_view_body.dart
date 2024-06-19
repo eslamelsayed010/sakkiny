@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_button.dart';
 import 'package:sakkiny/core/widgets/custom_text_form_field.dart';
@@ -114,9 +115,9 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Furnished',
-                        style: TextStyle(
+                      Text(
+                        'Furnished ?'.tr(context),
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
                         ),
@@ -145,7 +146,7 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                                   border: Border.all(color: Colors.black26),
                                 ),
                                 child: Text(
-                                  'Yes',
+                                  'Yes'.tr(context),
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 15,
@@ -178,7 +179,7 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                                   border: Border.all(color: Colors.black26),
                                 ),
                                 child: Text(
-                                  'No',
+                                  'No'.tr(context),
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 15,
@@ -200,9 +201,9 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                     colorText: Colors.black,
                     controller: priceController,
                     isFilled: false,
-                    labelText: 'Price',
+                    labelText: 'Price'.tr(context),
                     keyboardType: TextInputType.number,
-                    validatorText: 'Enter The Price !!',
+                    validatorText: 'Enter The Price !!'.tr(context),
                   ),
                   const SizedBox(height: 30),
                   //rental
@@ -210,11 +211,10 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                     colorText: Colors.black,
                     controller: rentalController,
                     isFilled: false,
-                    labelText: 'Rental rate',
+                    labelText: 'Rental rate'.tr(context),
                     keyboardType: TextInputType.number,
                     suffixIcon: const Icon(Icons.arrow_forward_ios),
-                    validatorText: 'Enter Rental rate !!',
-
+                    validatorText: 'Enter Rental rate !!'.tr(context),
                     onTap: () {
                       Navigator.push(
                         context,
@@ -231,9 +231,9 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                     colorText: Colors.black,
                     controller: unitController,
                     isFilled: false,
-                    labelText: 'Unit Area',
+                    labelText: 'Unit Area'.tr(context),
                     keyboardType: TextInputType.number,
-                    validatorText: 'Enter The Unit Area !!',
+                    validatorText: 'Enter The Unit Area !!'.tr(context),
                   ),
                   const SizedBox(height: 30),
                   //bedrooms
@@ -241,9 +241,9 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                     colorText: Colors.black,
                     controller: roomController,
                     isFilled: false,
-                    labelText: 'Bedrooms',
+                    labelText: 'Bedrooms'.tr(context),
                     keyboardType: TextInputType.number,
-                    validatorText: 'Enter Number Of Bedrooms !!',
+                    validatorText: 'Enter Number Of Bedrooms !!'.tr(context),
                   ),
                   const SizedBox(height: 30),
                   //floor
@@ -251,10 +251,10 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                     colorText: Colors.black,
                     controller: floorController,
                     isFilled: false,
-                    labelText: 'Floor',
+                    labelText: 'Floor'.tr(context),
                     suffixIcon: const Icon(Icons.arrow_forward_ios),
                     keyboardType: TextInputType.number,
-                    validatorText: 'Enter Floor !!',
+                    validatorText: 'Enter Floor !!'.tr(context),
                     onTap: () {
                       Navigator.push(
                         context,
@@ -272,10 +272,10 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                     colorText: Colors.black,
                     controller: bathroomsController,
                     isFilled: false,
-                    labelText: 'Bathrooms',
+                    labelText: 'Bathrooms'.tr(context),
                     suffixIcon: const Icon(Icons.arrow_forward_ios),
                     keyboardType: TextInputType.number,
-                    validatorText: 'Enter Bathrooms !!',
+                    validatorText: 'Enter number of bathrooms !!'.tr(context),
                     onTap: () {
                       Navigator.push(
                         context,
@@ -304,9 +304,9 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                     controller: luxuriesController,
                     suffixIcon: const Icon(Icons.arrow_forward_ios),
                     isFilled: false,
-                    labelText: 'Luxuries',
+                    labelText: 'Luxuries'.tr(context),
                     keyboardType: TextInputType.number,
-                    validatorText: 'Enter Luxuries!!',
+                    validatorText: 'Enter Luxuries !!'.tr(context),
                   ),
                   const SizedBox(height: 30),
                   //address
@@ -314,9 +314,9 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                     colorText: Colors.black,
                     controller: addressController,
                     isFilled: false,
-                    labelText: 'Address',
+                    labelText: 'Address'.tr(context),
                     keyboardType: TextInputType.text,
-                    validatorText: 'Enter The Address!!',
+                    validatorText: 'Enter The Address !!'.tr(context),
                   ),
                   const SizedBox(height: 30),
                   //location
@@ -338,9 +338,9 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                     colorText: Colors.black,
                     controller: locationController,
                     isFilled: false,
-                    labelText: 'Location',
+                    labelText: 'Location'.tr(context),
                     keyboardType: TextInputType.text,
-                    validatorText: 'Enter The Location !!',
+                    validatorText: 'Enter The Location !!'.tr(context),
                   ),
                   const SizedBox(height: 30),
                   //Image
@@ -352,9 +352,9 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                     controller: typeController,
                     isFilled: false,
                     suffixIcon: const Icon(Icons.arrow_forward_ios),
-                    labelText: 'Type Your Property',
+                    labelText: 'Your property type'.tr(context),
                     keyboardType: TextInputType.text,
-                    validatorText: 'Enter The Type Your Property !!',
+                    validatorText: 'Enter Your property type !!'.tr(context),
                     onTap: () {
                       Navigator.push(
                         context,
@@ -370,15 +370,15 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                     colorText: Colors.black,
                     controller: descController,
                     isFilled: false,
-                    labelText: 'Description',
+                    labelText: 'Description'.tr(context),
                     keyboardType: TextInputType.text,
                     maxLines: 4,
-                    validatorText: 'Enter The Description !!',
+                    validatorText: 'Enter The Description !!'.tr(context),
                   ),
                   const SizedBox(height: 30),
                   CustomButon(
                     isLoading: isLoading,
-                    text: 'Add My Property',
+                    text: 'Add My Property'.tr(context),
                     width: double.infinity,
                     radius: 10,
                     onPressed: () async {

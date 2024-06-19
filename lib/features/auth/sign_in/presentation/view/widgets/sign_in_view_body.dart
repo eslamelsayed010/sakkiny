@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/app_router.dart';
 import 'package:sakkiny/core/utils/assets.dart';
 import 'package:sakkiny/core/utils/cache_helper.dart';
@@ -73,9 +74,9 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         height: 200,
                       ),
                     ),
-                    const Text(
-                      'LOGIN',
-                      style: TextStyle(
+                     Text(
+                      'LOGIN'.tr(context),
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25,
                         color: kLogoColor,
@@ -86,8 +87,8 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                       controller: emailController,
                       keyboardType: TextInputType.emailAddress,
                       prefixIcon: const Icon(Icons.email_outlined),
-                      labelText: 'E-mail Address',
-                      validatorText: 'enter your e-mail address !',
+                      labelText: 'E-mail Address'.tr(context),
+                      validatorText: 'enter your e-mail address !'.tr(context),
                     ),
                     const SizedBox(height: 15),
                     CustomTextFormField(
@@ -107,8 +108,8 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                       controller: passwordController,
                       keyboardType: TextInputType.visiblePassword,
                       prefixIcon: const Icon(Icons.lock_outline),
-                      labelText: 'Password',
-                      validatorText: 'enter your password !',
+                      labelText: 'Password'.tr(context),
+                      validatorText: 'enter your password !'.tr(context),
                       obscure: isPassword,
                       suffixIcon: isPassword
                           ? const Icon(
@@ -129,7 +130,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                     Center(
                       child: CustomButon(
                         width: MediaQuery.of(context).size.width * .65,
-                        text: 'LOGIN',
+                        text: 'LOGIN'.tr(context),
                         isLoading: isLoading,
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
@@ -147,8 +148,8 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                     ),
                     const SizedBox(height: 20),
                     CustomTextButton(
-                      text: 'Don\'t have an account ?',
-                      textButton: 'Register',
+                      text: "Don't have an account ?".tr(context),
+                      textButton: 'Register'.tr(context),
                       onPressed: () {
                         GoRouter.of(context).push(AppRouter.kSignUpView);
                       },

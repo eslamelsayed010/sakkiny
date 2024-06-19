@@ -12,9 +12,30 @@ class CustomOwnerServicesDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const CircleAvatar(
-          radius: 30,
-          backgroundImage: AssetImage(AssetsData.loma3),
+        Stack(
+          alignment: AlignmentDirectional.bottomEnd,
+          children: [
+        const    CircleAvatar(
+              radius: 25,
+              backgroundImage: AssetImage(AssetsData.user),
+            ),
+         const   Positioned(
+              bottom: 2.5,
+              right: 2.5,
+              child: CircleAvatar(
+                radius: 6,
+                backgroundColor: Colors.white,
+              ),
+            ),
+            Positioned(
+              bottom: 3,
+              right: 3,
+              child: CircleAvatar(
+                radius: 5,
+                backgroundColor: _getStatusColor(service.userId?.status),
+              ),
+            ),
+          ],
         ),
         const SizedBox(width: 10),
         Expanded(
@@ -33,9 +54,9 @@ class CustomOwnerServicesDetails extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    'Eslam Elsayed',
-                    style: TextStyle(
+                  Text(
+                    service.userId?.name ?? '',
+                    style:const TextStyle(
                       color: Colors.black38,
                       fontWeight: FontWeight.bold,
                       fontSize: 11,
@@ -77,33 +98,16 @@ class CustomOwnerServicesDetails extends StatelessWidget {
             ],
           ),
         ),
-        // The FloatingActionButton section is commented out. If you want to include it, uncomment and adjust as needed.
-        // Row(
-        //   children: [
-        //     FloatingActionButton(
-        //       heroTag: 'message_rounded_owner',
-        //       backgroundColor: Colors.grey[300],
-        //       mini: true,
-        //       child: const Icon(
-        //         Icons.message_rounded,
-        //         color: kLogoColor,
-        //       ),
-        //       onPressed: () {},
-        //     ),
-        //     const SizedBox(width: 10),
-        //     FloatingActionButton(
-        //       heroTag: 'phone_owner',
-        //       backgroundColor: Colors.grey[300],
-        //       mini: true,
-        //       child: const Icon(
-        //         Icons.phone,
-        //         color: kLogoColor,
-        //       ),
-        //       onPressed: () {},
-        //     ),
-        //   ],
-        // ),
+        
       ],
     );
+  }
+
+  Color _getStatusColor(String? status) {
+    if (status == 'online') {
+      return Colors.green;
+    } else {
+      return Colors.red;
+    }
   }
 }

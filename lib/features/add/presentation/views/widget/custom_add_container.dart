@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_divider.dart';
 
@@ -24,7 +25,7 @@ class CustomAddContainer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  text,
+                  text.tr(context),
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.black,

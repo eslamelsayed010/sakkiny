@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 
 class NoResultSearchServices extends StatelessWidget {
   const NoResultSearchServices({super.key});
@@ -9,11 +10,11 @@ class NoResultSearchServices extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children:  [
           Center(
             child: Text(
-              'Search For Show Services',
-              style: TextStyle(
+              'Search For Show Services'.tr(context),
+              style: const TextStyle(
                 color: Colors.grey,
                 fontSize: 20,
               ),

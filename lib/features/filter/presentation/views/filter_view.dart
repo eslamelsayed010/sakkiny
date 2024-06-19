@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/features/filter/presentation/mange/filter_cubit.dart';
 import 'package:sakkiny/features/filter/presentation/mange/filter_state.dart';
 import 'package:sakkiny/features/filter/presentation/views/widgets/error_filter_view.dart';
@@ -18,7 +19,7 @@ class FilterView extends StatelessWidget {
       create: (context) => FilterCubit(),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Search Filter'),
+          title: Text('Search Filter'.tr(context)),
           centerTitle: true,
         ),
         body: BlocConsumer<FilterCubit, FilterStates>(

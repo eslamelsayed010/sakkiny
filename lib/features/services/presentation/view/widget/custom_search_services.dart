@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/app_router.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_text_form_field.dart';
@@ -18,28 +19,28 @@ class CustomSearchServices extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Expanded(
+            Expanded(
               child: CustomTextFormField(
-                contentPadding: EdgeInsets.all(15),
+                contentPadding: const EdgeInsets.all(15),
                 radius: 50,
                 isFilled: false,
                 enabled: false,
-                hintText: 'Search Your Services',
+                hintText: 'Search Your Services'.tr(context),
                 hintColor: Colors.black,
-                suffixIcon: Icon(
+                suffixIcon: const Icon(
                   Icons.search,
                   color: Colors.black,
                 ),
               ),
             ),
-            const SizedBox(width: 5),
-            FloatingActionButton(
-              heroTag: 'arrow_up_wide_search',
-              mini: true,
-              backgroundColor: kLogoColor,
-              onPressed: () {},
-              child: const Icon(FontAwesomeIcons.arrowUpWideShort),
-            )
+            // const SizedBox(width: 5),
+            // FloatingActionButton(
+            //   heroTag: 'arrow_up_wide_search',
+            //   mini: true,
+            //   backgroundColor: kLogoColor,
+            //   onPressed: () {},
+            //   child: const Icon(FontAwesomeIcons.arrowUpWideShort),
+            // )
           ],
         ),
       ),

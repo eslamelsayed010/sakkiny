@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/app_router.dart';
 import 'package:sakkiny/core/utils/assets.dart';
 import 'package:sakkiny/core/utils/const.dart';
@@ -21,12 +22,12 @@ class LoginSection extends StatelessWidget {
               backgroundImage: AssetImage(AssetsData.user),
             ),
             const SizedBox(width: 10),
-            const Expanded(
+             Expanded(
               child: Text(
-                'Log In / Create Account',
+                'Log In / Create Account'.tr(context),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   color: kLogoColor,
                 ),

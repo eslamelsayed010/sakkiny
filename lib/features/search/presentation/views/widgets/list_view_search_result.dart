@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/widgets/custom_divider.dart';
 import 'package:sakkiny/features/home/data/models/home_model/property.dart';
 import 'package:sakkiny/features/search/presentation/views/widgets/custom_property_details_search.dart';
@@ -14,11 +15,11 @@ class ListViewSearch extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15.0),
+           Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Text(
-              'Search Result',
-              style: TextStyle(
+              'Search Result'.tr(context),
+              style: const TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 20,
               ),

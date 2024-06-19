@@ -8,7 +8,7 @@ class CustomErrorWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 40),
+        padding: const EdgeInsets.symmetric(vertical: 40,horizontal: 20),
         child: Text(
           errorMassage,
           style: const TextStyle(

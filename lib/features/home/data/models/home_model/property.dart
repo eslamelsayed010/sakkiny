@@ -1,3 +1,4 @@
+import 'added_by.dart';
 import 'essentials.dart';
 import 'location.dart';
 import 'property_image.dart';
@@ -9,7 +10,7 @@ class Property {
   String? type;
   int? bedrooms;
   int? bathrooms;
-  String? addedBy;
+  AddedBy? addedBy;
   List<PropertyImage>? propertyImages;
   int? area;
   String? level;
@@ -24,6 +25,7 @@ class Property {
   DateTime? createdAt;
   DateTime? updatedAt;
   int? v;
+  int? roomsNumber;
 
   Property({
     this.essentials,
@@ -47,6 +49,7 @@ class Property {
     this.createdAt,
     this.updatedAt,
     this.v,
+    this.roomsNumber,
   });
 
   factory Property.fromJson(Map<String, dynamic> json) => Property(
@@ -58,7 +61,9 @@ class Property {
         type: json['type'] as String?,
         bedrooms: json['bedrooms'] as int?,
         bathrooms: json['bathrooms'] as int?,
-        addedBy: json['addedBy'] as String?,
+        addedBy: json['addedBy'] == null
+            ? null
+            : AddedBy.fromJson(json['addedBy'] as Map<String, dynamic>),
         propertyImages: (json['propertyImages'] as List<dynamic>?)
             ?.map((e) => PropertyImage.fromJson(e as Map<String, dynamic>))
             .toList(),
@@ -81,6 +86,7 @@ class Property {
             ? null
             : DateTime.parse(json['updatedAt'] as String),
         v: json['__v'] as int?,
+        roomsNumber: json['roomsNumber'] as int?,
       );
 
   Map<String, dynamic> toJson() => {
@@ -90,7 +96,7 @@ class Property {
         'type': type,
         'bedrooms': bedrooms,
         'bathrooms': bathrooms,
-        'addedBy': addedBy,
+        'addedBy': addedBy?.toJson(),
         'propertyImages': propertyImages?.map((e) => e.toJson()).toList(),
         'area': area,
         'level': level,
@@ -105,5 +111,6 @@ class Property {
         'createdAt': createdAt?.toIso8601String(),
         'updatedAt': updatedAt?.toIso8601String(),
         '__v': v,
+        'roomsNumber': roomsNumber,
       };
 }

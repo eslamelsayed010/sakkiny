@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 
 class BathroomsDetails extends StatefulWidget {
   const BathroomsDetails({super.key, required this.bController});
@@ -15,7 +16,7 @@ class BathroomsDetailsState extends State<BathroomsDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Choose bathrooms'),
+        title: Text('Choose number of bathrooms'.tr(context)),
       ),
       body: Column(
         children: <Widget>[

@@ -28,16 +28,19 @@ class DescSection extends StatelessWidget {
               'Level : ${property.level!}',
               style: const TextStyle(
                 fontSize: 15,
+                color: Colors.grey,
               ),
             ),
           ],
         ),
         Row(
           children: [
-            Text(
-              property.description!,
-              style: const TextStyle(
-                fontSize: 15,
+            Expanded(
+              child: Text(
+                property.description!,
+                style: const TextStyle(
+                  fontSize: 15,
+                ),
               ),
             ),
           ],
@@ -45,28 +48,17 @@ class DescSection extends StatelessWidget {
         Row(
           children: [
             const Spacer(),
-            if (property.isFurnished!)
-              Row(
-                children: const [
-                  Text(
-                    'Furnished',
-                    style: TextStyle(
-                      fontSize: 15,
-                    ),
+            Row(
+              children: [
+                Text(
+                  property.isFurnished! ? 'Furnished' : 'Not Furnished',
+                  style: const TextStyle(
+                    fontSize: 15,
+                    color: Colors.grey,
                   ),
-                ],
-              ),
-            if (!property.isFurnished!)
-              Row(
-                children: const [
-                  Text(
-                    'Not Furnished',
-                    style: TextStyle(
-                      fontSize: 15,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
+            ),
           ],
         ),
       ],

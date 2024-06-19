@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 
 class CustomChoseImage extends StatefulWidget {
   final Function(List<XFile>) onImagesSelected;
@@ -80,15 +81,15 @@ class _CustomChoseImageState extends State<CustomChoseImage> {
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  Icon(
+                children:  [
+                  const Icon(
                     Icons.image_outlined,
                     color: Colors.black,
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Text(
-                    'Add Photo',
-                    style: TextStyle(color: Colors.black),
+                    'Add Photos'.tr(context),
+                    style: const TextStyle(color: Colors.black),
                   ),
                 ],
               ),

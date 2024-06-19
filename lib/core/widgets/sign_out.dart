@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/app_router.dart';
 import 'package:sakkiny/core/utils/cache_helper.dart';
 import 'package:sakkiny/core/utils/const.dart';
@@ -31,22 +32,21 @@ class CustomSignOutButton extends StatelessWidget {
           ),
           context: context,
           builder: (context) => Padding(
-            padding: const EdgeInsets.all(15),
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CustomTextButton(
-                    text: 'Do you want sign out !',
-                    textButton: 'Yes',
-                    txtColor: Colors.red,
-                    onPressed: () {
-                      signOut(context);
-                    },
-                  )
-                ],
-              ),
+            padding: const EdgeInsets.all(20),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Spacer(),
+                CustomTextButton(
+                  text: 'Do you want sign out !'.tr(context),
+                  textButton: 'Yes'.tr(context),
+                  txtColor: Colors.red,
+                  onPressed: () {
+                    signOut(context);
+                  },
+                ),
+                const Spacer(),
+              ],
             ),
           ),
         );

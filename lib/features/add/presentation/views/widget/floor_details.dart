@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 
 class FloorDetails extends StatefulWidget {
   const FloorDetails({super.key, required this.fController});
@@ -11,16 +12,16 @@ class FloorDetails extends StatefulWidget {
 class FloorDetailsState extends State<FloorDetails> {
   List<String> floor = [
     'The ground',
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '10',
+    'The first',
+    'The second',
+    'The third',
+    'The fourth',
+    'Fifth',
+    'Sixth',
+    'Seventh',
+    'Eighth',
+    'Ninth',
+    'The tenth',
     'the last',
   ];
 
@@ -28,7 +29,7 @@ class FloorDetailsState extends State<FloorDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Choose floor'),
+        title:  Text('Choose floor'.tr(context)),
       ),
       body: Column(
         children: <Widget>[
@@ -40,10 +41,10 @@ class FloorDetailsState extends State<FloorDetails> {
               itemCount: floor.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(floor[index]),
+                  title: Text(floor[index].tr(context)),
                   onTap: () {
                     setState(() {
-                      widget.fController.text = floor[index].toString();
+                      widget.fController.text = floor[index];
                       Navigator.pop(context);
                     });
                   },

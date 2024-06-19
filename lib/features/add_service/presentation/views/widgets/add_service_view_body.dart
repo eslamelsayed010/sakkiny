@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/widgets/custom_button.dart';
 import 'package:sakkiny/core/widgets/custom_text_form_field.dart';
 import 'package:sakkiny/core/widgets/show_toast.dart';
@@ -101,9 +102,9 @@ class _AddServicesViewBodyState extends State<AddServicesViewBody> {
                     colorText: Colors.black,
                     controller: priceController,
                     isFilled: false,
-                    labelText: 'Price',
+                    labelText: 'Price'.tr(context),
                     keyboardType: TextInputType.number,
-                    validatorText: 'Enter The Price !!',
+                    validatorText: 'Enter The Price !!'.tr(context),
                   ),
                   const SizedBox(height: 30),
                   // location
@@ -117,6 +118,7 @@ class _AddServicesViewBodyState extends State<AddServicesViewBody> {
                       );
                       if (result != null) {
                         locationController.text = result['city_name'];
+                        // locationController.text = 'city_name';
                         lat = result['latLng'].latitude;
                         lang = result['latLng'].longitude;
                       }
@@ -124,9 +126,9 @@ class _AddServicesViewBodyState extends State<AddServicesViewBody> {
                     colorText: Colors.black,
                     controller: locationController,
                     isFilled: false,
-                    labelText: 'Location',
+                    labelText: 'Location'.tr(context),
                     keyboardType: TextInputType.text,
-                    validatorText: 'Enter The Location !!',
+                    validatorText: 'Enter The Location !!'.tr(context),
                   ),
                   const SizedBox(height: 30),
                   // Image
@@ -145,9 +147,9 @@ class _AddServicesViewBodyState extends State<AddServicesViewBody> {
                     colorText: Colors.black,
                     controller: typeController,
                     isFilled: false,
-                    labelText: 'Type Your Service',
+                    labelText: 'Your Service Type'.tr(context),
                     keyboardType: TextInputType.text,
-                    validatorText: 'Enter The Type Your Service !!',
+                    validatorText: 'Enter Your Service Type !!'.tr(context),
                   ),
                   const SizedBox(height: 30),
                   // address
@@ -155,9 +157,9 @@ class _AddServicesViewBodyState extends State<AddServicesViewBody> {
                     colorText: Colors.black,
                     controller: addressController,
                     isFilled: false,
-                    labelText: 'Address',
+                    labelText: 'Address'.tr(context),
                     keyboardType: TextInputType.text,
-                    validatorText: 'Enter  Your Address !!',
+                    validatorText: 'Enter Your Address !!'.tr(context),
                   ),
                   const SizedBox(height: 30),
                   // description
@@ -165,15 +167,15 @@ class _AddServicesViewBodyState extends State<AddServicesViewBody> {
                     colorText: Colors.black,
                     controller: descController,
                     isFilled: false,
-                    labelText: 'Description',
+                    labelText: 'Description'.tr(context),
                     keyboardType: TextInputType.text,
                     maxLines: 4,
-                    validatorText: 'Enter The Description !!',
+                    validatorText: 'Enter The Description !!'.tr(context),
                   ),
                   const SizedBox(height: 30),
                   CustomButon(
                     isLoading: isLoading,
-                    text: 'Add My Service',
+                    text: 'Add My Service'.tr(context),
                     width: double.infinity,
                     radius: 10,
                     onPressed: () async {
@@ -183,7 +185,14 @@ class _AddServicesViewBodyState extends State<AddServicesViewBody> {
                       print(addressController.text);
                       print(lang);
                       print(lat);
-                      print(selectedImages);
+                      print(
+                        selectedImages.map(
+                          (image) async => await MultipartFile.fromFile(
+                            image.path,
+                            filename: image.name,
+                          ),
+                        ),
+                      );
 
                       if (formKey.currentState!.validate()) {
                         cubit.addService(

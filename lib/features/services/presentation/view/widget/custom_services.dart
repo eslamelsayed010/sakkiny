@@ -25,14 +25,17 @@ class CustomServices extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CachedNetworkImage(
-              // fit: BoxFit.cover,
-              width: double.infinity,
-              height: 150,
-              imageUrl: service.images![0].secureUrl!,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: CachedNetworkImage(
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: 150,
+                imageUrl: service.images![0].secureUrl!,
 
-              errorWidget: (context, url, error) => const Center(
-                child: Icon(Icons.error),
+                errorWidget: (context, url, error) => const Center(
+                  child: Icon(Icons.error),
+                ),
               ),
             ),
             Padding(
@@ -56,10 +59,10 @@ class CustomServices extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      const Expanded(
+                      Expanded(
                         child: Text(
-                          'Beginning from 100LE',
-                          style: TextStyle(
+                          'Beginning from ${service.price}LE',
+                          style: const TextStyle(
                             fontSize: 10,
                             color: kLogoColor,
                             fontWeight: FontWeight.bold,
@@ -68,7 +71,6 @@ class CustomServices extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                      const Spacer(),
                       IconButton(
                         padding: EdgeInsets.zero,
                         icon: const Icon(
@@ -83,7 +85,7 @@ class CustomServices extends StatelessWidget {
                     children: [
                       const Icon(
                         Icons.location_on_outlined,
-                        color: kLogoColor,
+                        color: kLocationColor,
                         size: 15,
                       ),
                       Text(

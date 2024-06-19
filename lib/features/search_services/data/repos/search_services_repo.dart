@@ -1,8 +1,8 @@
-// import 'package:dartz/dartz.dart';
-// import 'package:lomaTV/core/errors/failures.dart';
-// import 'package:lomaTV/features/home/data/models/movie_model.dart';
-//
-// abstract class SearchRepo {
-//   Future<Either<Failures, List<MovieModel>>> fetchSearchMovie(
-//       {required String movieName});
-// }
+import 'package:dartz/dartz.dart';
+import 'package:sakkiny/core/errors/failures.dart';
+import 'package:sakkiny/features/services/data/models/get_service_model/service.dart';
+
+abstract class SearchServiceRepo {
+  Future<Either<Failures, List<Service>>> fetchSearchService(
+      {required String param});
+}

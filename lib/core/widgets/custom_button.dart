@@ -20,6 +20,7 @@ class CustomButon extends StatelessWidget {
     this.textColor = Colors.white,
     this.padding = const EdgeInsets.all(8),
     this.fontSize,
+    this.borderColor = Colors.grey,
   });
   final bool isLoading;
   final bool withBorder;
@@ -35,6 +36,7 @@ class CustomButon extends StatelessWidget {
   final Widget? itemLogo;
   final Color? colorLoadingIndicator;
   final Color? textColor;
+  final Color? borderColor;
   final EdgeInsetsGeometry? padding;
   final double? fontSize;
 
@@ -52,7 +54,7 @@ class CustomButon extends StatelessWidget {
       decoration: BoxDecoration(
         border: withBorder
             ? Border.all(
-                color: Colors.grey,
+                color: borderColor!,
                 width: 2,
               )
             : null,

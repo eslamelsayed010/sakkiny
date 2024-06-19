@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_button.dart';
 
@@ -43,7 +44,7 @@ class _TextFieldDetailsState extends State<TextFieldDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Chose details'),
+        title: Text('Chose luxuries'.tr(context)),
       ),
       body: Column(
         children: <Widget>[
@@ -62,7 +63,7 @@ class _TextFieldDetailsState extends State<TextFieldDetails> {
               itemBuilder: (context, index) {
                 final item = TextFieldDetails.names[index];
                 return ListTile(
-                  title: Text(item),
+                  title: Text(item.tr(context)),
                   trailing: Checkbox(
                     value: itemsMap[item] ?? false,
                     activeColor: kLogoColor,
@@ -79,7 +80,7 @@ class _TextFieldDetailsState extends State<TextFieldDetails> {
           ),
           CustomButon(
             radius: 8,
-            text: 'Confirm',
+            text: 'Confirm'.tr(context),
             onPressed: () {
               List<String> selectedItems = [];
               // Get the selected items from the map

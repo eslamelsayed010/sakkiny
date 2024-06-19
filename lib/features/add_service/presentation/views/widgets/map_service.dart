@@ -1,14 +1,16 @@
-// ignore_for_file: use_build_context_synchronously, library_private_types_in_public_api
+// ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
+import 'package:sakkiny/core/widgets/show_toast.dart';
 
 class MapServicePage extends StatefulWidget {
   const MapServicePage({super.key});
 
   @override
-  _MapSearchPageState createState() => _MapSearchPageState();
+  State<MapServicePage> createState() => _MapSearchPageState();
 }
 
 class _MapSearchPageState extends State<MapServicePage> {
@@ -34,11 +36,6 @@ class _MapSearchPageState extends State<MapServicePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // appBar: AppBar(
-        //   automaticallyImplyLeading: false,
-        //   title: const Text('Map Search'),
-        //   centerTitle: true,
-        // ),
         body: Stack(
           children: [
             GoogleMap(
@@ -60,9 +57,10 @@ class _MapSearchPageState extends State<MapServicePage> {
                     Expanded(
                       child: TextField(
                         controller: searchController,
-                        decoration: const InputDecoration(
-                          hintText: 'Search for a location...',
-                          contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
+                        decoration: InputDecoration(
+                          hintText: 'Search for a location...'.tr(context),
+                          contentPadding:
+                              const EdgeInsets.symmetric(horizontal: 16.0),
                           border: InputBorder.none,
                         ),
                         onChanged: (value) {
@@ -100,13 +98,11 @@ class _MapSearchPageState extends State<MapServicePage> {
         if (locations.isNotEmpty) {
           Location location = locations.first;
           LatLng latLng = LatLng(location.latitude, location.longitude);
-
           _mapController.animateCamera(CameraUpdate.newLatLng(latLng));
           result = {
             'city_name': searchController.text,
             'latLng': latLng,
           };
-
           setState(() {
             _markers.clear();
             _markers.add(
@@ -123,14 +119,15 @@ class _MapSearchPageState extends State<MapServicePage> {
             );
           });
         } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-                content: Text('No results found for the searched location.')),
+          showToast(
+            txt: 'No results found for the searched location.'.tr(context),
+            state: ToastState.WARRING,
           );
         }
       } catch (e) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error searching for location: $e')),
+        showToast(
+          txt: 'Error searching for location:'.tr(context) + e.toString(),
+          state: ToastState.WARRING,
         );
       }
     }

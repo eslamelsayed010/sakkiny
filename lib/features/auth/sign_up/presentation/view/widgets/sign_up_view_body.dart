@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/app_router.dart';
 import 'package:sakkiny/core/utils/assets.dart';
 import 'package:sakkiny/core/utils/const.dart';
@@ -73,9 +74,9 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         height: 100,
                       ),
                     ),
-                    const Text(
-                      'REGISTER',
-                      style: TextStyle(
+                     Text(
+                      'REGISTER'.tr(context),
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25,
                         color: kLogoColor,
@@ -86,32 +87,32 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       controller: emailController,
                       keyboardType: TextInputType.emailAddress,
                       prefixIcon: const Icon(Icons.email_outlined),
-                      labelText: 'E-mail Address',
-                      validatorText: 'enter your e-mail address !',
+                      labelText: 'E-mail Address'.tr(context),
+                      validatorText: 'enter your e-mail address !'.tr(context),
                     ),
                     const SizedBox(height: 10),
                     CustomTextFormField(
                       controller: nameController,
                       keyboardType: TextInputType.name,
                       prefixIcon: const Icon(Icons.person_outlined),
-                      labelText: 'Name',
-                      validatorText: 'enter your name !',
+                      labelText: 'Name'.tr(context),
+                      validatorText: 'enter your name !'.tr(context),
                     ),
                     const SizedBox(height: 10),
                     CustomTextFormField(
                       controller: phoneController,
                       keyboardType: TextInputType.phone,
                       prefixIcon: const Icon(Icons.phone_android_outlined),
-                      labelText: 'Phone',
-                      validatorText: 'enter your Phone !',
+                      labelText: 'Phone'.tr(context),
+                      validatorText: 'enter your Phone !'.tr(context),
                     ),
                     const SizedBox(height: 10),
                     CustomTextFormField(
                       controller: passwordController,
                       keyboardType: TextInputType.visiblePassword,
                       prefixIcon: const Icon(Icons.lock_outline),
-                      labelText: 'Password',
-                      validatorText: 'enter your password !',
+                      labelText: 'Password'.tr(context),
+                      validatorText: 'enter your password !'.tr(context),
                       obscure: isPassword,
                       suffixIcon: isPassword
                           ? const Icon(
@@ -133,7 +134,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     Row(
                       children: [
                         Radio(
-                          value: 'Male',
+                          value: 'Male'.tr(context),
                           groupValue: selectedRadioValue,
                           activeColor: kLogoColor,
                           onChanged: (value) {
@@ -142,10 +143,10 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                             });
                           },
                         ),
-                        const Text('Male'),
+                         Text('Male'.tr(context)),
                         const Spacer(),
                         Radio(
-                          value: 'Female',
+                          value: 'Female'.tr(context),
                           groupValue: selectedRadioValue,
                           activeColor: kLogoColor,
                           onChanged: (value) {
@@ -154,11 +155,11 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                             });
                           },
                         ),
-                        const Text('Female'),
+                         Text('Female'.tr(context)),
                         const Spacer(),
                         Column(
                           children: [
-                            const Text('Age'),
+                             Text('Age'.tr(context)),
                             const SizedBox(height: 5),
                             SizedBox(
                               width: 50,
@@ -166,7 +167,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                               child: CustomTextFormField(
                                 controller: ageController,
                                 keyboardType: TextInputType.number,
-                                validatorText: 'enter your age !',
+                                validatorText: 'enter your age !'.tr(context),
                               ),
                             ),
                           ],
@@ -177,7 +178,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     Center(
                       child: CustomButon(
                         width: MediaQuery.of(context).size.width * .65,
-                        text: 'REGISTER',
+                        text: 'REGISTER'.tr(context),
                         isLoading: isLoading,
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
@@ -199,8 +200,8 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     ),
                     const SizedBox(height: 10),
                     CustomTextButton(
-                      text: 'Already have an account ?',
-                      textButton: 'Login',
+                      text: 'Already have an account ?'.tr(context),
+                      textButton: 'Login'.tr(context),
                       onPressed: () {
                         GoRouter.of(context)
                             .pushReplacement(AppRouter.kSignInView);

@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:sakkiny/core/errors/failures.dart';
+import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/utils/dio_helper.dart';
 import 'package:sakkiny/core/utils/end_points.dart';
 import 'package:sakkiny/features/add/data/models/add_property_model/add_property_model.dart';
@@ -27,8 +28,7 @@ class AddRepoImpl implements AddRepo {
     try {
       var data = await DioHelper.postDataWithImage(
         url: addPropertyy,
-        token:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVzbGltZWxzZXlkQGdtYWlsLmNvbSIsImlkIjoiNjY0NTBlMDhjNjNiMmIxNmU0OTJmMmIxIiwicm9sZSI6IlVzZXIiLCJpc2xvZ2dlZCI6dHJ1ZSwiaWF0IjoxNzE4NDYxOTAxfQ.Vnm5faW3NgtWoBs3Q_2zjEoJo6sM4eHlc2LY4pnjwIU',
+        token: token,
         data: {
           "description": description,
           "type": type,

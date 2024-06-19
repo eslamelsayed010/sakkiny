@@ -15,9 +15,7 @@ class ServiceBlocBuilder extends StatelessWidget {
     return BlocBuilder<ServiceCubit, ServiceStates>(
       builder: (context, state) {
         if (state is SuccessServiceState) {
-          return GridViewServices(
-            services: state.service,
-          );
+          return GridViewServices(services: state.service);
         } else if (state is FailureServiceState) {
           return CustomErrorWidget(errorMassage: state.error);
         } else {

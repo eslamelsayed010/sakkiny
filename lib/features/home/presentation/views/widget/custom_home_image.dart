@@ -31,28 +31,28 @@ class CustomHomeImage extends StatelessWidget {
           padding: const EdgeInsets.all(5),
           child: Row(
             children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: Colors.grey[300],
-                ),
-                child: Row(
-                  children: const [
-                    Icon(
-                      Icons.star,
-                      color: Colors.amber,
-                      size: 20,
-                    ),
-                    Text(
-                      '2.5',
-                      style: TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              // Container(
+              //   padding: const EdgeInsets.symmetric(horizontal: 8),
+              //   decoration: BoxDecoration(
+              //     borderRadius: BorderRadius.circular(50),
+              //     color: Colors.grey[300],
+              //   ),
+              //   child: Row(
+              //     children: const [
+              //       Icon(
+              //         Icons.star,
+              //         color: Colors.amber,
+              //         size: 20,
+              //       ),
+              //       Text(
+              //         '2.5',
+              //         style: TextStyle(
+              //           fontSize: 15,
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
               const Spacer(),
               Material(
                 color: Colors.transparent,

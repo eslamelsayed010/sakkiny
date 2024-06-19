@@ -42,9 +42,12 @@ class _LocationSectionState extends State<LocationSection> {
               onMapCreated: (controller) {
                 setState(() {
                   marker.add(
-                    const Marker(
-                      markerId: MarkerId('1'),
-                      position: LatLng(30.5876, 31.5020),
+                    Marker(
+                      markerId: const MarkerId('1'),
+                      position: LatLng(
+                        widget.property.location!.latitude!,
+                        widget.property.location!.longitude!,
+                      ),
                     ),
                   );
                 });

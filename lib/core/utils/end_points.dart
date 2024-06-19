@@ -13,3 +13,5 @@ const getProperty = '/property';
 const getService = '/service';
 
 const addServicee = '/service/add';
+
+const searchService = '/service/search';

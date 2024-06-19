@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
+import 'package:sakkiny/core/utils/app_router.dart';
 import 'package:sakkiny/core/utils/assets.dart';
 import 'package:sakkiny/core/utils/const.dart';
 
@@ -42,69 +43,38 @@ class CustomAppBarHome extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          Stack(
-            alignment: AlignmentDirectional.bottomEnd,
-            children: const [
-              CircleAvatar(
-                radius: 25,
-                backgroundImage: AssetImage(AssetsData.loma3),
-              ),
-              Positioned(
-                bottom: 2.5,
-                right: 2.5,
-                child: CircleAvatar(
-                  radius: 6,
-                  backgroundColor: Colors.white,
+          InkWell(
+            onTap: () {
+              GoRouter.of(context).push(AppRouter.kPersonView);
+            },
+            child: Stack(
+              alignment: AlignmentDirectional.bottomEnd,
+              children: const [
+                CircleAvatar(
+                  radius: 25,
+                  backgroundImage: AssetImage(AssetsData.user),
                 ),
-              ),
-              Positioned(
-                bottom: 3,
-                right: 3,
-                child: CircleAvatar(
-                  radius: 5,
-                  backgroundColor: Colors.green,
+                Positioned(
+                  bottom: 2.5,
+                  right: 2.5,
+                  child: CircleAvatar(
+                    radius: 6,
+                    backgroundColor: Colors.white,
+                  ),
                 ),
-              )
-            ],
+                Positioned(
+                  bottom: 3,
+                  right: 3,
+                  child: CircleAvatar(
+                    radius: 5,
+                    backgroundColor: Colors.green,
+                  ),
+                )
+              ],
+            ),
           ),
         ],
       ),
     );
   }
-}
-
-AppBar buildAppBarHome(BuildContext context) {
-  return AppBar(
-    backgroundColor: Colors.transparent,
-    elevation: 0,
-    title: Row(
-      children: [
-        Image.asset(
-          AssetsData.logoImage,
-          height: 30,
-        ),
-        const Text(
-          'akkiny',
-          style: TextStyle(
-            color: kLogoColor,
-          ),
-        ),
-        const Spacer(),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            FontAwesomeIcons.magnifyingGlass,
-            color: Colors.black,
-          ),
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            FontAwesomeIcons.user,
-            color: Colors.black,
-          ),
-        ),
-      ],
-    ),
-  );
 }

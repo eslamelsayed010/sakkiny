@@ -7,12 +7,14 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 class PageViewImageServices extends StatefulWidget {
   const PageViewImageServices({super.key, required this.service});
   final Service service;
+
   @override
   State<PageViewImageServices> createState() => _PageViewImageServicesState();
 }
 
 class _PageViewImageServicesState extends State<PageViewImageServices> {
   PageController pageController = PageController();
+
   @override
   void dispose() {
     pageController.dispose();
@@ -25,12 +27,12 @@ class _PageViewImageServicesState extends State<PageViewImageServices> {
       alignment: Alignment.bottomCenter,
       children: [
         SizedBox(
-          height: MediaQuery.of(context).size.height * .4,
+          height: MediaQuery.of(context).size.height * .5,
           child: PageView.builder(
             controller: pageController,
             physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) => CustomServicesImage(
-              image: widget.service.images![0].secureUrl!,
+              image: widget.service.images![index].secureUrl!,
             ),
             itemCount: widget.service.images!.length,
           ),
@@ -39,7 +41,7 @@ class _PageViewImageServicesState extends State<PageViewImageServices> {
           padding: const EdgeInsets.only(bottom: 10),
           child: SmoothPageIndicator(
             controller: pageController,
-            count: 5,
+            count: widget.service.images!.length,
             effect: const ExpandingDotsEffect(
               dotColor: Colors.grey,
               activeDotColor: kLogoColor,

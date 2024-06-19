@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 
 class TypeDetails extends StatefulWidget {
   const TypeDetails({super.key, required this.controller});
@@ -22,7 +23,7 @@ class TypeDetailsState extends State<TypeDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Choose Type'),
+        title:  Text('Choose Type'.tr(context)),
       ),
       body: Column(
         children: <Widget>[
@@ -34,7 +35,7 @@ class TypeDetailsState extends State<TypeDetails> {
               itemCount: types.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(types[index]),
+                  title: Text(types[index].tr(context)),
                   onTap: () {
                     setState(() {
                       widget.controller.text = types[index].toString();

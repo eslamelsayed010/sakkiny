@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/app_router.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_text_form_field.dart';
@@ -18,15 +19,15 @@ class CustomSearch extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Expanded(
+            Expanded(
               child: CustomTextFormField(
-                contentPadding: EdgeInsets.all(15),
+                contentPadding: const EdgeInsets.all(15),
                 radius: 50,
                 isFilled: false,
                 enabled: false,
-                hintText: 'Search Your Property',
+                hintText: 'Search Your Property'.tr(context),
                 hintColor: Colors.black,
-                suffixIcon: Icon(
+                suffixIcon: const Icon(
                   Icons.search,
                   color: Colors.black,
                 ),

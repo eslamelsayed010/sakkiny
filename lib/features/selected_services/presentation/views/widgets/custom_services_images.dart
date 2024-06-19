@@ -10,13 +10,9 @@ class CustomServicesImage extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
       child: CachedNetworkImage(
         imageUrl: image,
-        fit: BoxFit.cover,
+        // fit: BoxFit.cover,
         errorWidget: (context, url, error) => const Icon(Icons.error_outline),
       ),
-      // Image.asset(
-      //   AssetsData.services,
-      //   fit: BoxFit.cover,
-      // ),
     );
   }
 }

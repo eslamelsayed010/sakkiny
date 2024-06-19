@@ -3,15 +3,17 @@ import 'package:go_router/go_router.dart';
 import 'package:sakkiny/core/utils/app_router.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/features/search_services/presentation/views/widgets/custom_image_services_search.dart';
+import 'package:sakkiny/features/services/data/models/get_service_model/service.dart';
 
 class CustomServicesDetailsSearch extends StatelessWidget {
-  const CustomServicesDetailsSearch({super.key});
+  const CustomServicesDetailsSearch({super.key, required this.service});
+  final Service service;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kSelectedServicesView);
+        GoRouter.of(context).push(AppRouter.kSelectedServicesView,extra: service);
       },
       child: Padding(
         padding: const EdgeInsets.only(left: 20.0, right: 10),
@@ -21,15 +23,19 @@ class CustomServicesDetailsSearch extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CustomImageSearchServices(),
+              service.images != null && service.images!.isNotEmpty
+                  ? CustomImageSearchServices(
+                      image: service.images![0].secureUrl!)
+                  : Container(), // Show an empty container or a placeholder if there are no images
               const SizedBox(width: 15),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Electrical maintenance services',
-                      style: TextStyle(
+                    Text(
+                      service.serviceCategory ??
+                          '', // Provide a fallback in case serviceCategory is null
+                      style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
                       ),
@@ -37,9 +43,10 @@ class CustomServicesDetailsSearch extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(height: 10),
-                    const Text(
-                      'For Technician conducts an inspection to determine the maintenance process and cost',
-                      style: TextStyle(
+                    Text(
+                      service.description ??
+                          '', // Provide a fallback in case description is null
+                      style: const TextStyle(
                         fontSize: 12,
                         color: Colors.grey,
                       ),
@@ -49,10 +56,11 @@ class CustomServicesDetailsSearch extends StatelessWidget {
                     const Spacer(),
                     Expanded(
                       child: Row(
+                        mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Text(
-                            '100 LE',
-                            style: TextStyle(
+                          Text(
+                            '${service.price ?? 0} / LE', // Provide a fallback in case price is null
+                            style: const TextStyle(
                               fontSize: 15,
                               color: kLogoColor,
                               fontWeight: FontWeight.bold,

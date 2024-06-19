@@ -1,6 +1,9 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sakkiny/core/bloc_observer/bloc_observer.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/cache_helper.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/utils/dio_helper.dart';
@@ -11,6 +14,7 @@ import 'package:sakkiny/features/home/presentation/manger/recommended_cubit/reco
 import 'package:sakkiny/features/layout/manger/layout_cubit.dart';
 import 'package:sakkiny/features/services/presentation/manger/cubit/service_cubit.dart';
 import 'core/utils/app_router.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,6 +47,25 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp.router(
+        supportedLocales: const [
+          Locale('en'),
+          Locale('ar'),
+        ],
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate
+        ],
+        localeResolutionCallback: (deviceLocale, supportedLocales) {
+          for (var locale in supportedLocales) {
+            if (deviceLocale != null &&
+                deviceLocale.languageCode == locale.languageCode) {
+              return deviceLocale;
+            }
+          }
+          return supportedLocales.first;
+        },
         routerConfig: AppRouter.router,
         debugShowCheckedModeBanner: false,
         theme: buildThemeData(),

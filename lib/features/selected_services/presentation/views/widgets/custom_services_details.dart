@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sakkiny/core/widgets/custom_divider.dart';
-import 'package:sakkiny/features/selected/presentation/views/widgets/connect_section.dart';
+import 'package:sakkiny/features/selected_services/presentation/views/widgets/connect_section.dart';
 import 'package:sakkiny/features/selected_services/presentation/views/widgets/custom_owner_services_details.dart';
-import 'package:sakkiny/features/selected_services/presentation/views/widgets/desc_services_section.dart';
 import 'package:sakkiny/features/selected_services/presentation/views/widgets/location_service_section.dart';
 import 'package:sakkiny/features/services/data/models/get_service_model/service.dart';
 
@@ -20,9 +19,9 @@ class CustomServicesDetails extends StatelessWidget {
             children: [
               LocationServiceSection(service: service),
               const SizedBox(height: 20),
-              DescServicesSection(
-                service: service,
-              ),
+              // DescServicesSection(
+              //   service: service,
+              // ),
               const SizedBox(height: 20),
               CustomOwnerServicesDetails(
                 service: service,
@@ -34,7 +33,8 @@ class CustomServicesDetails extends StatelessWidget {
             ],
           ),
         ),
-        const ConnectSection()
+        ConnectSection(userId: service.userId!),
+        const SizedBox(height: 20),
       ],
     );
   }

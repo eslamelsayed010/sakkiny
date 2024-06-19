@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sakkiny/features/services/presentation/view/widget/bloc_bulider/service_bloc_bulider.dart';
+import 'package:sakkiny/features/services/presentation/view/widget/bloc_builder/service_bloc_builder.dart';
 import 'package:sakkiny/features/services/presentation/view/widget/custom_search_services.dart';
 
 class ServicesView extends StatelessWidget {
@@ -15,7 +15,7 @@ class ServicesView extends StatelessWidget {
           SizedBox(height: 10),
           CustomSearchServices(),
           SizedBox(height: 10),
-          //  GridViewServices(),
+          //GridViewServices(),
           ServiceBlocBuilder()
         ],
       ),

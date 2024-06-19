@@ -28,7 +28,7 @@ class AddViewBody extends StatelessWidget {
         ),
         const SizedBox(height: 25),
         const CustomAddContainer(
-          text: 'View property evaluation ',
+          text: 'View property evaluation',
           icon: Icons.elevator_outlined,
         ),
         const SizedBox(height: 25),

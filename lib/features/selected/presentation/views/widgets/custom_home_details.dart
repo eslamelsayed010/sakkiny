@@ -29,7 +29,7 @@ class CustomHomeDetails extends StatelessWidget {
             ],
           ),
         ),
-        const ConnectSection(),
+        ConnectSection(addedBy: property.addedBy!),
       ],
     );
   }

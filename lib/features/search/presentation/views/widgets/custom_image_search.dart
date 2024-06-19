@@ -25,28 +25,28 @@ class CustomImageSearch extends StatelessWidget {
           padding: const EdgeInsets.all(5),
           child: Row(
             children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: Colors.grey[300],
-                ),
-                child: Row(
-                  children: const [
-                    Icon(
-                      Icons.star,
-                      color: Colors.amber,
-                      size: 20,
-                    ),
-                    Text(
-                      '4.5',
-                      style: TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              // Container(
+              //   padding: const EdgeInsets.symmetric(horizontal: 8),
+              //   decoration: BoxDecoration(
+              //     borderRadius: BorderRadius.circular(50),
+              //     color: Colors.grey[300],
+              //   ),
+              //   child: Row(
+              //     children: const [
+              //       Icon(
+              //         Icons.star,
+              //         color: Colors.amber,
+              //         size: 20,
+              //       ),
+              //       Text(
+              //         '4.5',
+              //         style: TextStyle(
+              //           fontSize: 15,
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
               const Spacer(),
               Material(
                 elevation: 20,
@@ -67,16 +67,6 @@ class CustomImageSearch extends StatelessWidget {
                   ),
                 ),
               ),
-              // FloatingActionButton(
-              //   heroTag: 'favorite',
-              //   backgroundColor: Colors.grey[300],
-              //   mini: true,
-              //   onPressed: () {},
-              //   child: const Icon(
-              //     Icons.favorite,
-              //     color: kLogoColor,
-              //   ),
-              // )
             ],
           ),
         ),

@@ -20,9 +20,9 @@ class CustomOwnerDetails extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Eslam Elsayed',
-                style: TextStyle(
+              Text(
+                property.addedBy!.name!,
+                style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 15,
@@ -54,7 +54,6 @@ class CustomOwnerDetails extends StatelessWidget {
             ],
           ),
         ),
-
         // Row(
         //   children: [
         //     FloatingActionButton(
