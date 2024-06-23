@@ -59,6 +59,7 @@ dependencies:
   geolocator: ^11.1.0
   flutter_localization: ^0.1.14
   url_launcher: ^6.1.11
+  share_plus: ^4.5.3
 
 dev_dependencies:
   flutter_test:
