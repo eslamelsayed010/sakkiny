@@ -225,5 +225,9 @@
 
   "other":"================================================================",
   "No properties have been added yet..":"لم يتم اضافه عقارات حتي الان..",
-  "No services have been added yet..":"لم يتم اضافه خدمات حتي الان.."
+  "No services have been added yet..":"لم يتم اضافه خدمات حتي الان..",
+  "Language":"اللغه",
+  "Country":"الدوله",
+  "ar":"العربيه",
+  "en":"الانجليزيه"
 }

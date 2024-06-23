@@ -12,6 +12,8 @@ import 'package:sakkiny/core/utils/theme_data.dart';
 import 'package:sakkiny/features/home/presentation/manger/property_cubit/property_cubit.dart';
 import 'package:sakkiny/features/home/presentation/manger/recommended_cubit/recommended_cubit.dart';
 import 'package:sakkiny/features/layout/manger/layout_cubit.dart';
+import 'package:sakkiny/features/profile/presentation/manger/lang_cubit/lang_cubit.dart';
+import 'package:sakkiny/features/profile/presentation/manger/lang_cubit/lang_states.dart';
 import 'package:sakkiny/features/services/presentation/manger/cubit/service_cubit.dart';
 import 'core/utils/app_router.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -45,31 +47,38 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => ServiceCubit()..fetchService(),
         ),
+        BlocProvider(
+          create: (context) => LocaleCubit()..getSavedLanguage(),
+        ),
       ],
-      child: MaterialApp.router(
-        supportedLocales: const [
-          Locale('en'),
-          Locale('ar'),
-        ],
-        localizationsDelegates: const [
-          AppLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate
-        ],
-        localeResolutionCallback: (deviceLocale, supportedLocales) {
-          for (var locale in supportedLocales) {
-            if (deviceLocale != null &&
-                deviceLocale.languageCode == locale.languageCode) {
-              return deviceLocale;
+      child: BlocBuilder<LocaleCubit, ChangeLocaleState>(
+          builder: (context, state) {
+        return MaterialApp.router(
+          locale: state.locale,
+          supportedLocales: const [
+            Locale('en'),
+            Locale('ar'),
+          ],
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate
+          ],
+          localeResolutionCallback: (deviceLocale, supportedLocales) {
+            for (var locale in supportedLocales) {
+              if (deviceLocale != null &&
+                  deviceLocale.languageCode == locale.languageCode) {
+                return deviceLocale;
+              }
             }
-          }
-          return supportedLocales.first;
-        },
-        routerConfig: AppRouter.router,
-        debugShowCheckedModeBanner: false,
-        theme: buildThemeData(),
-      ),
+            return supportedLocales.first;
+          },
+          routerConfig: AppRouter.router,
+          debugShowCheckedModeBanner: false,
+          theme: buildThemeData(),
+        );
+      }),
     );
   }
 }

@@ -225,5 +225,9 @@
 
   "other":"================================================================",
   "No properties have been added yet..":"No properties have been added yet..",
-  "No services have been added yet..":"No services have been added yet.."
+  "No services have been added yet..":"No services have been added yet..",
+  "Language":"Language",
+  "Country":"Country",
+  "ar":"Arabic",
+  "en":"English"
 }
