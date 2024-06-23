@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_button.dart';
 import 'package:sakkiny/features/services/data/models/get_service_model/user_id.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ConnectSection extends StatelessWidget {
-  const ConnectSection({Key? key, required this.userId}) : super(key: key);
+class ConnectSectionService extends StatelessWidget {
+  const ConnectSectionService({Key? key, required this.userId})
+      : super(key: key);
 
   final UserId userId;
 
@@ -21,19 +23,19 @@ class ConnectSection extends StatelessWidget {
             CustomButon(
               padding: EdgeInsets.zero,
               height: 40,
-              width: 160,
+              //width: 160,
               background: Colors.grey[350],
               radius: 8,
               textColor: kLogoColor,
-              text: 'Email',
-              //fontSize: 9,
+              text: 'Email'.tr(context),
+              fontSize: 12,
               addLogo: true,
               itemLogo: const Padding(
                 padding: EdgeInsets.only(left: 5),
                 child: Icon(
                   Icons.email_outlined,
                   color: Colors.red,
-                  //size: 10,
+                  size: 14,
                 ),
               ),
               onPressed: () {
@@ -44,40 +46,42 @@ class ConnectSection extends StatelessWidget {
             CustomButon(
               padding: EdgeInsets.zero,
               height: 40,
-              width: 160,
+              //width: 160,
               background: Colors.grey[350],
               radius: 8,
               textColor: kLogoColor,
-              text: 'WhatsApp',
-              //fontSize: 12,
+              text: 'WhatsApp'.tr(context),
+              fontSize: 12,
               addLogo: true,
               itemLogo: const Padding(
                 padding: EdgeInsets.only(left: 5.0),
                 child: Icon(
                   FontAwesomeIcons.whatsapp,
                   color: Colors.green,
+                  size: 14,
                 ),
               ),
               onPressed: () {
-                _launchWhatsApp(userId.phoneNumber!);
+                _launchWhatsApp('2${userId.phoneNumber!}');
               },
             ),
             const SizedBox(width: 10),
             CustomButon(
               padding: EdgeInsets.zero,
               height: 40,
-              width: 160,
+              //width: 160,
               background: Colors.grey[350],
               radius: 8,
               textColor: kLogoColor,
-              text: 'Phone',
-              // fontSize: 12,
+              text: 'Phone'.tr(context),
+              fontSize: 12,
               addLogo: true,
               itemLogo: const Padding(
                 padding: EdgeInsets.only(left: 5.0),
                 child: Icon(
                   Icons.phone,
                   color: Color(0xff009688),
+                  size: 14,
                 ),
               ),
               onPressed: () {

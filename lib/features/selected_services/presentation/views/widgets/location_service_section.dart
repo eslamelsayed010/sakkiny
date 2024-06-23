@@ -26,11 +26,7 @@ class _LocationServiceSectionState extends State<LocationServiceSection> {
               widget.service.address!,
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
-
             const Spacer(),
-            // SizedBox(
-            //   width: 50,
-            // ),
             Text(
               widget.service.serviceCategory!,
               style: const TextStyle(
@@ -40,9 +36,6 @@ class _LocationServiceSectionState extends State<LocationServiceSection> {
               ),
             ),
             const Spacer(),
-            // SizedBox(
-            //   width: 50,
-            // ),
             IconButton(
               onPressed: () {
                 showModalBottomSheet(
@@ -76,8 +69,8 @@ class _LocationServiceSectionState extends State<LocationServiceSection> {
             child: GoogleMap(
               initialCameraPosition: CameraPosition(
                 target: LatLng(
-                  widget.service.location?.latitude?.toDouble() ?? 0.0,
-                  widget.service.location?.longitude?.toDouble() ?? 0.0,
+                  widget.service.latitude?.toDouble() ?? 0.0,
+                  widget.service.longitude?.toDouble() ?? 0.0,
                 ), // => lat long of Zagazig, Sharqia Governorate
                 zoom: 12.0,
               ),
@@ -87,9 +80,8 @@ class _LocationServiceSectionState extends State<LocationServiceSection> {
                   marker.add(
                     Marker(
                       markerId: const MarkerId('1'),
-                      position: LatLng(
-                          widget.service.location!.latitude!.toDouble(),
-                          widget.service.location!.longitude!.toDouble()),
+                      position: LatLng(widget.service.latitude!.toDouble(),
+                          widget.service.longitude!.toDouble()),
                     ),
                   );
                 });

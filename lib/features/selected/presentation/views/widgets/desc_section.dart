@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_interpolation_to_compose_strings
+
 import 'package:flutter/material.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/features/home/data/models/home_model/property.dart';
 
@@ -10,10 +13,10 @@ class DescSection extends StatelessWidget {
     return Column(
       children: [
         Row(
-          children: const [
+          children: [
             Text(
-              'Description : ',
-              style: TextStyle(
+              'Description : '.tr(context),
+              style: const TextStyle(
                 color: kLogoColor,
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
@@ -25,7 +28,7 @@ class DescSection extends StatelessWidget {
         Row(
           children: [
             Text(
-              'Level : ${property.level!}',
+              'Level : '.tr(context) + property.level!.tr(context),
               style: const TextStyle(
                 fontSize: 15,
                 color: Colors.grey,
@@ -51,7 +54,9 @@ class DescSection extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  property.isFurnished! ? 'Furnished' : 'Not Furnished',
+                  property.isFurnished!
+                      ? 'Furnished'.tr(context)
+                      : 'Not Furnished'.tr(context),
                   style: const TextStyle(
                     fontSize: 15,
                     color: Colors.grey,

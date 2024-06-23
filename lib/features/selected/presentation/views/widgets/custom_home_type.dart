@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/features/home/data/models/home_model/property.dart';
 import 'package:sakkiny/features/selected/presentation/views/widgets/desc_section.dart';
 import 'package:sakkiny/features/selected/presentation/views/widgets/essentials_section.dart';
@@ -42,16 +43,16 @@ class CustomHomeType extends StatelessWidget {
               border: Border.all(color: Colors.black),
             ),
             child: property.isFurnished! == true
-                ? const Text(
-                    'Furnished',
-                    style: TextStyle(
+                ? Text(
+                    'Furnished'.tr(context),
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 12,
                     ),
                   )
-                : const Text(
-                    'Not Furnished',
-                    style: TextStyle(
+                : Text(
+                    'Not Furnished'.tr(context),
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 12,
                     ),

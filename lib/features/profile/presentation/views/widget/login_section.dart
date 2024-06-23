@@ -22,7 +22,7 @@ class LoginSection extends StatelessWidget {
               backgroundImage: AssetImage(AssetsData.user),
             ),
             const SizedBox(width: 10),
-             Expanded(
+            Expanded(
               child: Text(
                 'Log In / Create Account'.tr(context),
                 maxLines: 2,

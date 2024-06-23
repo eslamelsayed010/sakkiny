@@ -10,7 +10,7 @@ class NoResultSearch extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
-        children:  [
+        children: [
           Center(
             child: Text(
               'Search For Show Property'.tr(context),

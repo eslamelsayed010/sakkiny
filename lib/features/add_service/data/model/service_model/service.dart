@@ -1,5 +1,4 @@
 import 'image.dart';
-import 'location.dart';
 
 class Service {
   String? userId;
@@ -7,7 +6,9 @@ class Service {
   String? description;
   int? price;
   List<Image>? images;
-  Location? location;
+  // Location? location;
+  num? latitude;
+  num? longitude;
   String? address;
   String? customId;
   String? id;
@@ -21,7 +22,9 @@ class Service {
     this.description,
     this.price,
     this.images,
-    this.location,
+    // this.location,
+    this.latitude,
+    this.longitude,
     this.address,
     this.customId,
     this.id,
@@ -38,9 +41,11 @@ class Service {
         images: (json['images'] as List<dynamic>?)
             ?.map((e) => Image.fromJson(e as Map<String, dynamic>))
             .toList(),
-        location: json['location'] == null
-            ? null
-            : Location.fromJson(json['location'] as Map<String, dynamic>),
+        // location: json['location'] == null
+        //     ? null
+        //     : Location.fromJson(json['location'] as Map<String, dynamic>),
+        latitude: json['latitude'] as num?,
+        longitude: json['longitude'] as num?,
         address: json['address'] as String?,
         customId: json['customId'] as String?,
         id: json['_id'] as String?,
@@ -59,7 +64,9 @@ class Service {
         'description': description,
         'price': price,
         'images': images?.map((e) => e.toJson()).toList(),
-        'location': location?.toJson(),
+        //'location': location?.toJson(),
+        'latitude': latitude,
+        'longitude': longitude,
         'address': address,
         'customId': customId,
         '_id': id,

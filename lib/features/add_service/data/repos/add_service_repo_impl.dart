@@ -20,16 +20,15 @@ class AddServiceRepoImpl implements AddService {
     try {
       var data = await DioHelper.postDataWithImage(
         url: addServicee,
-        token:
-            token,
+        token: token,
         data: {
           "description": description,
           "serviceCategory": serviceCategory,
           "price": price,
           "address": address,
           "Images": propertyImages,
-          "location[longitude]": long,
-          "location[latitude]": lat,
+          "longitude": long,
+          "latitude": lat,
         },
       );
       if (data.statusCode == 200) {

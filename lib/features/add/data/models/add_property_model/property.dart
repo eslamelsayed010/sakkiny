@@ -1,5 +1,4 @@
 import 'essentials.dart';
-import 'location.dart';
 import 'property_image.dart';
 
 class Property {
@@ -17,7 +16,8 @@ class Property {
   String? per;
   String? numberOfGuests;
   String? propertyStatus;
-  Location? location;
+  double? latitude;
+  double? longitude;
   String? address;
   String? customId;
   String? id;
@@ -40,7 +40,8 @@ class Property {
     this.per,
     this.numberOfGuests,
     this.propertyStatus,
-    this.location,
+    double? latitude,
+    double? longitude,
     this.address,
     this.customId,
     this.id,
@@ -68,9 +69,8 @@ class Property {
         per: json['per'] as String?,
         numberOfGuests: json['numberOfGuests'] as String?,
         propertyStatus: json['propertyStatus'] as String?,
-        location: json['location'] == null
-            ? null
-            : Location.fromJson(json['location'] as Map<String, dynamic>),
+        latitude: (json['latitude'] as num?)?.toDouble(),
+        longitude: (json['longitude'] as num?)?.toDouble(),
         address: json['address'] as String?,
         customId: json['customId'] as String?,
         id: json['_id'] as String?,
@@ -98,7 +98,8 @@ class Property {
         'per': per,
         'numberOfGuests': numberOfGuests,
         'propertyStatus': propertyStatus,
-        'location': location?.toJson(),
+        'latitude': latitude,
+        'longitude': longitude,
         'address': address,
         'customId': customId,
         '_id': id,

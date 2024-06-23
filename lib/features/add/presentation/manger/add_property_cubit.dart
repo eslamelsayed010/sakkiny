@@ -23,6 +23,7 @@ class AddPropertyCubit extends Cubit<AddPropertyState> {
     required String type,
     required String per,
     required String description,
+    required String addedByType,
   }) async {
     emit(AddPropertyLoading());
     var result = await AddRepoImpl().addProperty(
@@ -40,6 +41,7 @@ class AddPropertyCubit extends Cubit<AddPropertyState> {
       long: lang,
       lat: lat,
       propertyImages: propertyImages,
+      addedByType: addedByType,
     );
     result.fold((error) {
       emit(AddPropertyFailure(error: error.toString()));

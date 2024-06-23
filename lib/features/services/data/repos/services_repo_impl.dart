@@ -12,8 +12,7 @@ class ServiceRepoImpl extends ServiceRepo {
   Future<Either<Failures, List<Service>>> fetchService() async {
     try {
       var data = await DioHelper.getData(
-        token:
-            token,
+        token: token,
         url: getService,
       );
 
@@ -31,6 +30,4 @@ class ServiceRepoImpl extends ServiceRepo {
       }
     }
   }
-
- 
 }

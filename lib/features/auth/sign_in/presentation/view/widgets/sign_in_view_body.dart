@@ -74,7 +74,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         height: 200,
                       ),
                     ),
-                     Text(
+                    Text(
                       'LOGIN'.tr(context),
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,

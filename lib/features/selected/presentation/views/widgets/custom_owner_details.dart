@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/assets.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/features/home/data/models/home_model/property.dart';
@@ -34,16 +35,16 @@ class CustomOwnerDetails extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    'Owner',
-                    style: TextStyle(
+                  Text(
+                    property.addedByType!,
+                    style: const TextStyle(
                       color: Colors.black38,
                       fontWeight: FontWeight.bold,
                       fontSize: 12,
                     ),
                   ),
                   Text(
-                    'LE ${property.price!} / ${property.per}',
+                    '${property.price!} ${'LE'.tr(context)} / ${property.per!}',
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: kLogoColor,

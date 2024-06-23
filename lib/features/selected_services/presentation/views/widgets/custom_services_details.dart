@@ -33,7 +33,7 @@ class CustomServicesDetails extends StatelessWidget {
             ],
           ),
         ),
-        ConnectSection(userId: service.userId!),
+        ConnectSectionService(userId: service.userId!),
         const SizedBox(height: 20),
       ],
     );

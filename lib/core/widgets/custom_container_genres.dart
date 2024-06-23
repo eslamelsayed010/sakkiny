@@ -27,7 +27,7 @@ class CustomContainerGenres extends StatelessWidget {
           const SizedBox(width: 5),
           Text(
             text,
-            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
           ),
         ],
       ),

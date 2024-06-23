@@ -24,6 +24,7 @@ class AddRepoImpl implements AddRepo {
     required String type,
     required String per,
     required String description,
+    required String addedByType,
   }) async {
     try {
       var data = await DioHelper.postDataWithImage(
@@ -42,8 +43,9 @@ class AddRepoImpl implements AddRepo {
           "per": per,
           "address": address,
           "propertyImages": propertyImages,
-          "location[longitude]": long,
-          'location[latitude]': lat,
+          "longitude": long,
+          'latitude': lat,
+          'addedByType': addedByType,
         },
       );
       return right(AddPropertyModel.fromJson(data.data));

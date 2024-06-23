@@ -50,12 +50,6 @@ class _TextFieldDetailsState extends State<TextFieldDetails> {
         children: <Widget>[
           const Padding(
             padding: EdgeInsets.all(8.0),
-            // child: TextField(
-            //   controller: widget.controllerOfList,
-            //   decoration: InputDecoration(
-            //     suffixIcon: Icon(Icons.search),
-            //   ),
-            // ),
           ),
           Expanded(
             child: ListView.separated(

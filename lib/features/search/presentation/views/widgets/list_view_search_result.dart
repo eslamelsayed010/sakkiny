@@ -15,7 +15,7 @@ class ListViewSearch extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           Padding(
+          Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Text(
               'Search Result'.tr(context),

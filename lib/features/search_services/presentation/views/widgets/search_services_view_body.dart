@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:go_router/go_router.dart';
 import 'package:sakkiny/core/utils/app_localizations.dart';
-import 'package:sakkiny/core/utils/app_router.dart';
-import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_text_form_field.dart';
 import 'package:sakkiny/features/search_services/presentation/manager/cubit/search_service_cubit.dart';
 import 'package:sakkiny/features/search_services/presentation/views/widgets/search_services_bloc_builder/state_result_search_bloc_builder.dart';

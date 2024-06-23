@@ -1,29 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:sakkiny/core/utils/app_localizations.dart';
 
-class TypeDetails extends StatefulWidget {
-  const TypeDetails({super.key, required this.controller});
+class WhoAreYouList extends StatefulWidget {
+  const WhoAreYouList({super.key, required this.controller});
 
   @override
-  TypeDetailsState createState() => TypeDetailsState();
+  WhoAreYouListState createState() => WhoAreYouListState();
   final TextEditingController controller;
 }
 
-class TypeDetailsState extends State<TypeDetails> {
+class WhoAreYouListState extends State<WhoAreYouList> {
   List<String> types = [
-    'apartment',
-    'duplex',
-    'room',
-    'studio',
-    'shop',
-    'villa',
+    'owner',
+    'broker',
+    'real state company',
+    'government agencies',
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Choose Type'.tr(context)),
+        title: Text('Are you : '.tr(context)),
       ),
       body: Column(
         children: <Widget>[

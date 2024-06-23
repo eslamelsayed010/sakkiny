@@ -29,7 +29,7 @@ class FloorDetailsState extends State<FloorDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text('Choose floor'.tr(context)),
+        title: Text('Choose floor'.tr(context)),
       ),
       body: Column(
         children: <Widget>[

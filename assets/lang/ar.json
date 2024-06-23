@@ -126,10 +126,10 @@
   "the last": "الأخير",
   "Bathrooms": "الحمامات",
   "Enter number of bathrooms !!": "أدخل عدد الحمامات !!",
-  "Choose number of bathrooms": "أختر عدد الحمامات !!",
+  "Choose number of bathrooms": "أختر عدد الحمامات",
   "Luxuries": "الكماليات",
   "Enter Luxuries !!": "أدخل الكماليات !!",
-  "Chose luxuries": "أختر الكماليات !!",
+  "Chose luxuries": "أختر الكماليات",
   "balcony": "شرفة",
   "kitchen": "مطبخ",
   "wifi": "واي فاي",
@@ -147,6 +147,7 @@
   "Location": "الموقع",
   "Enter The Location !!": "أدخل الموقع !!",
   "Search for a location...": "أبحث عن الموقع...",
+  "Click on the red mark.": "اضغط على العلامة الحمراء.",
   "No results found for the searched location.": "لم يتم العثور على نتائج للموقع الذي تم البحث عنه.",
   "Error searching for location:": "خطأ في البحث عن الموقع:",
   "Add Photos": "إضافه صور",
@@ -162,6 +163,13 @@
   "Description": "الوصف",
   "Enter The Description !!": "أدخل الوصف !!",
   "Add My Property": "أضف عقاري",
+  "who are you ?": "من أنت ؟",
+  "who are you ?!!": "من أنت ؟!!",
+  "owner": "المالك",
+  "broker": "السمسار",
+  "real state company": "شركة عقارات",
+  "government agencies": "الجهات الحكومية",
+  "Are you : ": "أنت : ",
 
 
   "add services":"============================================================================================",
@@ -182,10 +190,40 @@
   "nannies": "المربيات",
   "dry cleaning": "التنظيف الجاف",
   "security": "الأمن",
-  "Enter Your Address !!": "أدخل عنوانك",
+  "Enter Your Address !!": "أدخل عنوانك !!",
   "Add My Service": "أضف خدمتي",
 
 
   "user":"============================================================================================",
-  "Update":"تحديث"
+  "Update":"تحديث",
+
+
+  "select property":"================================================================",
+  "Not Furnished":"ليست مفروشه",
+  "Furnished":"مفروشه",
+  "Description : ":"الوصف : ",
+  "Level : ":"الطابق : ",
+  "Essentials : ":"الاساسيات : ",
+  "Bath":"حمامات",
+  "Beds":"غرف النوم",
+  "M":"متر",
+  "LE":"جنيه",
+  "WhatsApp":"الوتساب",
+  "Email":"البريد الالكتروني",
+  "Rooms":"الغرف",
+
+
+  "select service":"================================================================",
+  "Beginning from":"ابتداء من",
+  "Service Category : ":"نوع الخدمه : ",
+  "Address : ":"العنوان : ",
+  "Price : ":"السعر : ",
+  "Name : ":"الاسم : ",
+  "Phone : ":"رقم الهاتف : ",
+  "Email : ":"البريد الالكتروني : ",
+
+
+  "other":"================================================================",
+  "No properties have been added yet..":"لم يتم اضافه عقارات حتي الان..",
+  "No services have been added yet..":"لم يتم اضافه خدمات حتي الان.."
 }

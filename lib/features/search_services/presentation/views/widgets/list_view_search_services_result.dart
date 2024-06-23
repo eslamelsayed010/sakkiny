@@ -8,6 +8,7 @@ class ListViewSearchServices extends StatelessWidget {
   const ListViewSearchServices({Key? key, required this.services})
       : super(key: key);
   final List<Service> services;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/app_router.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/features/search_services/presentation/views/widgets/custom_image_services_search.dart';
@@ -8,12 +9,12 @@ import 'package:sakkiny/features/services/data/models/get_service_model/service.
 class CustomServicesDetailsSearch extends StatelessWidget {
   const CustomServicesDetailsSearch({super.key, required this.service});
   final Service service;
-
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kSelectedServicesView,extra: service);
+        GoRouter.of(context)
+            .push(AppRouter.kSelectedServicesView, extra: service);
       },
       child: Padding(
         padding: const EdgeInsets.only(left: 20.0, right: 10),
@@ -23,18 +24,16 @@ class CustomServicesDetailsSearch extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              service.images != null && service.images!.isNotEmpty
-                  ? CustomImageSearchServices(
-                      image: service.images![0].secureUrl!)
-                  : Container(), // Show an empty container or a placeholder if there are no images
+              CustomImageSearchServices(
+                image: service.images![0].secureUrl!,
+              ),
               const SizedBox(width: 15),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      service.serviceCategory ??
-                          '', // Provide a fallback in case serviceCategory is null
+                      service.serviceCategory!,
                       style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
@@ -44,8 +43,7 @@ class CustomServicesDetailsSearch extends StatelessWidget {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      service.description ??
-                          '', // Provide a fallback in case description is null
+                      service.description!,
                       style: const TextStyle(
                         fontSize: 12,
                         color: Colors.grey,
@@ -56,18 +54,19 @@ class CustomServicesDetailsSearch extends StatelessWidget {
                     const Spacer(),
                     Expanded(
                       child: Row(
-                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            '${service.price ?? 0} / LE', // Provide a fallback in case price is null
+                            '${service.price} ${'LE'.tr(context)}',
+                            // '${'Beginning from'.tr(context)} ${service.price} ${'LE'.tr(context)}',
                             style: const TextStyle(
                               fontSize: 15,
                               color: kLogoColor,
                               fontWeight: FontWeight.bold,
                             ),
                             maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                           ),
-                          const Spacer(),
                           IconButton(
                             padding: EdgeInsets.zero,
                             icon: const Icon(

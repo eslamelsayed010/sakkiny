@@ -17,12 +17,6 @@ class CustomImageSearchServices extends StatelessWidget {
           child: Icon(Icons.error),
         ),
       ),
-      // Image.asset(
-      //   AssetsData.services,
-      //   fit: BoxFit.cover,
-      //   height: 140,
-      //   width: 140,
-      // ),
     );
   }
 }

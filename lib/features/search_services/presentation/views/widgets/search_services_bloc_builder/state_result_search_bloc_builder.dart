@@ -4,9 +4,9 @@ import 'package:sakkiny/core/widgets/custom_error_widget.dart';
 import 'package:sakkiny/features/filter/presentation/views/widgets/custom_no_result_search.dart';
 import 'package:sakkiny/features/search_services/presentation/manager/cubit/search_service_cubit.dart';
 import 'package:sakkiny/features/search_services/presentation/manager/cubit/search_service_state.dart';
-import 'package:sakkiny/features/search_services/presentation/views/widgets/list_view_search_result_loading_indicator.dart';
+import 'package:sakkiny/features/search_services/presentation/views/widgets/list_view_search_services_result.dart';
+import 'package:sakkiny/features/search_services/presentation/views/widgets/loading_indicator/list_view_search_result_loading_indicator.dart';
 import 'package:sakkiny/features/search_services/presentation/views/widgets/no_result_search.dart';
-import '../list_view_search_services_result.dart';
 
 class StateResultSearchServiceBlocBuilder extends StatelessWidget {
   const StateResultSearchServiceBlocBuilder({Key? key}) : super(key: key);
@@ -31,7 +31,7 @@ class StateResultSearchServiceBlocBuilder extends StatelessWidget {
           ],
         );
       } else {
-        return const SearchServicesResultLoadingIndicator();
+        return const ListViewSearchServicesLoadingIndicator();
       }
     });
   }

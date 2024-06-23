@@ -16,6 +16,7 @@ import 'package:sakkiny/features/add/presentation/views/widget/rental_rate_detai
 import 'package:sakkiny/features/add/presentation/views/widget/search_map.text.dart';
 import 'package:sakkiny/features/add/presentation/views/widget/text_field_details.dart';
 import 'package:sakkiny/features/add/presentation/views/widget/type_property_details.dart';
+import 'package:sakkiny/features/add/presentation/views/widget/who_are_you_list.dart';
 
 class AddPropertyViewBody extends StatefulWidget {
   const AddPropertyViewBody({super.key});
@@ -40,6 +41,7 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
   TextEditingController floorController = TextEditingController();
   TextEditingController bathroomsController = TextEditingController();
   TextEditingController luxuriesController = TextEditingController();
+  TextEditingController addedByTypeController = TextEditingController();
   double lang = 0;
   double lat = 0;
   bool isFurnished = true;
@@ -116,7 +118,7 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Furnished ?'.tr(context),
+                        'Furnished'.tr(context),
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -194,6 +196,26 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                         ],
                       ),
                     ],
+                  ),
+                  const SizedBox(height: 30),
+                  //added by
+                  CustomTextFormField(
+                    colorText: Colors.black,
+                    controller: addedByTypeController,
+                    isFilled: false,
+                    labelText: 'who are you ?'.tr(context),
+                    keyboardType: TextInputType.number,
+                    suffixIcon: const Icon(Icons.arrow_forward_ios),
+                    validatorText: 'who are you ?!!'.tr(context),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (BuildContext context) {
+                          return WhoAreYouList(
+                              controller: addedByTypeController);
+                        }),
+                      );
+                    },
                   ),
                   const SizedBox(height: 30),
                   //price
@@ -408,6 +430,7 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                           ),
                           lang: lang,
                           lat: lat,
+                          addedByType: addedByTypeController.text,
                         );
                       } else {
                         autoValidateMode = AutovalidateMode.always;

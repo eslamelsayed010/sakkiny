@@ -74,7 +74,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         height: 100,
                       ),
                     ),
-                     Text(
+                    Text(
                       'REGISTER'.tr(context),
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
@@ -143,7 +143,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                             });
                           },
                         ),
-                         Text('Male'.tr(context)),
+                        Text('Male'.tr(context)),
                         const Spacer(),
                         Radio(
                           value: 'Female'.tr(context),
@@ -155,11 +155,11 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                             });
                           },
                         ),
-                         Text('Female'.tr(context)),
+                        Text('Female'.tr(context)),
                         const Spacer(),
                         Column(
                           children: [
-                             Text('Age'.tr(context)),
+                            Text('Age'.tr(context)),
                             const SizedBox(height: 5),
                             SizedBox(
                               width: 50,

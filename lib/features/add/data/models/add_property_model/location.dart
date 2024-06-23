@@ -1,13 +1,13 @@
 class Location {
   double? latitude;
-  int? longitude;
+  double? longitude;
   String? id;
 
   Location({this.latitude, this.longitude, this.id});
 
   factory Location.fromJson(Map<String, dynamic> json) => Location(
         latitude: (json['latitude'] as num?)?.toDouble(),
-        longitude: json['longitude'] as int?,
+        longitude: (json['longitude'] as num?)?.toDouble(),
         id: json['_id'] as String?,
       );
 

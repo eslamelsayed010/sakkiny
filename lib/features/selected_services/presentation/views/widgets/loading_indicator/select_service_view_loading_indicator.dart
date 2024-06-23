@@ -52,7 +52,7 @@ class SelectServiceViewLoadingIndicator extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 15),
-             Padding(
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Row(
                 children: const [],
@@ -69,7 +69,7 @@ class SelectServiceViewLoadingIndicator extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 15),
-             Padding(
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,

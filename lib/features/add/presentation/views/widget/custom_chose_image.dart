@@ -81,7 +81,7 @@ class _CustomChoseImageState extends State<CustomChoseImage> {
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children:  [
+                children: [
                   const Icon(
                     Icons.image_outlined,
                     color: Colors.black,

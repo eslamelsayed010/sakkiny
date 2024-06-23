@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/app_router.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/features/home/data/models/home_model/property.dart';
@@ -37,7 +38,7 @@ class CustomHomeDetails extends StatelessWidget {
                   ),
                   const Spacer(),
                   Text(
-                    'LE ${property.price}/${property.per}',
+                    '${property.price} ${'LE'.tr(context)} /${property.per}',
                     style: const TextStyle(
                       fontSize: 13,
                     ),

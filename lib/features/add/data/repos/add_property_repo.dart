@@ -19,5 +19,6 @@ abstract class AddRepo {
     required String type,
     required String per,
     required String description,
+    required String addedByType,
   });
 }

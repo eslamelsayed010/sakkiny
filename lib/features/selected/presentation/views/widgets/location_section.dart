@@ -33,8 +33,8 @@ class _LocationSectionState extends State<LocationSection> {
             child: GoogleMap(
               initialCameraPosition: CameraPosition(
                 target: LatLng(
-                  widget.property.location!.latitude!,
-                  widget.property.location!.longitude!,
+                  widget.property.latitude!.toDouble(),
+                  widget.property.longitude!.toDouble(),
                 ), // => lat long of Zagazig, Sharqia Governorate
                 zoom: 12.0,
               ),
@@ -45,8 +45,8 @@ class _LocationSectionState extends State<LocationSection> {
                     Marker(
                       markerId: const MarkerId('1'),
                       position: LatLng(
-                        widget.property.location!.latitude!,
-                        widget.property.location!.longitude!,
+                        widget.property.latitude!.toDouble(),
+                        widget.property.longitude!.toDouble(),
                       ),
                     ),
                   );

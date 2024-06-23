@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:sakkiny/features/selected_services/data/repo/select_services_repo_impl.dart';

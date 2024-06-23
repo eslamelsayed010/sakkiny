@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/app_router.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/features/services/data/models/get_service_model/service.dart';
@@ -32,7 +33,6 @@ class CustomServices extends StatelessWidget {
                 width: double.infinity,
                 height: 150,
                 imageUrl: service.images![0].secureUrl!,
-
                 errorWidget: (context, url, error) => const Center(
                   child: Icon(Icons.error),
                 ),
@@ -61,7 +61,7 @@ class CustomServices extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Text(
-                          'Beginning from ${service.price}LE',
+                          '${'Beginning from'.tr(context)} ${service.price} ${'LE'.tr(context)}',
                           style: const TextStyle(
                             fontSize: 10,
                             color: kLogoColor,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/features/home/data/models/home_model/property.dart';
 
@@ -24,7 +25,7 @@ class DetailsPropertySection extends StatelessWidget {
               ),
               const Spacer(),
               Text(
-                'LE ${property.price!}/month',
+                '${property.price!} ${'LE'.tr(context)} / ${property.per}',
                 style: const TextStyle(
                   fontSize: 13,
                 ),
@@ -52,11 +53,11 @@ class DetailsPropertySection extends StatelessWidget {
           children: [
             const Icon(Icons.bed),
             const SizedBox(width: 10),
-            Text('${property.bedrooms!} Rooms'),
+            Text('${property.bedrooms!} ${'Rooms'.tr(context)}'),
             const SizedBox(width: 20),
             const Icon(Icons.photo_size_select_small),
             const SizedBox(width: 10),
-            Text('${property.area!}M'),
+            Text('${property.area!}${'M'.tr(context)}'),
           ],
         ),
       ],
