@@ -8,8 +8,8 @@ class Service {
   String? description;
   int? price;
   List<Image>? images;
-  int? latitude;
-  int? longitude;
+  num? latitude;
+  num? longitude;
   String? address;
   String? customId;
   DateTime? createdAt;
@@ -43,8 +43,8 @@ class Service {
         images: (json['images'] as List<dynamic>?)
             ?.map((e) => Image.fromJson(e as Map<String, dynamic>))
             .toList(),
-        latitude: json['latitude'] as int?,
-        longitude: json['longitude'] as int?,
+        latitude: json['latitude'] as num?,
+        longitude: json['longitude'] as num?,
         address: json['address'] as String?,
         customId: json['customId'] as String?,
         createdAt: json['createdAt'] == null

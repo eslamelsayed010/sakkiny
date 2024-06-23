@@ -179,21 +179,6 @@ class _AddServicesViewBodyState extends State<AddServicesViewBody> {
                     width: double.infinity,
                     radius: 10,
                     onPressed: () async {
-                      print(priceController.text);
-                      print(typeController.text);
-                      print(descController.text);
-                      print(addressController.text);
-                      print(lang);
-                      print(lat);
-                      print(
-                        selectedImages.map(
-                          (image) async => await MultipartFile.fromFile(
-                            image.path,
-                            filename: image.name,
-                          ),
-                        ),
-                      );
-
                       if (formKey.currentState!.validate()) {
                         cubit.addService(
                           price:

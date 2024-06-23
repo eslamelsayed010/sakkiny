@@ -28,7 +28,7 @@ class DescSection extends StatelessWidget {
         Row(
           children: [
             Text(
-              'Level : '.tr(context) + property.level!.tr(context),
+              'Level : '.tr(context) + property.level!,
               style: const TextStyle(
                 fontSize: 15,
                 color: Colors.grey,

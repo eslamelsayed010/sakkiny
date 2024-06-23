@@ -70,12 +70,22 @@ class _MapSearchPageState extends State<MapServicePage> {
                         },
                         onSubmitted: (value) {
                           _searchLocation();
+                          showToast(
+                            txt: 'Click on the red mark.'.tr(context),
+                            state: ToastState.SUCCESS,
+                          );
                         },
                       ),
                     ),
                     IconButton(
                       icon: const Icon(Icons.search),
-                      onPressed: _searchLocation,
+                      onPressed: () {
+                        _searchLocation();
+                        showToast(
+                          txt: 'Click on the red mark.'.tr(context),
+                          state: ToastState.SUCCESS,
+                        );
+                      },
                     ),
                   ],
                 ),
