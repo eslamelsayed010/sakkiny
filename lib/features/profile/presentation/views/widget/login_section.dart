@@ -11,41 +11,46 @@ class LoginSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const CustomDivider(paddingHorizontal: 0),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const CircleAvatar(
-              radius: 30,
-              backgroundImage: AssetImage(AssetsData.user),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Text(
-                'Log In / Create Account'.tr(context),
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: kLogoColor,
+    return InkWell(
+      onTap: () {
+        GoRouter.of(context).push(AppRouter.kSignInView);
+      },
+      child: Column(
+        children: [
+          const CustomDivider(paddingHorizontal: 0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const CircleAvatar(
+                radius: 30,
+                backgroundImage: AssetImage(AssetsData.user),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  'Log In / Create Account'.tr(context),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: kLogoColor,
+                  ),
                 ),
               ),
-            ),
-            IconButton(
-              icon: const Icon(
-                Icons.arrow_forward_ios_outlined,
-                color: kLogoColor,
+              IconButton(
+                icon: const Icon(
+                  Icons.arrow_forward_ios_outlined,
+                  color: kLogoColor,
+                ),
+                onPressed: () {
+                  GoRouter.of(context).push(AppRouter.kSignInView);
+                },
               ),
-              onPressed: () {
-                GoRouter.of(context).push(AppRouter.kSignInView);
-              },
-            )
-          ],
-        ),
-        const CustomDivider(paddingHorizontal: 0),
-      ],
+            ],
+          ),
+          const CustomDivider(paddingHorizontal: 0),
+        ],
+      ),
     );
   }
 }
