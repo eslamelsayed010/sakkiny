@@ -31,7 +31,14 @@ class LangViewBody extends StatelessWidget {
                 width: double.infinity,
                 child: DropdownButton<String>(
                   value: state.locale.languageCode,
-                  icon: const Icon(Icons.keyboard_arrow_down),
+                  icon: Expanded(
+                    child: Row(
+                      children: const [
+                        Spacer(),
+                        Icon(Icons.keyboard_arrow_down),
+                      ],
+                    ),
+                  ),
                   items: ['ar', 'en'].map((String items) {
                     return DropdownMenuItem<String>(
                       value: items,
@@ -55,9 +62,13 @@ class LangViewBody extends StatelessWidget {
           ),
           const CustomTextFormField(
             contentPadding: EdgeInsets.symmetric(horizontal: 10),
-            hintText: 'Egypt(Elzagazig)',
+            labelText: 'Egypt(Elzagazig)',
             isFilled: false,
             drawBorder: true,
+            suffixIcon: Icon(
+              Icons.keyboard_arrow_down,
+              color: Colors.black,
+            ),
           ),
         ],
       ),
