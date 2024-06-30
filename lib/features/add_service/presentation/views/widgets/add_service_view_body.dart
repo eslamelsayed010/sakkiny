@@ -1,10 +1,12 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, use_build_context_synchronously
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sakkiny/core/utils/app_localizations.dart';
+import 'package:sakkiny/core/utils/app_router.dart';
 import 'package:sakkiny/core/widgets/custom_button.dart';
 import 'package:sakkiny/core/widgets/custom_text_form_field.dart';
 import 'package:sakkiny/core/widgets/show_toast.dart';
@@ -70,6 +72,9 @@ class _AddServicesViewBodyState extends State<AddServicesViewBody> {
             txt: state.serviceModel.message!,
             state: ToastState.SUCCESS,
           );
+          if (state.serviceModel.service!.userVerified == false) {
+            GoRouter.of(context).push(AppRouter.kVerifyView);
+          }
         } else if (state is AddServiceFailure) {
           setState(() {
             isLoading = false;
@@ -179,11 +184,10 @@ class _AddServicesViewBodyState extends State<AddServicesViewBody> {
                     width: double.infinity,
                     radius: 10,
                     onPressed: () async {
-                      if (formKey.currentState!.validate()) {
+                      if (formKey.currentState!.validate() &&
+                          selectedImages.isNotEmpty) {
                         cubit.addService(
-                          price:
-                              double.tryParse(priceController.text)?.toInt() ??
-                                  0, // Convert double to int
+                          price: double.tryParse(priceController.text)!.toInt(),
                           serviceCategory: typeController.text,
                           address: addressController.text,
                           lat: lat,
@@ -202,6 +206,12 @@ class _AddServicesViewBodyState extends State<AddServicesViewBody> {
                         setState(() {
                           autoValidateMode = AutovalidateMode.always;
                         });
+                      }
+                      if (selectedImages.isEmpty) {
+                        showToast(
+                            txt: 'Choose from the gallery images that express your services'
+                                .tr(context),
+                            state: ToastState.ERROR);
                       }
                     },
                   ),

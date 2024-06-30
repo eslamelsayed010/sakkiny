@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously, unnecessary_null_comparison
+// ignore_for_file: use_build_context_synchronously, avoid_print
 
 import 'package:csc_picker/csc_picker.dart';
 import 'package:dio/dio.dart';
@@ -341,11 +341,15 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                   const SizedBox(height: 30),
                   //address
                   CSCPicker(
-                    //currentCountry: 'egypt',
+                    countryDropdownLabel: 'country'.tr(context),
+                    cityDropdownLabel: 'city'.tr(context),
+                    stateDropdownLabel: 'state'.tr(context),
                     layout: Layout.vertical,
                     flagState: CountryFlag.ENABLE,
+                    onCountryChanged: (onCountryChanged) {
+                      print(onCountryChanged.toString());
+                    },
                     onCityChanged: (onCityChanged) {},
-                    onCountryChanged: (onCountryChanged) {},
                     onStateChanged: (onStateChanged) {},
                   ),
                   const SizedBox(height: 30),
@@ -422,7 +426,7 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                     radius: 10,
                     onPressed: () async {
                       if (formKey.currentState!.validate() &&
-                          selectedImages != null) {
+                          selectedImages.isNotEmpty) {
                         cubit.addProperty(
                           type: typeController.text,
                           description: descController.text,
@@ -454,7 +458,7 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                         autoValidateMode = AutovalidateMode.always;
                         setState(() {});
                       }
-                      if (selectedImages == null) {
+                      if (selectedImages.isEmpty) {
                         showToast(
                             txt: 'Choose from gallery five image at least'
                                 .tr(context),

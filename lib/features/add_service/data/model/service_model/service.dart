@@ -6,7 +6,7 @@ class Service {
   String? description;
   int? price;
   List<Image>? images;
-  // Location? location;
+  bool? userVerified;
   num? latitude;
   num? longitude;
   String? address;
@@ -22,7 +22,7 @@ class Service {
     this.description,
     this.price,
     this.images,
-    // this.location,
+    this.userVerified,
     this.latitude,
     this.longitude,
     this.address,
@@ -41,9 +41,7 @@ class Service {
         images: (json['images'] as List<dynamic>?)
             ?.map((e) => Image.fromJson(e as Map<String, dynamic>))
             .toList(),
-        // location: json['location'] == null
-        //     ? null
-        //     : Location.fromJson(json['location'] as Map<String, dynamic>),
+        userVerified: json['userVerified'] as bool?,
         latitude: json['latitude'] as num?,
         longitude: json['longitude'] as num?,
         address: json['address'] as String?,
@@ -64,7 +62,7 @@ class Service {
         'description': description,
         'price': price,
         'images': images?.map((e) => e.toJson()).toList(),
-        //'location': location?.toJson(),
+        'userVerified': userVerified,
         'latitude': latitude,
         'longitude': longitude,
         'address': address,

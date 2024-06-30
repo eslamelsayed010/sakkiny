@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sakkiny/core/utils/app_localizations.dart';
+import 'package:sakkiny/core/widgets/show_toast.dart';
 
 class CustomServiceImage extends StatefulWidget {
   final Function(List<XFile>) onImagesSelected;
@@ -35,7 +36,14 @@ class _CustomServiceImageState extends State<CustomServiceImage> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: pickImages,
+      onTap: () {
+        pickImages();
+        showToast(
+          txt: 'Choose from the gallery images that express your services'
+              .tr(context),
+          state: ToastState.SUCCESS,
+        );
+      },
       child: selectedImages.isNotEmpty
           ? ClipRRect(
               borderRadius: BorderRadius.circular(15),
