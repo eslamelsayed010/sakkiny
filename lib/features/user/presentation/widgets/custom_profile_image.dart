@@ -1,10 +1,15 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sakkiny/core/utils/assets.dart';
 
 class CustomProfileImage extends StatefulWidget {
-  const CustomProfileImage({super.key});
+  const CustomProfileImage(
+      {super.key, required this.onImageSelected, required this.image});
+  final Function(File) onImageSelected;
+  final String image;
 
   @override
   State<CustomProfileImage> createState() => _CustomProfileImageState();
@@ -12,17 +17,19 @@ class CustomProfileImage extends StatefulWidget {
 
 class _CustomProfileImageState extends State<CustomProfileImage> {
   File? imageFile;
-
-  Future<void> selectImage() async {
-    final ImagePicker picker = ImagePicker();
-    final XFile? pickedImage =
-        await picker.pickImage(source: ImageSource.gallery);
-
-    setState(() {
-      if (pickedImage != null) {
-        imageFile = File(pickedImage.path);
-      }
-    });
+  void pickImage() async {
+    XFile? resultList;
+    try {
+      resultList = await ImagePicker().pickImage(source: ImageSource.gallery);
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+    if (resultList != null) {
+      setState(() {
+        imageFile = File(resultList!.path);
+      });
+      widget.onImageSelected(imageFile!);
+    }
   }
 
   @override
@@ -35,9 +42,11 @@ class _CustomProfileImageState extends State<CustomProfileImage> {
                 radius: 80,
                 backgroundImage: FileImage(imageFile!),
               )
-            : const CircleAvatar(
+            : CircleAvatar(
                 radius: 80,
-                backgroundImage: AssetImage(AssetsData.user),
+                backgroundImage: widget.image != null
+                    ? NetworkImage(widget.image)
+                    : const NetworkImage(AssetsData.user),
               ),
         CircleAvatar(
           radius: 25,
@@ -49,7 +58,7 @@ class _CustomProfileImageState extends State<CustomProfileImage> {
                 size: 20,
               ),
               onPressed: () {
-                selectImage();
+                pickImage();
               }),
         ),
       ],

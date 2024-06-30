@@ -1,8 +1,13 @@
+// ignore_for_file: use_build_context_synchronously, unnecessary_null_comparison
+
+import 'package:csc_picker/csc_picker.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sakkiny/core/utils/app_localizations.dart';
+import 'package:sakkiny/core/utils/app_router.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_button.dart';
 import 'package:sakkiny/core/widgets/custom_text_form_field.dart';
@@ -28,8 +33,8 @@ class AddPropertyViewBody extends StatefulWidget {
 class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
   var formKey = GlobalKey<FormState>();
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
-  List<XFile> selectedImages = [];
 
+  List<XFile> selectedImages = [];
   TextEditingController priceController = TextEditingController();
   TextEditingController unitController = TextEditingController();
   TextEditingController roomController = TextEditingController();
@@ -87,6 +92,9 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
               txt: state.addPropertyModel.message!,
               state: ToastState.ERROR,
             );
+          }
+          if (state.addPropertyModel.property!.userVerified! == false) {
+            GoRouter.of(context).push(AppRouter.kVerifyView);
           }
         }
         if (state is AddPropertyFailure) {
@@ -332,6 +340,15 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                   ),
                   const SizedBox(height: 30),
                   //address
+                  CSCPicker(
+                    //currentCountry: 'egypt',
+                    layout: Layout.vertical,
+                    flagState: CountryFlag.ENABLE,
+                    onCityChanged: (onCityChanged) {},
+                    onCountryChanged: (onCountryChanged) {},
+                    onStateChanged: (onStateChanged) {},
+                  ),
+                  const SizedBox(height: 30),
                   CustomTextFormField(
                     colorText: Colors.black,
                     controller: addressController,
@@ -404,7 +421,8 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                     width: double.infinity,
                     radius: 10,
                     onPressed: () async {
-                      if (formKey.currentState!.validate()) {
+                      if (formKey.currentState!.validate() &&
+                          selectedImages != null) {
                         cubit.addProperty(
                           type: typeController.text,
                           description: descController.text,
@@ -435,6 +453,12 @@ class _AddPropertyViewBodyState extends State<AddPropertyViewBody> {
                       } else {
                         autoValidateMode = AutovalidateMode.always;
                         setState(() {});
+                      }
+                      if (selectedImages == null) {
+                        showToast(
+                            txt: 'Choose from gallery five image at least'
+                                .tr(context),
+                            state: ToastState.ERROR);
                       }
                     },
                   ),

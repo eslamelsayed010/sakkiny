@@ -6,7 +6,7 @@ class PropertyCubit extends Cubit<PropertyStates> {
   PropertyCubit() : super(InitialPropertyState());
   static PropertyCubit get(context) => BlocProvider.of(context);
 
-  Map<int?, bool?> favorites = {};
+  Map<String?, bool?> favorites = {};
 
   Future<void> fetchProperty() async {
     emit(LoadingPropertyState());
@@ -14,9 +14,10 @@ class PropertyCubit extends Cubit<PropertyStates> {
     result.fold((failure) {
       emit(FailurePropertyState(failure.error));
     }, (properties) {
-      // for (var element in homeModel.data!.products!) {
-      //   favorites.addAll({element.id: element.inFavorites});
-      // }
+      favorites = {
+        for (var element in properties)
+          element.id: element.likesCount != null && element.likesCount! > 0
+      };
       emit(SuccessPropertyState(properties));
     });
   }

@@ -1,7 +1,9 @@
+// ignore_for_file: avoid_print
+
+import 'package:csc_picker/csc_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sakkiny/core/utils/app_localizations.dart';
-import 'package:sakkiny/core/widgets/custom_text_form_field.dart';
 import 'package:sakkiny/features/home/presentation/views/widget/custom_text.dart';
 import 'package:sakkiny/features/profile/presentation/manger/lang_cubit/lang_cubit.dart';
 import 'package:sakkiny/features/profile/presentation/manger/lang_cubit/lang_states.dart';
@@ -24,7 +26,7 @@ class LangViewBody extends StatelessWidget {
           ),
           BlocConsumer<LocaleCubit, ChangeLocaleState>(
             listener: (context, state) {
-              Navigator.of(context).pop();
+              // Navigator.of(context).pop();
             },
             builder: (context, state) {
               return SizedBox(
@@ -60,16 +62,29 @@ class LangViewBody extends StatelessWidget {
             color: Colors.black,
             fontSize: 18,
           ),
-          const CustomTextFormField(
-            contentPadding: EdgeInsets.symmetric(horizontal: 10),
-            labelText: 'Egypt(Elzagazig)',
-            isFilled: false,
-            drawBorder: true,
-            suffixIcon: Icon(
-              Icons.keyboard_arrow_down,
-              color: Colors.black,
-            ),
+          const SizedBox(height: 10),
+          CSCPicker(
+            countryDropdownLabel: 'country'.tr(context),
+            cityDropdownLabel: 'city'.tr(context),
+            stateDropdownLabel: 'state'.tr(context),
+            layout: Layout.vertical,
+            flagState: CountryFlag.ENABLE,
+            onCountryChanged: (onCountryChanged) {
+              print(onCountryChanged.toString());
+            },
+            onCityChanged: (onCityChanged) {},
+            onStateChanged: (onStateChanged) {},
           ),
+          // const CustomTextFormField(
+          //   contentPadding: EdgeInsets.symmetric(horizontal: 10),
+          //   labelText: 'Egypt(Elzagazig)',
+          //   isFilled: false,
+          //   drawBorder: true,
+          //   suffixIcon: Icon(
+          //     Icons.keyboard_arrow_down,
+          //     color: Colors.black,
+          //   ),
+          // ),
         ],
       ),
     );

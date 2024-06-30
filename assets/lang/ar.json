@@ -57,6 +57,7 @@
 
   "favorite" : "============================================================================================",
   "House" : "المنازل",
+  "your favorite list is empty" : "قائمتك المفضلة فارغة",
 
 
   "profile" : "============================================================================================",
@@ -68,6 +69,8 @@
   "Edit Your Property" : "تعديل الممتلكات الخاصة بك",
   "Share App" : "شارك التطبيق",
   "Sakkiny is a mobile app that connects tenants with verified apartment owners who are willing to rent their properties to them and provide online service providers and maintenance workers to facilitate the maintenance process or any changes the tenant need to make during the stay." : "ساكني هو تطبيق جوال يربط المستأجرين بأصحاب الشقق المعتمدين والراغبين في تأجير عقاراتهم لهم وتوفير مقدمي الخدمات عبر الإنترنت وعمال الصيانة لتسهيل عملية الصيانة أو أي تغييرات يحتاج المستأجر إلى إجرائها أثناء الإقامة.",
+  "Verify Your Account" : "التجقق من حسابك",
+  "Verify your identity" : "التجقق من الهويه",
 
 
   "search":"============================================================================================",
@@ -170,6 +173,7 @@
   "real state company": "شركة عقارات",
   "government agencies": "الجهات الحكومية",
   "Are you : ": "أنت : ",
+  "Choose from gallery five image at least": "اختر من المعرض خمس صور على الأقل",
 
 
   "add services":"============================================================================================",
@@ -196,6 +200,7 @@
 
   "user":"============================================================================================",
   "Update":"تحديث",
+  "Choose image from gallery for update":"اختر صورة من المعرض للتحديث",
 
 
   "select property":"================================================================",
@@ -229,5 +234,22 @@
   "Language":"اللغه",
   "Country":"الدوله",
   "ar":"العربيه",
-  "en":"الانجليزيه"
+  "en":"الانجليزيه",
+
+
+  "verify":"================================================================",
+  "Enter Your Code . . .":"ادخل الكود . . .",
+  "enter the code !!":"ادخل الكود !!",
+  "Enter photo of your ID card from front":"أدخل صورة بطاقة الهوية الخاصة بك من الأمام",
+  "Enter photo of your ID card from back":"أدخل صورة بطاقة الهوية الخاصة بك من الخلف",
+  "Upload a picture from the camera":"تحميل صورة من الكاميرا",
+  "Verify":"تأكيد",
+  "enter the images !":"أدخل الصور !",
+  "Send your code !Click here":"أرسل الرمز الخاص بك !انقر هنا",
+
+
+  "CSCPicker":"================================================================",
+  "country":"دولة",
+  "city":"مدينة",
+  "state":"ولاية"
 }

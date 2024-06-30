@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/features/selected_services/presentation/views/widgets/desc_services_section.dart';
 import 'dart:collection';
 import 'package:sakkiny/features/services/data/models/get_service_model/service.dart';
@@ -28,7 +29,7 @@ class _LocationServiceSectionState extends State<LocationServiceSection> {
             ),
             const Spacer(),
             Text(
-              widget.service.serviceCategory!,
+              widget.service.serviceCategory!.tr(context),
               style: const TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,

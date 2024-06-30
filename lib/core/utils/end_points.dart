@@ -15,3 +15,15 @@ const getService = '/service';
 const addServicee = '/service/add';
 
 const searchService = '/service/search';
+
+const userImage = '/user/uploadProfilePic';
+
+const sendCode = '/identity/sendcode';
+
+const user = '/user/profile';
+
+const verifyIdentity = '/identity/verifyIdentity';
+
+const getFavProperty = '/property/likes';
+
+const getFavService = '/service/likes';

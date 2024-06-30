@@ -14,6 +14,7 @@ class ListViewRecommendedHose extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height * .33,
       child: ListView.separated(
+        reverse: true,
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),

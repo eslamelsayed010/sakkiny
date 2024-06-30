@@ -22,14 +22,16 @@ class CustomHomeDetails extends StatelessWidget {
         },
         child: Column(
           children: [
-            CustomHomeImage(image: property.propertyImages![0].secureUrl!),
+            Expanded(
+              child: CustomHomeImage(property: property),
+            ),
             const SizedBox(height: 5),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Row(
                 children: [
                   Text(
-                    property.type!,
+                    property.type!.tr(context),
                     style: const TextStyle(
                       color: kLogoColor,
                       fontWeight: FontWeight.bold,
@@ -38,7 +40,7 @@ class CustomHomeDetails extends StatelessWidget {
                   ),
                   const Spacer(),
                   Text(
-                    '${property.price} ${'LE'.tr(context)} /${property.per}',
+                    '${property.price} ${'LE'.tr(context)} / ${property.per!.tr(context)}',
                     style: const TextStyle(
                       fontSize: 13,
                     ),

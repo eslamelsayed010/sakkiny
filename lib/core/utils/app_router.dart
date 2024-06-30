@@ -25,6 +25,7 @@ import 'package:sakkiny/features/services/presentation/view/services_view.dart';
 import 'package:sakkiny/features/splash/splash_view.dart';
 import 'package:sakkiny/features/services/data/models/get_service_model/service.dart';
 import 'package:sakkiny/features/user/presentation/person_view.dart';
+import 'package:sakkiny/features/verify/presentation/view/verify_view.dart';
 
 abstract class AppRouter {
   static const kGetStartView = '/GetStartView';
@@ -50,6 +51,7 @@ abstract class AppRouter {
   static const kEditPropertyView = '/EditPropertyView';
   static const kEditImageView = '/EditImageView';
   static const kPersonView = '/PersonView';
+  static const kVerifyView = '/VerifyView';
 
   static final GoRouter router = GoRouter(
     routes: [
@@ -191,6 +193,12 @@ abstract class AppRouter {
         path: '/PersonView',
         builder: (BuildContext context, GoRouterState state) {
           return const PersonView();
+        },
+      ),
+      GoRoute(
+        path: '/VerifyView',
+        builder: (BuildContext context, GoRouterState state) {
+          return const VerifyView();
         },
       ),
     ],

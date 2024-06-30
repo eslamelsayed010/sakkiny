@@ -24,7 +24,7 @@ class CustomHomeType extends StatelessWidget {
               border: Border.all(color: Colors.black),
             ),
             child: Text(
-              property.type!,
+              property.type!.tr(context),
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 12,

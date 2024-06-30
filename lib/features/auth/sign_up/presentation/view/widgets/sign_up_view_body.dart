@@ -44,11 +44,11 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
         }
         if (state is SuccessRegisterStates) {
           isLoading = false;
-          if (state.userModel.status!) {
-            showToast(txt: state.userModel.message!, state: ToastState.SUCCESS);
+          if (state.authModel.status!) {
+            showToast(txt: state.authModel.message!, state: ToastState.SUCCESS);
             GoRouter.of(context).pushReplacement(AppRouter.kSignInView);
           } else {
-            showToast(txt: state.userModel.message!, state: ToastState.ERROR);
+            showToast(txt: state.authModel.message!, state: ToastState.ERROR);
           }
         }
         if (state is FailureRegisterStates) {

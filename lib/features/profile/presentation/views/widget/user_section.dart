@@ -5,10 +5,11 @@ import 'package:sakkiny/core/utils/assets.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_divider.dart';
 import 'package:sakkiny/core/widgets/sign_out.dart';
+import 'package:sakkiny/features/home/data/models/user_model/user_model.dart';
 
 class UserSection extends StatelessWidget {
-  const UserSection({Key? key}) : super(key: key);
-
+  const UserSection({Key? key, required this.userModel}) : super(key: key);
+  final UserModel userModel;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,12 +27,18 @@ class UserSection extends StatelessWidget {
                   children: [
                     Stack(
                       alignment: AlignmentDirectional.bottomEnd,
-                      children: const [
+                      children: [
                         CircleAvatar(
+                          backgroundColor: kLogoColor,
                           radius: 30,
-                          backgroundImage: AssetImage(AssetsData.user),
+                          backgroundImage: userModel
+                                      .user!.profilePicture!.secureUrl !=
+                                  null
+                              ? NetworkImage(
+                                  userModel.user!.profilePicture!.secureUrl!)
+                              : const NetworkImage(AssetsData.user),
                         ),
-                        Positioned(
+                        const Positioned(
                           bottom: 3.5,
                           right: 3.5,
                           child: CircleAvatar(
@@ -39,7 +46,7 @@ class UserSection extends StatelessWidget {
                             backgroundColor: Colors.white,
                           ),
                         ),
-                        Positioned(
+                        const Positioned(
                           bottom: 5,
                           right: 5,
                           child: CircleAvatar(
@@ -50,12 +57,12 @@ class UserSection extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(width: 10),
-                    const Expanded(
+                    Expanded(
                       child: Text(
-                        'Eslam Elsayed / User',
+                        '${userModel.user!.name!} / ${userModel.user!.role!}',
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           color: kLogoColor,
                         ),

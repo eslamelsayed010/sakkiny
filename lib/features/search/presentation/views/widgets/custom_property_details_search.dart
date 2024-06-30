@@ -20,7 +20,7 @@ class CustomPropertyDetailsSearch extends StatelessWidget {
       },
       child: Column(
         children: [
-          CustomImageSearch(image: property.propertyImages![0].secureUrl!),
+          CustomImageSearch(property: property),
           DetailsPropertySection(property: property),
         ],
       ),

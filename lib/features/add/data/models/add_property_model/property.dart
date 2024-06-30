@@ -11,6 +11,7 @@ class Property {
   int? area;
   String? level;
   bool? isFurnished;
+  bool? userVerified;
   Essentials? essentials;
   int? price;
   String? per;
@@ -35,13 +36,14 @@ class Property {
     this.area,
     this.level,
     this.isFurnished,
+    this.userVerified,
     this.essentials,
     this.price,
     this.per,
     this.numberOfGuests,
     this.propertyStatus,
-    double? latitude,
-    double? longitude,
+    this.latitude,
+    this.longitude,
     this.address,
     this.customId,
     this.id,
@@ -62,6 +64,7 @@ class Property {
         area: json['area'] as int?,
         level: json['level'] as String?,
         isFurnished: json['isFurnished'] as bool?,
+        userVerified: json['userVerified'] as bool?,
         essentials: json['essentials'] == null
             ? null
             : Essentials.fromJson(json['essentials'] as Map<String, dynamic>),
@@ -93,6 +96,7 @@ class Property {
         'area': area,
         'level': level,
         'isFurnished': isFurnished,
+        'userVerified': userVerified,
         'essentials': essentials?.toJson(),
         'price': price,
         'per': per,

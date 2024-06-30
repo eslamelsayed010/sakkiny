@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sakkiny/core/utils/const.dart';
 
 class CustomLoadingLinerIndicator extends StatelessWidget {
   const CustomLoadingLinerIndicator({
@@ -11,7 +12,7 @@ class CustomLoadingLinerIndicator extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 10.0),
         child: LinearProgressIndicator(
-          color: Colors.red,
+          color: kLogoColor,
         ),
       ),
     );

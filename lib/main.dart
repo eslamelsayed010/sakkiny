@@ -9,8 +9,11 @@ import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/utils/dio_helper.dart';
 import 'package:sakkiny/core/utils/service_locator.dart';
 import 'package:sakkiny/core/utils/theme_data.dart';
+import 'package:sakkiny/features/favorite/presentation/manager/fav_cubit/fav_cubit.dart';
+import 'package:sakkiny/features/favorite/presentation/manager/fav_service_cubit/fav_service_cubit.dart';
 import 'package:sakkiny/features/home/presentation/manger/property_cubit/property_cubit.dart';
 import 'package:sakkiny/features/home/presentation/manger/recommended_cubit/recommended_cubit.dart';
+import 'package:sakkiny/features/home/presentation/manger/user_cubit/user_cubit.dart';
 import 'package:sakkiny/features/layout/manger/layout_cubit.dart';
 import 'package:sakkiny/features/profile/presentation/manger/lang_cubit/lang_cubit.dart';
 import 'package:sakkiny/features/profile/presentation/manger/lang_cubit/lang_states.dart';
@@ -49,6 +52,15 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => LocaleCubit()..getSavedLanguage(),
+        ),
+        BlocProvider(
+          create: (context) => FavCubit()..fetchFavItem(),
+        ),
+        BlocProvider(
+          create: (context) => FavServiceCubit()..fetchFavServiceItem(),
+        ),
+        BlocProvider(
+          create: (context) => UserCubit()..fetchUserInfo(),
         ),
       ],
       child: BlocBuilder<LocaleCubit, ChangeLocaleState>(

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_container_genres.dart';
-import 'package:sakkiny/features/favorite/presentation/views/widget/grid_view_home_fav.dart';
-import 'package:sakkiny/features/favorite/presentation/views/widget/grid_view_services_fav.dart';
+import 'package:sakkiny/features/favorite/presentation/views/widget/bloc_builder_fav_item.dart';
+import 'package:sakkiny/features/favorite/presentation/views/widget/bloc_builder_fav_service_item.dart';
 
 class CustomGenres extends StatefulWidget {
   const CustomGenres({Key? key}) : super(key: key);
@@ -66,12 +66,13 @@ class _CustomGenresState extends State<CustomGenres>
           body: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0),
             child: TabBarView(
-                controller: tabController,
-                physics: const BouncingScrollPhysics(),
-                children: const [
-                  GridViewHomeFav(),
-                  GridViewServicesFav(),
-                ]),
+              controller: tabController,
+              physics: const BouncingScrollPhysics(),
+              children: const [
+                BlocBuilderFavItem(),
+                BlocBuilderFavServiceItem(),
+              ],
+            ),
           ),
         ),
       ),

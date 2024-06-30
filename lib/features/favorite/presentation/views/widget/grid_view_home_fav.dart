@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sakkiny/features/favorite/presentation/views/widget/custom_home_fav.dart';
+import 'package:sakkiny/features/home/data/models/home_model/home_model.dart';
 
 class GridViewHomeFav extends StatelessWidget {
-  const GridViewHomeFav({Key? key}) : super(key: key);
-
+  const GridViewHomeFav({Key? key, required this.favPropertyModel})
+      : super(key: key);
+  final HomeModel favPropertyModel;
   @override
   Widget build(BuildContext context) {
-    // final screenSize = MediaQuery.of(context).size;
-    // final aspectRatio = screenSize.width / (screenSize.height * 1.63);
     return GridView.count(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       physics: const BouncingScrollPhysics(),
@@ -17,8 +17,10 @@ class GridViewHomeFav extends StatelessWidget {
       crossAxisSpacing: 12,
       childAspectRatio: 1 / 1.47,
       children: List.generate(
-        10,
-        (index) => const CustomHomeFav(),
+        favPropertyModel.properties!.length,
+        (index) => CustomHomeFav(
+          property: favPropertyModel.properties![index],
+        ),
       ),
     );
   }

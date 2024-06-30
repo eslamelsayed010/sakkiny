@@ -1,4 +1,4 @@
-import 'package:sakkiny/features/auth/sign_in/data/models/user_model/user_model.dart';
+import 'package:sakkiny/features/auth/sign_in/data/models/auth_model/auth_model.dart';
 
 abstract class SignInStates {}
 
@@ -7,8 +7,8 @@ class InitialSignInState extends SignInStates {}
 class LoadingSignInState extends SignInStates {}
 
 class SuccessSignInState extends SignInStates {
-  final UserModel userModel;
-  SuccessSignInState(this.userModel);
+  final AuthModel authModel;
+  SuccessSignInState(this.authModel);
 }
 
 class FailureSignInState extends SignInStates {

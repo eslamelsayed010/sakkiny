@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/app_router.dart';
-import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_text_form_field.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomSearchServices extends StatelessWidget {
   const CustomSearchServices({Key? key}) : super(key: key);

@@ -60,6 +60,7 @@ dependencies:
   flutter_localization: ^0.1.14
   url_launcher: ^6.1.11
   share_plus: ^4.5.3
+  csc_picker: ^0.2.7
 
 dev_dependencies:
   flutter_test:

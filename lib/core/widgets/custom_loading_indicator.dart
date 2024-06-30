@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../utils/const.dart';
 
 class CustomLoadingIndicator extends StatelessWidget {
   const CustomLoadingIndicator({Key? key}) : super(key: key);
@@ -7,7 +8,7 @@ class CustomLoadingIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: CircularProgressIndicator(
-        color: Colors.red,
+        color: kLogoColor,
       ),
     );
   }

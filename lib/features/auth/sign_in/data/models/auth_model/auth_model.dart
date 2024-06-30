@@ -1,13 +1,13 @@
 import 'data.dart';
 
-class UserModel {
+class AuthModel {
   bool? status;
   String? message;
   Data? data;
 
-  UserModel({this.status, this.message, this.data});
+  AuthModel({this.status, this.message, this.data});
 
-  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
+  factory AuthModel.fromJson(Map<String, dynamic> json) => AuthModel(
         status: json['status'] as bool?,
         message: json['message'] as String?,
         data: json['data'] == null

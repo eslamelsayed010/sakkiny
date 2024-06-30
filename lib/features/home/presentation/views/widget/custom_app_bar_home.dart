@@ -3,10 +3,11 @@ import 'package:go_router/go_router.dart';
 import 'package:sakkiny/core/utils/app_router.dart';
 import 'package:sakkiny/core/utils/assets.dart';
 import 'package:sakkiny/core/utils/const.dart';
+import 'package:sakkiny/features/home/data/models/user_model/user_model.dart';
 
 class CustomAppBarHome extends StatelessWidget {
-  const CustomAppBarHome({Key? key}) : super(key: key);
-
+  const CustomAppBarHome({Key? key, required this.userModel}) : super(key: key);
+  final UserModel userModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,10 +19,10 @@ class CustomAppBarHome extends StatelessWidget {
             width: MediaQuery.of(context).size.width * .5,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
-                  'Eslam Elsayed',
-                  style: TextStyle(
+                  userModel.user!.name!,
+                  style: const TextStyle(
                     height: 1,
                     color: kLogoColor,
                     fontWeight: FontWeight.bold,
@@ -32,8 +33,8 @@ class CustomAppBarHome extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
-                  'USER',
-                  style: TextStyle(
+                  userModel.user!.role!,
+                  style: const TextStyle(
                     color: Colors.grey,
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -49,12 +50,16 @@ class CustomAppBarHome extends StatelessWidget {
             },
             child: Stack(
               alignment: AlignmentDirectional.bottomEnd,
-              children: const [
+              children: [
                 CircleAvatar(
+                  backgroundColor: kLogoColor,
                   radius: 25,
-                  backgroundImage: AssetImage(AssetsData.user),
+                  backgroundImage: userModel.user!.profilePicture!.secureUrl !=
+                          null
+                      ? NetworkImage(userModel.user!.profilePicture!.secureUrl!)
+                      : const NetworkImage(AssetsData.user),
                 ),
-                Positioned(
+                const Positioned(
                   bottom: 2.5,
                   right: 2.5,
                   child: CircleAvatar(
@@ -62,7 +67,7 @@ class CustomAppBarHome extends StatelessWidget {
                     backgroundColor: Colors.white,
                   ),
                 ),
-                Positioned(
+                const Positioned(
                   bottom: 3,
                   right: 3,
                   child: CircleAvatar(

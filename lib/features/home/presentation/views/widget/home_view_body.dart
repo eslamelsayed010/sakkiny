@@ -4,7 +4,7 @@ import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_divider.dart';
 import 'package:sakkiny/features/home/presentation/views/widget/bloc_builder/property_bloc_builder.dart';
 import 'package:sakkiny/features/home/presentation/views/widget/bloc_builder/recommended_hose_bloc_builder.dart';
-import 'package:sakkiny/features/home/presentation/views/widget/custom_app_bar_home.dart';
+import 'package:sakkiny/features/home/presentation/views/widget/bloc_builder/user_bloc_builder.dart';
 import 'package:sakkiny/features/home/presentation/views/widget/custom_login.dart';
 import 'package:sakkiny/features/home/presentation/views/widget/custom_search.dart';
 import 'package:sakkiny/features/home/presentation/views/widget/custom_text.dart';
@@ -20,7 +20,7 @@ class HomeViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          token != null ? const CustomAppBarHome() : const CustomLogin(),
+          token != null ? const UserBlocBuilder() : const CustomLogin(),
           const CustomSearch(),
           const SizedBox(height: 10),
           const CustomViewAll(),

@@ -44,7 +44,7 @@ class CustomOwnerServicesDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                service.serviceCategory ?? 'No category',
+                service.serviceCategory!.tr(context),
                 style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,

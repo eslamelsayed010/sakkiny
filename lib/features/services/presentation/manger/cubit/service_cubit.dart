@@ -7,7 +7,7 @@ class ServiceCubit extends Cubit<ServiceStates> {
   ServiceCubit() : super(InitialServiceState());
   static ServiceCubit get(context) => BlocProvider.of(context);
 
-  Map<int?, bool?> favorites = {};
+  Map<String?, bool?> favorites = {};
 
   Future<void> fetchService() async {
     emit(LoadingServiceState());
@@ -15,7 +15,11 @@ class ServiceCubit extends Cubit<ServiceStates> {
     result.fold((failure) {
       emit(FailureServiceState(failure.error));
     }, (service) {
-      // for (var element in homeModel.data!.products!) {
+      favorites = {
+        for (var element in service)
+          element.id: element.likesCount != null && element.likesCount! > 0
+      };
+      // for (var element in service) {
       //   favorites.addAll({element.id: element.inFavorites});
       // }
       emit(SuccessServiceState(service));

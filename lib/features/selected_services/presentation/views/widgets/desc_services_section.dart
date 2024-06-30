@@ -22,7 +22,7 @@ class DescServicesSection extends StatelessWidget {
         ),
 
         Text(
-          '${'Service Category : '.tr(context)}${service.serviceCategory!}',
+          '${'Service Category : '.tr(context)}${service.serviceCategory!.tr(context)}',
           style: const TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,

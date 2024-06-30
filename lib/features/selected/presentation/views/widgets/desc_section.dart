@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_interpolation_to_compose_strings
-
 import 'package:flutter/material.dart';
 import 'package:sakkiny/core/utils/app_localizations.dart';
 import 'package:sakkiny/core/utils/const.dart';
@@ -28,7 +26,7 @@ class DescSection extends StatelessWidget {
         Row(
           children: [
             Text(
-              'Level : '.tr(context) + property.level!,
+              'Level : '.tr(context) + property.level!.tr(context),
               style: const TextStyle(
                 fontSize: 15,
                 color: Colors.grey,

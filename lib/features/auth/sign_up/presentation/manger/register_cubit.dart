@@ -25,8 +25,8 @@ class RegisterCubit extends Cubit<RegisterStates> {
     );
     value.fold((error) {
       emit(FailureRegisterStates(error.toString()));
-    }, (userModel) {
-      emit(SuccessRegisterStates(userModel));
+    }, (authModel) {
+      emit(SuccessRegisterStates(authModel));
     });
   }
 }

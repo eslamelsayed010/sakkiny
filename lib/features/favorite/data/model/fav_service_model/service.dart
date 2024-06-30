@@ -6,15 +6,16 @@ class Service {
   UserId? userId;
   String? serviceCategory;
   String? description;
-  int? price;
+  double? price;
   List<Image>? images;
-  num? latitude;
-  num? longitude;
+  double? latitude;
+  double? longitude;
   String? address;
   String? customId;
   DateTime? createdAt;
   DateTime? updatedAt;
   int? v;
+  int? likesCount;
 
   Service({
     this.id,
@@ -30,6 +31,7 @@ class Service {
     this.createdAt,
     this.updatedAt,
     this.v,
+    this.likesCount,
   });
 
   factory Service.fromJson(Map<String, dynamic> json) => Service(
@@ -39,12 +41,12 @@ class Service {
             : UserId.fromJson(json['userId'] as Map<String, dynamic>),
         serviceCategory: json['serviceCategory'] as String?,
         description: json['description'] as String?,
-        price: json['price'] as int?,
+        price: json['price'] as double?,
         images: (json['images'] as List<dynamic>?)
             ?.map((e) => Image.fromJson(e as Map<String, dynamic>))
             .toList(),
-        latitude: json['latitude'] as num?,
-        longitude: json['longitude'] as num?,
+        latitude: json['latitude'] as double?,
+        longitude: json['longitude'] as double?,
         address: json['address'] as String?,
         customId: json['customId'] as String?,
         createdAt: json['createdAt'] == null
@@ -54,6 +56,7 @@ class Service {
             ? null
             : DateTime.parse(json['updatedAt'] as String),
         v: json['__v'] as int?,
+        likesCount: json['likesCount'] as int?,
       );
 
   Map<String, dynamic> toJson() => {
@@ -70,5 +73,6 @@ class Service {
         'createdAt': createdAt?.toIso8601String(),
         'updatedAt': updatedAt?.toIso8601String(),
         '__v': v,
+        'likesCount': likesCount,
       };
 }

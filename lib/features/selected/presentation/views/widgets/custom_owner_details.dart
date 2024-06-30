@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sakkiny/core/utils/app_localizations.dart';
-import 'package:sakkiny/core/utils/assets.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/features/home/data/models/home_model/property.dart';
 
@@ -12,9 +11,10 @@ class CustomOwnerDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const CircleAvatar(
+        CircleAvatar(
           radius: 30,
-          backgroundImage: AssetImage(AssetsData.loma3),
+          backgroundImage:
+              NetworkImage(property.addedBy!.profilePicture!.secureUrl!),
         ),
         const SizedBox(width: 10),
         Expanded(
@@ -36,7 +36,7 @@ class CustomOwnerDetails extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    property.addedByType!,
+                    property.addedByType!.tr(context),
                     style: const TextStyle(
                       color: Colors.black38,
                       fontWeight: FontWeight.bold,
@@ -44,7 +44,7 @@ class CustomOwnerDetails extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '${property.price!} ${'LE'.tr(context)} / ${property.per!}',
+                    '${property.price!} ${'LE'.tr(context)} / ${property.per!.tr(context)}',
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: kLogoColor,

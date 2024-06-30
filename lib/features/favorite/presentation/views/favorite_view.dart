@@ -7,7 +7,7 @@ class FavoriteView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [
+      children:  const [
         Flexible(
           flex: 1,
           child: CustomGenres(),

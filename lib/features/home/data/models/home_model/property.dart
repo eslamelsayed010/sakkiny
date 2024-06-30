@@ -16,6 +16,7 @@ class Property {
   int? area;
   String? level;
   bool? isFurnished;
+  bool? userVerified;
   int? price;
   String? per;
   String? numberOfGuests;
@@ -43,6 +44,7 @@ class Property {
     this.area,
     this.level,
     this.isFurnished,
+    this.userVerified,
     this.price,
     this.per,
     this.numberOfGuests,
@@ -77,6 +79,7 @@ class Property {
         area: json['area'] as int?,
         level: json['level'] as String?,
         isFurnished: json['isFurnished'] as bool?,
+        userVerified: json['userVerified'] as bool?,
         price: json['price'] as int?,
         per: json['per'] as String?,
         numberOfGuests: json['numberOfGuests'] as String?,
@@ -109,6 +112,7 @@ class Property {
         'area': area,
         'level': level,
         'isFurnished': isFurnished,
+        'userVerified': userVerified,
         'price': price,
         'per': per,
         'numberOfGuests': numberOfGuests,

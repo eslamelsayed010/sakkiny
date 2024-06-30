@@ -57,6 +57,7 @@
 
   "favorite":"================================================================",
   "House":"House",
+  "your favorite list is empty":"your favorite list is empty",
 
 
   "profile":"================================================================",
@@ -68,6 +69,8 @@
   "Edit Your Property" : "Edit Your Property",
   "Share App" : "Share App",
   "Sakkiny is a mobile app that connects tenants with verified apartment owners who are willing to rent their properties to them and provide online service providers and maintenance workers to facilitate the maintenance process or any changes the tenant need to make during the stay." : "Sakkiny is a mobile app that connects tenants with verified apartment owners who are willing to rent their properties to them and provide online service providers and maintenance workers to facilitate the maintenance process or any changes the tenant need to make during the stay.",
+  "Verify Your Account" : "Verify Your Account",
+  "Verify your identity" : "Verify your identity",
 
 
   "search":"================================================================",
@@ -170,6 +173,7 @@
   "real state company": "Real state company",
   "government agencies": "Government agencies",
   "Are you : ": "Are you : ",
+  "Choose from gallery five image at least": "Choose from gallery five image at least",
 
 
   "add services":"================================================================",
@@ -196,6 +200,7 @@
 
   "user":"================================================================",
   "Update":"Update",
+  "Choose image from gallery for update":"Choose image from gallery for update",
 
 
   "select property":"================================================================",
@@ -229,5 +234,22 @@
   "Language":"Language",
   "Country":"Country",
   "ar":"Arabic",
-  "en":"English"
+  "en":"English",
+
+
+  "verify":"================================================================",
+  "Enter Your Code . . .":"Enter Your Code . . .",
+  "enter the code !!":"enter the code !!",
+  "Enter photo of your ID card from front":"Enter photo of your ID card from front",
+  "Enter photo of your ID card from back":"Enter photo of your ID card from back",
+  "Upload a picture from the camera":"Upload a picture from the camera",
+  "Verify":"Verify",
+  "enter the images !":"enter the images !",
+  "Send your code !Click here":"Send your code !Click here",
+
+
+  "CSCPicker":"================================================================",
+  "country":"country",
+  "city":"city",
+  "state":"state"
 }

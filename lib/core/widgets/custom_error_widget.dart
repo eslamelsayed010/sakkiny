@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CustomErrorWidget extends StatelessWidget {
-  const CustomErrorWidget({Key? key, required this.errorMassage})
+  const CustomErrorWidget({Key? key, required this.errorMassage, this.color = Colors.red})
       : super(key: key);
   final String errorMassage;
+  final Color? color;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -11,9 +12,9 @@ class CustomErrorWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
         child: Text(
           errorMassage,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 18,
-            color: Colors.red,
+            color: color,
           ),
           textAlign: TextAlign.center,
         ),

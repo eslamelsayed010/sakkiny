@@ -38,17 +38,17 @@ class _SignInViewBodyState extends State<SignInViewBody> {
         }
         if (state is SuccessSignInState) {
           isLoading = false;
-          if (state.userModel.status!) {
-            showToast(txt: state.userModel.message!, state: ToastState.SUCCESS);
+          if (state.authModel.status!) {
+            showToast(txt: state.authModel.message!, state: ToastState.SUCCESS);
             CacheHelper.saveData(
               key: 'token',
-              value: state.userModel.data!.usertoken!,
+              value: state.authModel.data!.usertoken!,
             ).then((value) {
-              token = state.userModel.data!.usertoken!;
+              token = state.authModel.data!.usertoken!;
               GoRouter.of(context).pushReplacement(AppRouter.kLayoutView);
             });
           } else {
-            showToast(txt: state.userModel.message!, state: ToastState.ERROR);
+            showToast(txt: state.authModel.message!, state: ToastState.ERROR);
           }
         }
         if (state is FailureSignInState) {

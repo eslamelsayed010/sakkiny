@@ -33,7 +33,7 @@ class CustomServicesDetailsSearch extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      service.serviceCategory!,
+                      service.serviceCategory!.tr(context),
                       style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
@@ -71,7 +71,7 @@ class CustomServicesDetailsSearch extends StatelessWidget {
                             padding: EdgeInsets.zero,
                             icon: const Icon(
                               Icons.favorite_outlined,
-                              color: kLogoColor,
+                              color: Colors.white,
                             ),
                             onPressed: () {},
                           ),

@@ -14,7 +14,7 @@ class CustomViewAll extends StatelessWidget {
           onPressed: () {
             // GoRouter.of(context).push(AppRouter.kViewAllListView);
           },
-          child:  Text(
+          child: Text(
             "View All".tr(context),
             style: const TextStyle(
               color: kLogoColor,

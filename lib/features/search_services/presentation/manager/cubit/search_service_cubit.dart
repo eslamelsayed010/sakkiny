@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sakkiny/features/search_services/data/repos/search_services_repo_impl.dart';
 import 'package:sakkiny/features/search_services/presentation/manager/cubit/search_service_state.dart';

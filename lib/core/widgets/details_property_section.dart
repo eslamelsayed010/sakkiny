@@ -16,7 +16,7 @@ class DetailsPropertySection extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                property.type!,
+                property.type!.tr(context),
                 style: const TextStyle(
                   color: kLogoColor,
                   fontWeight: FontWeight.bold,
@@ -25,7 +25,7 @@ class DetailsPropertySection extends StatelessWidget {
               ),
               const Spacer(),
               Text(
-                '${property.price!} ${'LE'.tr(context)} / ${property.per}',
+                '${property.price!} ${'LE'.tr(context)} / ${property.per!.tr(context)}',
                 style: const TextStyle(
                   fontSize: 13,
                 ),

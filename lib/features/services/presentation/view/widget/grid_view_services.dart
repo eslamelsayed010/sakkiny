@@ -16,7 +16,7 @@ class GridViewServices extends StatelessWidget {
       crossAxisCount: 2,
       mainAxisSpacing: 10,
       crossAxisSpacing: 12,
-      childAspectRatio: 1 / 1.525,
+      childAspectRatio: 1 / 1.6,
       children: List.generate(
         services.length,
         (index) =>
