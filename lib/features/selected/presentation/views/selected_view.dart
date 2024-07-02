@@ -40,61 +40,56 @@ class SelectedView extends StatelessWidget {
                           GoRouter.of(context).pop();
                         }),
                     const Spacer(),
-                    BlocProvider(
-                      create: (context) => ChangeFavoriteCubit(),
-                      child: BlocConsumer<ChangeFavoriteCubit,
-                          ChangeFavoriteState>(
-                        listener: (context, state) {
-                          if (state is SuccessChangeFavoriteState) {
-                            if (!state.changeFavoriteModel.status!) {
-                              showToast(
-                                txt: state.changeFavoriteModel.message!,
-                                state: ToastState.ERROR,
-                              );
-                            }
+                    BlocConsumer<ChangeFavoriteCubit, ChangeFavoriteState>(
+                      listener: (context, state) {
+                        if (state is SuccessChangeFavoriteState) {
+                          if (!state.changeFavoriteModel.status!) {
                             showToast(
                               txt: state.changeFavoriteModel.message!,
-                              state: ToastState.SUCCESS,
-                            );
-                          }
-                          if (state is FailureChangeFavoriteState){
-                            showToast(
-                              txt: state.error,
                               state: ToastState.ERROR,
                             );
                           }
-                        },
-                        builder: (context, state) {
-                          return Material(
-                            color: Colors.transparent,
-                            elevation: 5,
-                            shape: const CircleBorder(),
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: kFloatingColor,
-                              ),
-                              child: IconButton(
-                                padding: EdgeInsets.zero,
-                                icon: cubit.favorites[property.id]!
-                                    ? const Icon(
-                                        Icons.favorite_outlined,
-                                        color: kLogoColor,
-                                      )
-                                    : const Icon(
-                                        Icons.favorite_border_outlined),
-                                onPressed: () {
-                                  ChangeFavoriteCubit.get(context)
-                                      .changeFavoriteItem(
-                                    id: property.id!,
-                                    context: context,
-                                  );
-                                },
-                              ),
-                            ),
+                          showToast(
+                            txt: state.changeFavoriteModel.message!,
+                            state: ToastState.SUCCESS,
                           );
-                        },
-                      ),
+                        }
+                        if (state is FailureChangeFavoriteState) {
+                          showToast(
+                            txt: state.error,
+                            state: ToastState.ERROR,
+                          );
+                        }
+                      },
+                      builder: (context, state) {
+                        return Material(
+                          color: Colors.transparent,
+                          elevation: 5,
+                          shape: const CircleBorder(),
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: kFloatingColor,
+                            ),
+                            child: IconButton(
+                              padding: EdgeInsets.zero,
+                              icon: cubit.favorites[property.id]!
+                                  ? const Icon(
+                                      Icons.favorite_outlined,
+                                      color: kLogoColor,
+                                    )
+                                  : const Icon(Icons.favorite_border_outlined),
+                              onPressed: () {
+                                ChangeFavoriteCubit.get(context)
+                                    .changeFavoriteItem(
+                                  id: property.id!,
+                                  context: context,
+                                );
+                              },
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),

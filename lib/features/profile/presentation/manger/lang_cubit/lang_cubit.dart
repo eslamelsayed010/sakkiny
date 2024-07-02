@@ -4,7 +4,7 @@ import 'package:sakkiny/core/utils/lang_cache_helper.dart';
 import 'package:sakkiny/features/profile/presentation/manger/lang_cubit/lang_states.dart';
 
 class LocaleCubit extends Cubit<ChangeLocaleState> {
-  LocaleCubit() : super(ChangeLocaleState(locale: const Locale('ar')));
+  LocaleCubit() : super(ChangeLocaleState(locale: const Locale('en')));
 
   Future<void> getSavedLanguage() async {
     final String cachedLanguageCode =

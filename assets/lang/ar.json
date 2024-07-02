@@ -71,6 +71,7 @@
   "Sakkiny is a mobile app that connects tenants with verified apartment owners who are willing to rent their properties to them and provide online service providers and maintenance workers to facilitate the maintenance process or any changes the tenant need to make during the stay." : "ساكني هو تطبيق جوال يربط المستأجرين بأصحاب الشقق المعتمدين والراغبين في تأجير عقاراتهم لهم وتوفير مقدمي الخدمات عبر الإنترنت وعمال الصيانة لتسهيل عملية الصيانة أو أي تغييرات يحتاج المستأجر إلى إجرائها أثناء الإقامة.",
   "Verify Your Account" : "التجقق من حسابك",
   "Verify your identity" : "التجقق من الهويه",
+  "Call Us" : "اتصل بنا",
 
 
   "search":"============================================================================================",
@@ -252,5 +253,17 @@
   "CSCPicker":"================================================================",
   "country":"دولة",
   "city":"مدينة",
-  "state":"ولاية"
+  "state":"ولاية",
+
+
+  "report view body":"================================================================",
+  "For suggestions and inquiries":"للاقتراحات والاستفسارات",
+  "We welcome all inquiries and suggestions":"نحن نرحب بجميع الاستفسارات والمقترحات",
+  "Message":"رسالة",
+  "Enter The Message !":"أدخل الرسالة !",
+  "Title of message (optional)":"عنوان الرسالة (اختياري)",
+  "enter title of message !":"أدخل عنوان الرسالة !",
+  "Please enter all data*":"يرجي ادخال جميع البيانات*",
+  "Send":"أرسل",
+  "Attachment (optional)":"مرفق (اختياري)"
 }

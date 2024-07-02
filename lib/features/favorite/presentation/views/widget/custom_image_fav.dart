@@ -27,49 +27,49 @@ class CustomImageFav extends StatelessWidget {
             child: Icon(Icons.error),
           ),
         ),
-        BlocProvider(
-          create: (context) => ChangeFavoriteCubit(),
-          child: BlocConsumer<ChangeFavoriteCubit, ChangeFavoriteState>(
-            listener: (context, state) {
-              if (state is SuccessChangeFavoriteState) {
-                if (!state.changeFavoriteModel.status!) {
-                  showToast(
-                    txt: state.changeFavoriteModel.message!,
-                    state: ToastState.ERROR,
-                  );
-                }
+        BlocConsumer<ChangeFavoriteCubit, ChangeFavoriteState>(
+          listener: (context, state) {
+            if (state is SuccessChangeFavoriteState) {
+              if (!state.changeFavoriteModel.status!) {
                 showToast(
                   txt: state.changeFavoriteModel.message!,
-                  state: ToastState.SUCCESS,
-                );
-              }
-              if (state is FailureChangeFavoriteState) {
-                showToast(
-                  txt: state.error,
                   state: ToastState.ERROR,
                 );
               }
-            },
-            builder: (context, state) {
-              return Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: IconButton(
-                    padding: EdgeInsets.zero,
-                    icon: favorite!
-                        ? const Icon(
-                            Icons.favorite_outlined,
-                            color: kLogoColor,
-                          )
-                        : const Icon(Icons.favorite_border_outlined),
-                    onPressed: () {
-                      ChangeFavoriteCubit.get(context).changeFavoriteItem(
-                        id: property.id!,
-                        context: context,
-                      );
-                    },
-                  ));
-            },
-          ),
+              showToast(
+                txt: state.changeFavoriteModel.message!,
+                state: ToastState.SUCCESS,
+              );
+            }
+            if (state is FailureChangeFavoriteState) {
+              showToast(
+                txt: state.error,
+                state: ToastState.ERROR,
+              );
+            }
+          },
+          builder: (context, state) {
+            return Padding(
+              padding: const EdgeInsets.only(top: 10.0),
+              child: IconButton(
+                padding: EdgeInsets.zero,
+                icon: favorite != null && favorite
+                    ? const Icon(
+                        Icons.favorite_outlined,
+                        color: kLogoColor,
+                      )
+                    : const Icon(Icons.favorite_border_outlined),
+                onPressed: () {
+                  if (favorite != null) {
+                    ChangeFavoriteCubit.get(context).changeFavoriteItem(
+                      id: property.id!,
+                      context: context,
+                    );
+                  }
+                },
+              ),
+            );
+          },
         ),
       ],
     );

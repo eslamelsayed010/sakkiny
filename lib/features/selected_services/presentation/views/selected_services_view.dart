@@ -43,64 +43,61 @@ class SelectedServicesView extends StatelessWidget {
                           GoRouter.of(context).pop();
                         }),
                     const Spacer(),
-                    BlocProvider(
-                      create: (context) => ChangeFavoriteServiceCubit(),
-                      child: BlocConsumer<ChangeFavoriteServiceCubit,
-                          ChangeFavoriteServiceState>(
-                        listener: (context, state) {
-                          if (state is SuccessChangeFavoriteServiceState) {
-                            if (!state.changeFavoriteServiceModel.status!) {
-                              showToast(
-                                txt: state
-                                    .changeFavoriteServiceModel.message!,
-                                state: ToastState.ERROR,
-                              );
-                            }
+                    BlocConsumer<ChangeFavoriteServiceCubit,
+                        ChangeFavoriteServiceState>(
+                      listener: (context, state) {
+                        if (state is SuccessChangeFavoriteServiceState) {
+                          if (!state.changeFavoriteServiceModel.status!) {
                             showToast(
-                              txt:
-                              state.changeFavoriteServiceModel.message!,
-                              state: ToastState.SUCCESS,
-                            );
-                          }
-                          if (state is FailureChangeFavoriteServiceState) {
-                            showToast(
-                              txt: state.error,
+                              txt: state
+                                  .changeFavoriteServiceModel.message!,
                               state: ToastState.ERROR,
                             );
                           }
-                        },
-                        builder: (context, state) {
-                          return Material(
-                            color: Colors.transparent,
-                            elevation: 5,
-                            shape: const CircleBorder(),
-                            child: Container(
-                              width: 40,
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: kFloatingColor,
-                              ),
-                              child: IconButton(
-                                padding: EdgeInsets.zero,
-                                icon: cubit.favorites[service.id]!
-                                    ? const Icon(
-                                  Icons.favorite_outlined,
-                                  color: kLogoColor,
-                                )
-                                    : const Icon(
-                                    Icons.favorite_border_outlined),
-                                onPressed: () {
-                                  ChangeFavoriteServiceCubit.get(context)
-                                      .changeFavoriteServiceItem(
-                                    id: service.id!,
-                                    context: context,
-                                  );
-                                },
-                              ),
-                            ),
+                          showToast(
+                            txt:
+                            state.changeFavoriteServiceModel.message!,
+                            state: ToastState.SUCCESS,
                           );
-                        },
-                      ),
+                        }
+                        if (state is FailureChangeFavoriteServiceState) {
+                          showToast(
+                            txt: state.error,
+                            state: ToastState.ERROR,
+                          );
+                        }
+                      },
+                      builder: (context, state) {
+                        return Material(
+                          color: Colors.transparent,
+                          elevation: 5,
+                          shape: const CircleBorder(),
+                          child: Container(
+                            width: 40,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: kFloatingColor,
+                            ),
+                            child: IconButton(
+                              padding: EdgeInsets.zero,
+                              icon: cubit.favorites[service.id]!
+                                  ? const Icon(
+                                Icons.favorite_outlined,
+                                color: kLogoColor,
+                              )
+                                  : const Icon(
+                                  Icons.favorite_border_outlined),
+                              onPressed: () {
+                                ChangeFavoriteServiceCubit.get(context)
+                                    .changeFavoriteServiceItem(
+                                  id: service.id!,
+                                  context: context,
+                                );
+                              },
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),

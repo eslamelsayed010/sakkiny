@@ -71,6 +71,7 @@
   "Sakkiny is a mobile app that connects tenants with verified apartment owners who are willing to rent their properties to them and provide online service providers and maintenance workers to facilitate the maintenance process or any changes the tenant need to make during the stay." : "Sakkiny is a mobile app that connects tenants with verified apartment owners who are willing to rent their properties to them and provide online service providers and maintenance workers to facilitate the maintenance process or any changes the tenant need to make during the stay.",
   "Verify Your Account" : "Verify Your Account",
   "Verify your identity" : "Verify your identity",
+  "Call Us" : "Call Us",
 
 
   "search":"================================================================",
@@ -252,5 +253,17 @@
   "CSCPicker":"================================================================",
   "country":"country",
   "city":"city",
-  "state":"state"
+  "state":"state",
+
+
+  "report view body":"================================================================",
+  "For suggestions and inquiries":"For suggestions and inquiries",
+  "We welcome all inquiries and suggestions":"We welcome all inquiries and suggestions",
+  "Message":"Message",
+  "Enter The Message !":"Enter The Message !",
+  "Title of message (optional)":"Title of message (optional)",
+  "enter title of message !":"enter title of message !",
+  "Please enter all data*":"Please enter all data*",
+  "Send":"Send",
+  "Attachment (optional)":"Attachment (optional)"
 }

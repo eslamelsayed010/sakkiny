@@ -17,6 +17,7 @@ import 'package:sakkiny/features/layout/view/layout_view.dart';
 import 'package:sakkiny/features/profile/presentation/views/profile_view.dart';
 import 'package:sakkiny/features/profile/presentation/views/widget/about_view.dart';
 import 'package:sakkiny/features/profile/presentation/views/widget/lang_body.dart';
+import 'package:sakkiny/features/report/presentation/view/report_view.dart';
 import 'package:sakkiny/features/search/presentation/views/search_view.dart';
 import 'package:sakkiny/features/search_services/presentation/views/search_services_view.dart';
 import 'package:sakkiny/features/selected/presentation/views/selected_view.dart';
@@ -52,6 +53,7 @@ abstract class AppRouter {
   static const kEditImageView = '/EditImageView';
   static const kPersonView = '/PersonView';
   static const kVerifyView = '/VerifyView';
+  static const kReportView = '/ReportView';
 
   static final GoRouter router = GoRouter(
     routes: [
@@ -199,6 +201,12 @@ abstract class AppRouter {
         path: '/VerifyView',
         builder: (BuildContext context, GoRouterState state) {
           return const VerifyView();
+        },
+      ),
+      GoRoute(
+        path: '/ReportView',
+        builder: (BuildContext context, GoRouterState state) {
+          return const ReportView();
         },
       ),
     ],

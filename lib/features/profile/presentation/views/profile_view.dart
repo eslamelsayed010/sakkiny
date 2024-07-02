@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/features/profile/presentation/views/widget/about_section.dart';
+import 'package:sakkiny/features/profile/presentation/views/widget/call_section.dart';
 import 'package:sakkiny/features/profile/presentation/views/widget/edit_section.dart';
 import 'package:sakkiny/features/profile/presentation/views/widget/lang_section.dart';
 import 'package:sakkiny/features/profile/presentation/views/widget/login_section.dart';
@@ -18,8 +19,9 @@ class ProfileView extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const SizedBox(height: 30),
-            token == null ? const LoginSection() : const UserProfileBlocBuilder(),
+            token == null
+                ? const LoginSection()
+                : const UserProfileBlocBuilder(),
             const SizedBox(height: 50),
             const LangSection(),
             const SizedBox(height: 30),
@@ -30,6 +32,8 @@ class ProfileView extends StatelessWidget {
             const VerifySection(),
             const SizedBox(height: 30),
             const ShareSection(),
+            const SizedBox(height: 30),
+            const CallSection(),
           ],
         ),
       ),

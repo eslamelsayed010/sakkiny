@@ -77,64 +77,61 @@ class CustomServices extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(width: 5),
-                        BlocProvider(
-                          create: (context) => ChangeFavoriteServiceCubit(),
-                          child: BlocConsumer<ChangeFavoriteServiceCubit,
-                              ChangeFavoriteServiceState>(
-                            listener: (context, state) {
-                              if (state is SuccessChangeFavoriteServiceState) {
-                                if (!state.changeFavoriteServiceModel.status!) {
-                                  showToast(
-                                    txt: state
-                                        .changeFavoriteServiceModel.message!,
-                                    state: ToastState.ERROR,
-                                  );
-                                }
+                        BlocConsumer<ChangeFavoriteServiceCubit,
+                            ChangeFavoriteServiceState>(
+                          listener: (context, state) {
+                            if (state is SuccessChangeFavoriteServiceState) {
+                              if (!state.changeFavoriteServiceModel.status!) {
                                 showToast(
-                                  txt:
-                                      state.changeFavoriteServiceModel.message!,
-                                  state: ToastState.SUCCESS,
-                                );
-                              }
-                              if (state is FailureChangeFavoriteServiceState) {
-                                showToast(
-                                  txt: state.error,
+                                  txt: state
+                                      .changeFavoriteServiceModel.message!,
                                   state: ToastState.ERROR,
                                 );
                               }
-                            },
-                            builder: (context, state) {
-                              return Material(
-                                color: Colors.transparent,
-                                elevation: 5,
-                                shape: const CircleBorder(),
-                                child: Container(
-                                  width: 40,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.grey[300],
-                                  ),
-                                  child: IconButton(
-                                    padding: EdgeInsets.zero,
-                                    icon: cubit.favorites[service.id]!
-                                        ? const Icon(
-                                            Icons.favorite_outlined,
-                                            color: kLogoColor,
-                                          )
-                                        : const Icon(
-                                            Icons.favorite_border_outlined),
-                                    onPressed: () {
-                                      ChangeFavoriteServiceCubit.get(context)
-                                          .changeFavoriteServiceItem(
-                                        id: service.id!,
-                                        context: context,
-                                      );
-                                    },
-                                  ),
-                                ),
+                              showToast(
+                                txt:
+                                    state.changeFavoriteServiceModel.message!,
+                                state: ToastState.SUCCESS,
                               );
-                            },
-                          ),
+                            }
+                            if (state is FailureChangeFavoriteServiceState) {
+                              showToast(
+                                txt: state.error,
+                                state: ToastState.ERROR,
+                              );
+                            }
+                          },
+                          builder: (context, state) {
+                            return Material(
+                              color: Colors.transparent,
+                              elevation: 5,
+                              shape: const CircleBorder(),
+                              child: Container(
+                                width: 40,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.grey[300],
+                                ),
+                                child: IconButton(
+                                  padding: EdgeInsets.zero,
+                                  icon: cubit.favorites[service.id]!
+                                      ? const Icon(
+                                          Icons.favorite_outlined,
+                                          color: kLogoColor,
+                                        )
+                                      : const Icon(
+                                          Icons.favorite_border_outlined),
+                                  onPressed: () {
+                                    ChangeFavoriteServiceCubit.get(context)
+                                        .changeFavoriteServiceItem(
+                                      id: service.id!,
+                                      context: context,
+                                    );
+                                  },
+                                ),
+                              ),
+                            );
+                          },
                         ),
                       ],
                     ),

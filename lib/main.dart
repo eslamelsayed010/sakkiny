@@ -9,6 +9,8 @@ import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/utils/dio_helper.dart';
 import 'package:sakkiny/core/utils/service_locator.dart';
 import 'package:sakkiny/core/utils/theme_data.dart';
+import 'package:sakkiny/features/favorite/presentation/manager/change_fav_cubit/change_favorite_cubit.dart';
+import 'package:sakkiny/features/favorite/presentation/manager/change_fav_service_cubit/change_favorite_service_cubit.dart';
 import 'package:sakkiny/features/favorite/presentation/manager/fav_cubit/fav_cubit.dart';
 import 'package:sakkiny/features/favorite/presentation/manager/fav_service_cubit/fav_service_cubit.dart';
 import 'package:sakkiny/features/home/presentation/manger/property_cubit/property_cubit.dart';
@@ -61,6 +63,12 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => UserCubit()..fetchUserInfo(),
+        ),
+        BlocProvider(
+          create: (context) => ChangeFavoriteCubit(),
+        ),
+        BlocProvider(
+          create: (context) => ChangeFavoriteServiceCubit(),
         ),
       ],
       child: BlocBuilder<LocaleCubit, ChangeLocaleState>(
