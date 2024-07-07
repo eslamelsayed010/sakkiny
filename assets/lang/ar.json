@@ -65,12 +65,12 @@
   "Do you want sign out !":"هل تريد تسجيل الخروج !",
   "Yes":"نعم",
   "Language / Country" : "اللغة / البلد",
-  "About Sakkiny" : "عن ساكني",
+  "About Sakkiny" : "عن سَكِني",
   "Edit Your Property" : "تعديل الممتلكات الخاصة بك",
   "Share App" : "شارك التطبيق",
-  "Sakkiny is a mobile app that connects tenants with verified apartment owners who are willing to rent their properties to them and provide online service providers and maintenance workers to facilitate the maintenance process or any changes the tenant need to make during the stay." : "ساكني هو تطبيق جوال يربط المستأجرين بأصحاب الشقق المعتمدين والراغبين في تأجير عقاراتهم لهم وتوفير مقدمي الخدمات عبر الإنترنت وعمال الصيانة لتسهيل عملية الصيانة أو أي تغييرات يحتاج المستأجر إلى إجرائها أثناء الإقامة.",
-  "Verify Your Account" : "التجقق من حسابك",
-  "Verify your identity" : "التجقق من الهويه",
+  "Sakkiny is a mobile app that connects tenants with verified apartment owners who are willing to rent their properties to them and provide online service providers and maintenance workers to facilitate the maintenance process or any changes the tenant need to make during the stay." : "سَكِني هو تطبيق جوال يربط المستأجرين بأصحاب الشقق المعتمدين والراغبين في تأجير عقاراتهم لهم وتوفير مقدمي الخدمات عبر الإنترنت وعمال الصيانة لتسهيل عملية الصيانة أو أي تغييرات يحتاج المستأجر إلى إجرائها أثناء الإقامة.",
+  "Verify Your Account" : "التحقق من حسابك",
+  "Verify your identity" : "التحقق من الهويه",
   "Call Us" : "اتصل بنا",
 
 
@@ -217,6 +217,7 @@
   "WhatsApp":"الوتساب",
   "Email":"البريد الالكتروني",
   "Rooms":"الغرف",
+  "Likes : ":"الاعجابات : ",
 
 
   "select service":"================================================================",

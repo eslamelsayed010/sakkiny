@@ -36,11 +36,12 @@ class SplashViewState extends State<SplashView>
               child: Text(
                 'Sakkiny',
                 style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 70,
-                    fontStyle: FontStyle.italic,
-                    fontFamily: 'DancingScript'),
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 70,
+                  fontStyle: FontStyle.italic,
+                  fontFamily: 'DancingScript',
+                ),
               ),
             )
           ],

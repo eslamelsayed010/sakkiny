@@ -55,31 +55,6 @@ class CustomOwnerDetails extends StatelessWidget {
             ],
           ),
         ),
-        // Row(
-        //   children: [
-        //     FloatingActionButton(
-        //       heroTag: 'message_rounded_owner',
-        //       backgroundColor: Colors.grey[300],
-        //       mini: true,
-        //       child: const Icon(
-        //         Icons.message_rounded,
-        //         color: kLogoColor,
-        //       ),
-        //       onPressed: () {},
-        //     ),
-        //     const SizedBox(width: 10),
-        //     FloatingActionButton(
-        //       heroTag: 'phone_owner',
-        //       backgroundColor: Colors.grey[300],
-        //       mini: true,
-        //       child: const Icon(
-        //         Icons.phone,
-        //         color: kLogoColor,
-        //       ),
-        //       onPressed: () {},
-        //     ),
-        //   ],
-        // ),
       ],
     );
   }

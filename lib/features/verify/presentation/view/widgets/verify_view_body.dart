@@ -156,14 +156,8 @@ class _VerifyViewBodyState extends State<VerifyViewBody> {
                               selectedFrontImage != null &&
                               selectedCameraImage != null &&
                               selectedBackImage != null) {
-                            // final File imageFile = File(selectedCameraImage!.path);
-                            // final bytes = await imageFile.readAsBytes();
                             VerifyCubit.get(context).verifyIdentity(
                               code: codeController.text,
-                              // cameraImage: MultipartFile.fromBytes(
-                              //   bytes,
-                              //   filename: 'image.jpg',
-                              // ),
                               cameraImage: await MultipartFile.fromFile(
                                 selectedCameraImage!.path,
                                 filename: 'selectedCameraImage!.path',

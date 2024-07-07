@@ -46,8 +46,13 @@ class DescSection extends StatelessWidget {
             ),
           ],
         ),
+        const SizedBox(height: 5),
         Row(
           children: [
+            Text(
+              '${'Likes : '.tr(context)}${property.likesCount}',
+              style: const TextStyle(color: kLogoColor),
+            ),
             const Spacer(),
             Row(
               children: [

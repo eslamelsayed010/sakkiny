@@ -27,3 +27,5 @@ const verifyIdentity = '/identity/verifyIdentity';
 const getFavProperty = '/property/likes';
 
 const getFavService = '/service/likes';
+
+const userFeedback = '/user/feedback';

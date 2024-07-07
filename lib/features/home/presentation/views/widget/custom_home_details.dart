@@ -64,17 +64,6 @@ class CustomHomeDetails extends StatelessWidget {
                 ),
               ],
             ),
-            // Row(
-            //   children: const [
-            //     Icon(Icons.bed),
-            //     SizedBox(width: 10),
-            //     Text('4 Rooms'),
-            //     SizedBox(width: 20),
-            //     Icon(Icons.photo_size_select_small),
-            //     SizedBox(width: 10),
-            //     Text('400 M'),
-            //   ],
-            // ),
           ],
         ),
       ),

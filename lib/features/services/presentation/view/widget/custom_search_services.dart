@@ -31,14 +31,6 @@ class CustomSearchServices extends StatelessWidget {
                 ),
               ),
             ),
-            // const SizedBox(width: 5),
-            // FloatingActionButton(
-            //   heroTag: 'arrow_up_wide_search',
-            //   mini: true,
-            //   backgroundColor: kLogoColor,
-            //   onPressed: () {},
-            //   child: const Icon(FontAwesomeIcons.arrowUpWideShort),
-            // )
           ],
         ),
       ),

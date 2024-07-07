@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sakkiny/core/utils/app_localizations.dart';
-import 'package:sakkiny/core/utils/assets.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/features/services/data/models/get_service_model/service.dart';
 
@@ -16,9 +15,9 @@ class CustomOwnerServicesDetails extends StatelessWidget {
         Stack(
           alignment: AlignmentDirectional.bottomEnd,
           children: [
-            const CircleAvatar(
+             CircleAvatar(
               radius: 25,
-              backgroundImage: AssetImage(AssetsData.user),
+              backgroundImage:  NetworkImage(service.userId!.profilePicture!.secureUrl!),
             ),
             const Positioned(
               bottom: 2.5,
