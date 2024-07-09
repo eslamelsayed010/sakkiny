@@ -3,7 +3,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:sakkiny/core/utils/assets.dart';
+import 'package:sakkiny/core/utils/const.dart';
 
 class CustomProfileImage extends StatefulWidget {
   const CustomProfileImage(
@@ -46,7 +46,7 @@ class _CustomProfileImageState extends State<CustomProfileImage> {
                 radius: 80,
                 backgroundImage: widget.image != null
                     ? NetworkImage(widget.image)
-                    : const NetworkImage(AssetsData.user),
+                    : const NetworkImage(noProfileImageUrl),
               ),
         CircleAvatar(
           radius: 25,

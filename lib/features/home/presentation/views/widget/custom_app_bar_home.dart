@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sakkiny/core/utils/app_router.dart';
-import 'package:sakkiny/core/utils/assets.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/features/home/data/models/user_model/user_model.dart';
 
@@ -33,7 +32,7 @@ class CustomAppBarHome extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
-                  userModel.user!.role!,
+                  userModel.user!.role ?? '',
                   style: const TextStyle(
                     color: Colors.grey,
                     fontWeight: FontWeight.bold,
@@ -57,7 +56,7 @@ class CustomAppBarHome extends StatelessWidget {
                   backgroundImage: userModel.user!.profilePicture!.secureUrl !=
                           null
                       ? NetworkImage(userModel.user!.profilePicture!.secureUrl!)
-                      : const NetworkImage(AssetsData.user),
+                      : const NetworkImage(noProfileImageUrl),
                 ),
                 const Positioned(
                   bottom: 2.5,

@@ -12,6 +12,7 @@ import 'package:sakkiny/features/favorite/presentation/views/favorite_view.dart'
 import 'package:sakkiny/features/filter/presentation/views/filter_view.dart';
 import 'package:sakkiny/features/get_start/get_start_view.dart';
 import 'package:sakkiny/features/home/data/models/home_model/property.dart';
+import 'package:sakkiny/features/home/presentation/views/widget/bloc_builder/view_all_bloc_builder.dart';
 import 'package:sakkiny/features/home/presentation/views/widget/home_view_body.dart';
 import 'package:sakkiny/features/layout/view/layout_view.dart';
 import 'package:sakkiny/features/profile/presentation/views/profile_view.dart';
@@ -207,6 +208,12 @@ abstract class AppRouter {
         path: '/ReportView',
         builder: (BuildContext context, GoRouterState state) {
           return const ReportView();
+        },
+      ),
+      GoRoute(
+        path: '/ViewAllListView',
+        builder: (BuildContext context, GoRouterState state) {
+          return const ViewAllBlocBuilder();
         },
       ),
     ],

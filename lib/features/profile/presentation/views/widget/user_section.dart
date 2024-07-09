@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sakkiny/core/utils/app_router.dart';
-import 'package:sakkiny/core/utils/assets.dart';
 import 'package:sakkiny/core/utils/const.dart';
 import 'package:sakkiny/core/widgets/custom_divider.dart';
 import 'package:sakkiny/core/widgets/sign_out.dart';
@@ -36,7 +35,7 @@ class UserSection extends StatelessWidget {
                                   null
                               ? NetworkImage(
                                   userModel.user!.profilePicture!.secureUrl!)
-                              : const NetworkImage(AssetsData.user),
+                              : const NetworkImage(noProfileImageUrl),
                         ),
                         const Positioned(
                           bottom: 3.5,
@@ -59,7 +58,7 @@ class UserSection extends StatelessWidget {
                     const SizedBox(width: 10),
                     Expanded(
                       child: Text(
-                        '${userModel.user!.name!} / ${userModel.user!.role!}',
+                        '${userModel.user!.name ?? 'name'} / ${userModel.user!.role ?? 'name'}',
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(

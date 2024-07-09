@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:sakkiny/core/utils/app_localizations.dart';
+import 'package:sakkiny/core/utils/app_router.dart';
 import 'package:sakkiny/core/utils/const.dart';
 
 class CustomViewAll extends StatelessWidget {
@@ -12,7 +14,7 @@ class CustomViewAll extends StatelessWidget {
         const Spacer(),
         TextButton(
           onPressed: () {
-            // GoRouter.of(context).push(AppRouter.kViewAllListView);
+            GoRouter.of(context).push(AppRouter.kViewAllListView);
           },
           child: Text(
             "View All".tr(context),

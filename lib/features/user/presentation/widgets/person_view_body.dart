@@ -66,7 +66,7 @@ class _PersonViewBodyState extends State<PersonViewBody> {
                 children: [
                   CustomProfileImage(
                     onImageSelected: handleImageSelection,
-                    image: widget.userModel.user!.profilePicture!.secureUrl!,
+                    image: widget.userModel.user!.profilePicture!.secureUrl != null ? widget.userModel.user!.profilePicture!.secureUrl! : noProfileImageUrl,
                   ),
                   const SizedBox(height: 30),
                   CustomTextFormField(

@@ -26,15 +26,12 @@ class PersonView extends StatelessWidget {
                   },
                   icon: const Icon(Icons.close)),
               actions: [
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Update'.tr(context),
-                    style: const TextStyle(
-                      color: kLogoColor,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                    ),
+                Text(
+                  'Update'.tr(context),
+                  style: const TextStyle(
+                    color: kLogoColor,
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(width: 10),
