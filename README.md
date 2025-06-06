@@ -1,4 +1,3 @@
-![Image](https://github.com/user-attachments/assets/c0fed11c-9735-467e-844d-555d835f45c5)
 # 🏠 Sakkiny App
 
 A modern Flutter application that connects tenants with verified landlords and provides seamless access to online maintenance services.
@@ -11,7 +10,6 @@ A modern Flutter application that connects tenants with verified landlords and p
 - 🛠️ Online access to **maintenance services**
 - 🔐 Secure user authentication
 - 📋 Property listing and management
-- 🔔 Real-time notifications and service updates
 
 ---
 
@@ -23,7 +21,6 @@ This app is built using **MVVM** architecture with a strong separation of concer
 - **Bloc & Cubit** for robust state management
 - **Repository Pattern** for API and database access
 - **Dio** for handling HTTP requests
-- **Firebase** for authentication, storage, and notifications
 
 ---
 
@@ -35,13 +32,12 @@ This app is built using **MVVM** architecture with a strong separation of concer
 | Dart       | Programming language             |
 | Bloc/Cubit | State management                 |
 | Dio        | HTTP client                      |
-| Firebase   | Auth, Firestore, Cloud Messaging |
 
 ---
 
 ## 📱 Screenshots
 
-> *(Add screenshots or screen recordings here to show the app's UI and features)*
+![Image](https://github.com/user-attachments/assets/c0fed11c-9735-467e-844d-555d835f45c5)
 
 ---
 
@@ -49,7 +45,7 @@ This app is built using **MVVM** architecture with a strong separation of concer
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/flutter-property-app.git
+git clone https://github.com/eslamelsayed010/sakkiny.git
 
 # Navigate to the project directory
 cd flutter-property-app
@@ -59,3 +55,4 @@ flutter pub get
 
 # Run the app
 flutter run
+
